@@ -21,6 +21,7 @@
 		230BCB3B23943A9E00911403 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		230BCB3D23943A9E00911403 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		230BCB3E23943A9E00911403 /* WeatherBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeatherBar.entitlements; sourceTree = "<group>"; };
+		23F09B8123943D71008EE787 /* PossibleConditions.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PossibleConditions.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +58,7 @@
 				230BCB3623943A9800911403 /* ViewController.swift */,
 				230BCB3823943A9E00911403 /* Assets.xcassets */,
 				230BCB3A23943A9E00911403 /* Main.storyboard */,
+				23F09B8123943D71008EE787 /* PossibleConditions.md */,
 				230BCB3D23943A9E00911403 /* Info.plist */,
 				230BCB3E23943A9E00911403 /* WeatherBar.entitlements */,
 			);
