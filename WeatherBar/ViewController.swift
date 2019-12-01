@@ -10,10 +10,12 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    let bgColor = NSColor(srgbRed: 0.992, green: 0.632, blue: 0.0117, alpha: 1)
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		// Do any additional setup after loading the view.
+        self.view.wantsLayer = true
+        self.view.layer?.backgroundColor = bgColor.cgColor
 	}
 
 	override var representedObject: Any? {
