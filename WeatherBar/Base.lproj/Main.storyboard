@@ -683,7 +683,7 @@
         <!--View Controller-->
         <scene sceneID="ARE-0I-Sse">
             <objects>
-                <viewController id="cEr-Ua-1N6" customClass="ViewController" customModule="WeatherBar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="cEr-Ua-1N6" customClass="ViewController" customModule="WeatherBar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="wTe-y0-saM">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -813,6 +813,14 @@
                             <constraint firstItem="nNj-7e-4v2" firstAttribute="width" secondItem="Txc-aw-Oif" secondAttribute="width" multiplier="0.99569" id="sdk-ah-6tq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="humidityValue" destination="D4y-np-Kfa" id="ekh-Zg-6KO"/>
+                        <outlet property="icon" destination="shu-a7-8b7" id="Nt2-HW-XuD"/>
+                        <outlet property="location" destination="QSH-6n-54T" id="nCp-Xu-nxz"/>
+                        <outlet property="precipValue" destination="Jl4-gP-WCc" id="kb5-Sc-pWX"/>
+                        <outlet property="summary" destination="bO2-Ck-HRU" id="tsJ-1N-ymj"/>
+                        <outlet property="temperature" destination="HnF-bh-CGa" id="6WD-Qk-Zva"/>
+                    </connections>
                 </viewController>
                 <customObject id="Fb2-8j-biK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
