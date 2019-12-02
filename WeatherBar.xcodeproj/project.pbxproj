@@ -11,6 +11,7 @@
 		230BCB3723943A9800911403 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230BCB3623943A9800911403 /* ViewController.swift */; };
 		230BCB3923943A9E00911403 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 230BCB3823943A9E00911403 /* Assets.xcassets */; };
 		230BCB3C23943A9E00911403 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230BCB3A23943A9E00911403 /* Main.storyboard */; };
+		2364A17523959B8400007298 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2364A17423959B8400007298 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		230BCB3B23943A9E00911403 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		230BCB3D23943A9E00911403 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		230BCB3E23943A9E00911403 /* WeatherBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeatherBar.entitlements; sourceTree = "<group>"; };
+		2364A17423959B8400007298 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		23F09B8123943D71008EE787 /* PossibleConditions.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PossibleConditions.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,6 +58,7 @@
 			children = (
 				230BCB3423943A9800911403 /* AppDelegate.swift */,
 				230BCB3623943A9800911403 /* ViewController.swift */,
+				2364A17423959B8400007298 /* SettingsViewController.swift */,
 				230BCB3823943A9E00911403 /* Assets.xcassets */,
 				230BCB3A23943A9E00911403 /* Main.storyboard */,
 				23F09B8123943D71008EE787 /* PossibleConditions.md */,
@@ -137,6 +140,7 @@
 			files = (
 				230BCB3723943A9800911403 /* ViewController.swift in Sources */,
 				230BCB3523943A9800911403 /* AppDelegate.swift in Sources */,
+				2364A17523959B8400007298 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

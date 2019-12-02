@@ -16,16 +16,26 @@ class ViewController: NSViewController {
     @IBOutlet weak var precipValue: NSTextField!
     @IBOutlet weak var humidityValue: NSTextField!
     @IBOutlet weak var location: NSTextField!
+    @IBOutlet weak var settings: NSButton!
+    @IBOutlet weak var quit: NSButton!
     
     let bgColor = NSColor(srgbRed: 0.992, green: 0.632, blue: 0.0117, alpha: 1)
 	
-    let appDelegate = AppDelegate()
+    
     
     override func viewDidLoad() {
 		super.viewDidLoad()
+        
+        location.stringValue = "West Lafayette, Indiana"
 
+        // SET UP GENERAL APPEARANCE
+        // Sets background of view to orange
         self.view.wantsLayer = true
         self.view.layer?.backgroundColor = bgColor.cgColor
+        
+        // Set button titles
+        settings.title = "Settings"
+        quit.title = "Quit"
 	}
 
 	override var representedObject: Any? {
@@ -33,20 +43,17 @@ class ViewController: NSViewController {
 		// Update the view, if already loaded.
 		}
 	}
-    
-    
-    //Displays the main application window as a popup from the menu bar when clicked by the user
-    @objc func showWindow() {
-        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        guard let vc = storyboard.instantiateController(withIdentifier: "MainViewController") as? ViewController else { return }
+
+    @IBAction func settingsClicked(_ sender: NSButton) {
+        print("Settings Clicked")
+        //Show Settings Screen
         
-        let popoverView = NSPopover()
         
-        popoverView.contentViewController = vc
-        popoverView.behavior = .transient
-        popoverView.show(relativeTo: appDelegate.statusItem.button!.bounds , of: appDelegate.statusItem.button!, preferredEdge: .maxY)
     }
 
-
+    @IBAction func quitClicked(_ sender: NSButton) {
+        NSApplication.shared.terminate(self)
+    }
+    
 }
 
