@@ -704,31 +704,15 @@
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textFieldCell>
                             </textField>
-                            <stackView distribution="equalCentering" orientation="horizontal" alignment="centerY" spacing="52" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nNj-7e-4v2">
-                                <rect key="frame" x="99" y="136" width="292" height="100"/>
-                                <subviews>
-                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="shu-a7-8b7">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="clear-day" id="B22-Tl-2HC"/>
-                                    </imageView>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" preferredMaxLayoutWidth="120" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HnF-bh-CGa">
-                                        <rect key="frame" x="207" y="15" width="85" height="71"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="10º" drawsBackground="YES" id="ksn-cN-Ut8">
-                                            <font key="font" metaFont="systemLight" size="60"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </textFieldCell>
-                                    </textField>
-                                </subviews>
-                                <visibilityPriorities>
-                                    <integer value="1000"/>
-                                    <integer value="1000"/>
-                                </visibilityPriorities>
-                                <customSpacing>
-                                    <real value="3.4028234663852886e+38"/>
-                                    <real value="3.4028234663852886e+38"/>
-                                </customSpacing>
-                            </stackView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="120" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HnF-bh-CGa">
+                                <rect key="frame" x="178" y="146" width="134" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="10º" drawsBackground="YES" id="ksn-cN-Ut8">
+                                    <font key="font" metaFont="systemLight" size="60"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textFieldCell>
+                            </textField>
                             <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="50" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Txc-aw-Oif">
                                 <rect key="frame" x="98" y="36" width="294" height="46"/>
                                 <subviews>
@@ -828,11 +812,15 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
+                            <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="shu-a7-8b7">
+                                <rect key="frame" x="118" y="162" width="74" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="cloudy" id="B22-Tl-2HC"/>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Uee-O6-IFf" secondAttribute="bottom" constant="7" id="074-yk-mDV"/>
                             <constraint firstItem="0HM-dY-YdZ" firstAttribute="leading" secondItem="Uee-O6-IFf" secondAttribute="trailing" constant="50" id="B8T-Iz-cd4"/>
-                            <constraint firstItem="nNj-7e-4v2" firstAttribute="top" secondItem="QSH-6n-54T" secondAttribute="bottom" constant="1" id="Iee-ed-GjJ"/>
                             <constraint firstItem="QSH-6n-54T" firstAttribute="centerX" secondItem="wTe-y0-saM" secondAttribute="centerX" id="MvG-0g-96b"/>
                             <constraint firstItem="Uee-O6-IFf" firstAttribute="leading" secondItem="wTe-y0-saM" secondAttribute="leading" constant="20" id="RLG-2m-6jl"/>
                             <constraint firstItem="Txc-aw-Oif" firstAttribute="top" secondItem="bO2-Ck-HRU" secondAttribute="bottom" constant="38" id="UXg-6Z-9cc"/>
@@ -842,9 +830,7 @@
                             <constraint firstItem="bO2-Ck-HRU" firstAttribute="centerX" secondItem="wTe-y0-saM" secondAttribute="centerX" id="bSO-ib-dxl"/>
                             <constraint firstItem="QSH-6n-54T" firstAttribute="top" secondItem="wTe-y0-saM" secondAttribute="top" constant="27" id="bhe-ra-lQl"/>
                             <constraint firstItem="Lgl-fP-D0c" firstAttribute="leading" secondItem="ifI-Vn-b2N" secondAttribute="trailing" constant="9" id="ekb-XW-WZd"/>
-                            <constraint firstItem="nNj-7e-4v2" firstAttribute="centerX" secondItem="wTe-y0-saM" secondAttribute="centerX" id="nxK-tM-RAB"/>
                             <constraint firstAttribute="bottom" secondItem="Lgl-fP-D0c" secondAttribute="bottom" constant="7" id="qrT-Sd-29U"/>
-                            <constraint firstItem="nNj-7e-4v2" firstAttribute="width" secondItem="Txc-aw-Oif" secondAttribute="width" multiplier="0.99569" id="sdk-ah-6tq"/>
                         </constraints>
                     </view>
                     <connections>
@@ -910,6 +896,6 @@
     </scenes>
     <resources>
         <image name="NSGoBackTemplate" width="9" height="12"/>
-        <image name="clear-day" width="100" height="100"/>
+        <image name="cloudy" width="100" height="100"/>
     </resources>
 </document>

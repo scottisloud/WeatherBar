@@ -6,6 +6,8 @@
 //  Copyright © 2019 Scott Lougheed. All rights reserved.
 //
 
+// API Key: "960281f5a5cd1551f2f0446c79928e58"
+
 import Cocoa
 
 class ViewController: NSViewController {
@@ -27,7 +29,10 @@ class ViewController: NSViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
     
         location.stringValue = "West Lafayette, Indiana"
-
+        
+        icon.image = NSImage(named: "clear-day")
+        
+        
         // SET UP GENERAL APPEARANCE
         // Sets background of view to orange
         self.view.wantsLayer = true
@@ -38,6 +43,7 @@ class ViewController: NSViewController {
         unitControl.setLabel("ºC", forSegment: 0)
         unitControl.setLabel("ºF", forSegment: 1)
         quit.title = "Quit"
+         
 	}
 
 	override var representedObject: Any? {

@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "clear-night.pdf",
+      "filename" : "clear-night-1.pdf",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "clear-night.pdf",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "clear-night-2.pdf",
       "scale" : "3x"
     }
   ],

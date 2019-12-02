@@ -11,21 +11,20 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-    
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create status/menu bar item called Weather. CLicking the menu bar item calls showWindow(_:) which displays the main view controller.
         if let button = statusItem.button {
-            button.title = "Weather"
+            button.image = NSImage(named: "clear-day")
+            button.image?.size = NSMakeSize(36.0, 36.0)
             button.action = #selector(showWindow)
         }
-        
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-    
+        
     //Displays the main application window as a popup from the menu bar when clicked by the user
     @objc func showWindow(_ sender: NSStatusItem) {
                 
