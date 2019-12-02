@@ -10,9 +10,16 @@ import Cocoa
 
 class SettingsViewController: NSViewController {
 
+    @IBOutlet weak var settingsTitle: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+        settingsTitle.stringValue = "Settings"
     }
     
+    @IBAction func backButton(_ sender: NSButton) {
+        // Returns user to main view
+
+        print("Back Button Pressed")
+    }
 }

@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
         guard let vc = storyboard.instantiateController(withIdentifier: "MainViewController") as? ViewController else { return }
-        
+        NSApplication.shared.activate(ignoringOtherApps: true)
         let popoverView = NSPopover()
         popoverView.contentViewController = vc
         popoverView.behavior = .transient

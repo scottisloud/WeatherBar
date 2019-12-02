@@ -685,11 +685,11 @@
             <objects>
                 <viewController storyboardIdentifier="MainViewController" id="cEr-Ua-1N6" customClass="ViewController" customModule="WeatherBar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" focusRingType="none" id="wTe-y0-saM">
-                        <rect key="frame" x="0.0" y="0.0" width="487" height="276"/>
+                        <rect key="frame" x="0.0" y="0.0" width="490" height="280"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bO2-Ck-HRU">
-                                <rect key="frame" x="209" y="120" width="70" height="16"/>
+                                <rect key="frame" x="210" y="120" width="70" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="SUMMARY" placeholderString="ConditionSummary" drawsBackground="YES" id="Ded-NI-zOk">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -697,7 +697,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QSH-6n-54T">
-                                <rect key="frame" x="216" y="233" width="56" height="16"/>
+                                <rect key="frame" x="217" y="237" width="56" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Location" drawsBackground="YES" id="oAj-YP-edc">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -705,14 +705,14 @@
                                 </textFieldCell>
                             </textField>
                             <stackView distribution="equalCentering" orientation="horizontal" alignment="centerY" spacing="52" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nNj-7e-4v2">
-                                <rect key="frame" x="99" y="132" width="289" height="100"/>
+                                <rect key="frame" x="99" y="136" width="292" height="100"/>
                                 <subviews>
                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="shu-a7-8b7">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="clear-day" id="B22-Tl-2HC"/>
                                     </imageView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" preferredMaxLayoutWidth="120" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HnF-bh-CGa">
-                                        <rect key="frame" x="204" y="15" width="85" height="71"/>
+                                        <rect key="frame" x="207" y="15" width="85" height="71"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="10º" drawsBackground="YES" id="ksn-cN-Ut8">
                                             <font key="font" metaFont="systemLight" size="60"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -730,13 +730,13 @@
                                 </customSpacing>
                             </stackView>
                             <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="50" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Txc-aw-Oif">
-                                <rect key="frame" x="98" y="36" width="291" height="46"/>
+                                <rect key="frame" x="98" y="36" width="294" height="46"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0HM-dY-YdZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="121" height="46"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="122" height="46"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q0Q-QH-0w6">
-                                                <rect key="frame" x="0.0" y="27" width="121" height="19"/>
+                                                <rect key="frame" x="1" y="27" width="121" height="19"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Precipitation %" drawsBackground="YES" id="tyM-eN-WMs">
                                                     <font key="font" metaFont="systemBold" size="16"/>
                                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -762,10 +762,10 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ifI-Vn-b2N">
-                                        <rect key="frame" x="171" y="0.0" width="120" height="46"/>
+                                        <rect key="frame" x="172" y="0.0" width="122" height="46"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cGd-EZ-hAG">
-                                                <rect key="frame" x="23" y="27" width="75" height="19"/>
+                                                <rect key="frame" x="24" y="27" width="75" height="19"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Humidity" drawsBackground="YES" id="6PO-tk-BBx">
                                                     <font key="font" metaFont="systemBold" size="16"/>
                                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -773,7 +773,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="D4y-np-Kfa">
-                                                <rect key="frame" x="38" y="0.0" width="44" height="19"/>
+                                                <rect key="frame" x="39" y="0.0" width="44" height="19"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="100%" drawsBackground="YES" id="4KM-d4-bQn">
                                                     <font key="font" metaFont="system" size="16"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -801,7 +801,7 @@
                                 </customSpacing>
                             </stackView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lgl-fP-D0c">
-                                <rect key="frame" x="392" y="13" width="81" height="32"/>
+                                <rect key="frame" x="395" y="13" width="81" height="32"/>
                                 <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="YJu-xV-6qy">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -852,10 +852,55 @@
                 </viewController>
                 <customObject id="Fb2-8j-biK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65.5" y="273"/>
+            <point key="canvasLocation" x="55" y="328"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="hsj-LJ-Y4z">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="khQ-Xr-4uV" customClass="SettingsViewController" customModule="WeatherBar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="6x6-R6-f6A">
+                        <rect key="frame" x="0.0" y="0.0" width="491" height="280"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jzp-fW-mEM">
+                                <rect key="frame" x="227" y="244" width="37" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="Bhe-Bc-Eh0">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lav-JH-Sou">
+                                <rect key="frame" x="14" y="232" width="45" height="32"/>
+                                <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSGoBackTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FOd-Ov-lVD">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="backButton:" target="khQ-Xr-4uV" id="IWW-wE-T6U"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Lav-JH-Sou" firstAttribute="leading" secondItem="6x6-R6-f6A" secondAttribute="leading" constant="20" symbolic="YES" id="7Eg-jt-nJG"/>
+                            <constraint firstItem="jzp-fW-mEM" firstAttribute="top" secondItem="6x6-R6-f6A" secondAttribute="top" constant="20" symbolic="YES" id="Byb-NH-U4k"/>
+                            <constraint firstItem="jzp-fW-mEM" firstAttribute="top" secondItem="Lav-JH-Sou" secondAttribute="top" id="Ocp-aV-GKz"/>
+                            <constraint firstItem="jzp-fW-mEM" firstAttribute="leading" secondItem="Lav-JH-Sou" secondAttribute="trailing" constant="176" id="Y6t-VH-b0L"/>
+                            <constraint firstItem="jzp-fW-mEM" firstAttribute="centerX" secondItem="6x6-R6-f6A" secondAttribute="centerX" id="jQk-qr-8bR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="settingsTitle" destination="jzp-fW-mEM" id="eom-cl-OIH"/>
+                        <segue destination="cEr-Ua-1N6" kind="show" identifier="SettingsSegue" id="qjm-tL-QYt"/>
+                    </connections>
+                </viewController>
+                <customObject id="fIp-FK-zOk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="902" y="169"/>
         </scene>
     </scenes>
     <resources>
+        <image name="NSGoBackTemplate" width="9" height="12"/>
         <image name="clear-day" width="100" height="100"/>
     </resources>
 </document>

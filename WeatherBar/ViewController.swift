@@ -25,7 +25,8 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
 		super.viewDidLoad()
-        
+        view.translatesAutoresizingMaskIntoConstraints = false
+    
         location.stringValue = "West Lafayette, Indiana"
 
         // SET UP GENERAL APPEARANCE
@@ -44,11 +45,16 @@ class ViewController: NSViewController {
 		}
 	}
 
+    
+    // SETTINGS BUTTON ACTION
     @IBAction func settingsClicked(_ sender: NSButton) {
         print("Settings Clicked")
-        //Show Settings Screen
         
         
+//        let storyboard: NSStoryboard = NSStoryboard(name: "Main", bundle: nil)
+//        guard let settingsViewController = storyboard.instantiateController(withIdentifier: "SettingsViewController") as? ViewController else { return }
+//
+
     }
 
     @IBAction func quitClicked(_ sender: NSButton) {
