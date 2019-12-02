@@ -16,12 +16,11 @@ class ViewController: NSViewController {
     @IBOutlet weak var precipValue: NSTextField!
     @IBOutlet weak var humidityValue: NSTextField!
     @IBOutlet weak var location: NSTextField!
-    @IBOutlet weak var settings: NSButton!
+    @IBOutlet weak var unitControl: NSSegmentedControl!
+    @IBOutlet weak var refresh: NSButton!
     @IBOutlet weak var quit: NSButton!
     
     let bgColor = NSColor(srgbRed: 0.992, green: 0.632, blue: 0.0117, alpha: 1)
-	
-    
     
     override func viewDidLoad() {
 		super.viewDidLoad()
@@ -35,7 +34,9 @@ class ViewController: NSViewController {
         self.view.layer?.backgroundColor = bgColor.cgColor
         
         // Set button titles
-        settings.title = "Settings"
+        refresh.image = NSImage(named: "NSRefreshTemplate")
+        unitControl.setLabel("ºC", forSegment: 0)
+        unitControl.setLabel("ºF", forSegment: 1)
         quit.title = "Quit"
 	}
 
@@ -44,18 +45,6 @@ class ViewController: NSViewController {
 		// Update the view, if already loaded.
 		}
 	}
-
-    
-    // SETTINGS BUTTON ACTION
-    @IBAction func settingsClicked(_ sender: NSButton) {
-        print("Settings Clicked")
-        
-        
-//        let storyboard: NSStoryboard = NSStoryboard(name: "Main", bundle: nil)
-//        guard let settingsViewController = storyboard.instantiateController(withIdentifier: "SettingsViewController") as? ViewController else { return }
-//
-
-    }
 
     @IBAction func quitClicked(_ sender: NSButton) {
         NSApplication.shared.terminate(self)

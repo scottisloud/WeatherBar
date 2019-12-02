@@ -801,7 +801,7 @@
                                 </customSpacing>
                             </stackView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lgl-fP-D0c">
-                                <rect key="frame" x="395" y="13" width="81" height="32"/>
+                                <rect key="frame" x="395" y="0.0" width="81" height="32"/>
                                 <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="YJu-xV-6qy">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -810,20 +810,28 @@
                                     <action selector="quitClicked:" target="cEr-Ua-1N6" id="CJn-zT-saE"/>
                                 </connections>
                             </button>
+                            <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mMp-GW-lKU">
+                                <rect key="frame" x="210" y="5" width="71" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Mz1-eR-ypl">
+                                    <font key="font" metaFont="system"/>
+                                    <segments>
+                                        <segment width="32" selected="YES"/>
+                                        <segment width="32" tag="1"/>
+                                    </segments>
+                                </segmentedCell>
+                            </segmentedControl>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Uee-O6-IFf">
-                                <rect key="frame" x="14" y="13" width="81" height="32"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mVD-eF-tj3">
+                                <rect key="frame" x="14" y="0.0" width="40" height="32"/>
+                                <buttonCell key="cell" type="push" bezelStyle="rounded" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mVD-eF-tj3">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
-                                <connections>
-                                    <action selector="settingsClicked:" target="cEr-Ua-1N6" id="sDS-im-XfY"/>
-                                </connections>
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Uee-O6-IFf" secondAttribute="bottom" constant="20" id="074-yk-mDV"/>
-                            <constraint firstItem="0HM-dY-YdZ" firstAttribute="leading" secondItem="Uee-O6-IFf" secondAttribute="trailing" constant="9" id="B8T-Iz-cd4"/>
+                            <constraint firstAttribute="bottom" secondItem="Uee-O6-IFf" secondAttribute="bottom" constant="7" id="074-yk-mDV"/>
+                            <constraint firstItem="0HM-dY-YdZ" firstAttribute="leading" secondItem="Uee-O6-IFf" secondAttribute="trailing" constant="50" id="B8T-Iz-cd4"/>
                             <constraint firstItem="nNj-7e-4v2" firstAttribute="top" secondItem="QSH-6n-54T" secondAttribute="bottom" constant="1" id="Iee-ed-GjJ"/>
                             <constraint firstItem="QSH-6n-54T" firstAttribute="centerX" secondItem="wTe-y0-saM" secondAttribute="centerX" id="MvG-0g-96b"/>
                             <constraint firstItem="Uee-O6-IFf" firstAttribute="leading" secondItem="wTe-y0-saM" secondAttribute="leading" constant="20" id="RLG-2m-6jl"/>
@@ -835,7 +843,7 @@
                             <constraint firstItem="QSH-6n-54T" firstAttribute="top" secondItem="wTe-y0-saM" secondAttribute="top" constant="27" id="bhe-ra-lQl"/>
                             <constraint firstItem="Lgl-fP-D0c" firstAttribute="leading" secondItem="ifI-Vn-b2N" secondAttribute="trailing" constant="9" id="ekb-XW-WZd"/>
                             <constraint firstItem="nNj-7e-4v2" firstAttribute="centerX" secondItem="wTe-y0-saM" secondAttribute="centerX" id="nxK-tM-RAB"/>
-                            <constraint firstAttribute="bottom" secondItem="Lgl-fP-D0c" secondAttribute="bottom" constant="20" id="qrT-Sd-29U"/>
+                            <constraint firstAttribute="bottom" secondItem="Lgl-fP-D0c" secondAttribute="bottom" constant="7" id="qrT-Sd-29U"/>
                             <constraint firstItem="nNj-7e-4v2" firstAttribute="width" secondItem="Txc-aw-Oif" secondAttribute="width" multiplier="0.99569" id="sdk-ah-6tq"/>
                         </constraints>
                     </view>
@@ -845,9 +853,10 @@
                         <outlet property="location" destination="QSH-6n-54T" id="nCp-Xu-nxz"/>
                         <outlet property="precipValue" destination="Jl4-gP-WCc" id="kb5-Sc-pWX"/>
                         <outlet property="quit" destination="Lgl-fP-D0c" id="HmZ-gg-trZ"/>
-                        <outlet property="settings" destination="Uee-O6-IFf" id="NqW-6W-WNr"/>
+                        <outlet property="refresh" destination="Uee-O6-IFf" id="Lmr-30-8en"/>
                         <outlet property="summary" destination="bO2-Ck-HRU" id="tsJ-1N-ymj"/>
                         <outlet property="temperature" destination="HnF-bh-CGa" id="6WD-Qk-Zva"/>
+                        <outlet property="unitControl" destination="mMp-GW-lKU" id="lyD-AB-RTG"/>
                     </connections>
                 </viewController>
                 <customObject id="Fb2-8j-biK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
