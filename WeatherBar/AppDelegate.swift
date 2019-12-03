@@ -12,10 +12,9 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-    let client = DarkSkyClient(configuration: .default)
-    
+    let mainVC = ViewController()
     func applicationWillFinishLaunching(_ notification: Notification) {
-        client.fetchData(at: Location())
+        mainVC.fetchData(location: mainVC.getLocation())
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
