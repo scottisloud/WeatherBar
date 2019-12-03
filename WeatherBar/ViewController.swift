@@ -17,6 +17,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var summary: NSTextField!
     @IBOutlet weak var precipValue: NSTextField!
     @IBOutlet weak var humidityValue: NSTextField!
+    @IBOutlet weak var windSpeedValue: NSTextField!
     @IBOutlet weak var location: NSTextField!
     @IBOutlet weak var unitControl: NSSegmentedControl!
     @IBOutlet weak var refresh: NSButton!
