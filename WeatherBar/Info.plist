@@ -34,5 +34,11 @@
 	<true/>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need your current location to get you precise whether data</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need your current location to get you precise whether data</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your current location to get you precise whether data</string>
 </dict>
 </plist>

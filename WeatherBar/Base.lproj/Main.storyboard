@@ -689,8 +689,8 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QSH-6n-54T">
-                                <rect key="frame" x="215" y="235" width="60" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Location" drawsBackground="YES" id="oAj-YP-edc">
+                                <rect key="frame" x="213" y="235" width="64" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="titleLabel" drawsBackground="YES" id="oAj-YP-edc">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -824,6 +824,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="refreshClicked:" target="cEr-Ua-1N6" id="6NF-Yo-Xmj"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="259" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HnF-bh-CGa">
                                 <rect key="frame" x="34" y="74" width="125" height="71"/>
@@ -881,12 +884,12 @@
                     <connections>
                         <outlet property="humidityValue" destination="D4y-np-Kfa" id="ekh-Zg-6KO"/>
                         <outlet property="icon" destination="shu-a7-8b7" id="Nt2-HW-XuD"/>
-                        <outlet property="location" destination="QSH-6n-54T" id="nCp-Xu-nxz"/>
                         <outlet property="precipValue" destination="Jl4-gP-WCc" id="kb5-Sc-pWX"/>
                         <outlet property="quit" destination="Lgl-fP-D0c" id="HmZ-gg-trZ"/>
                         <outlet property="refresh" destination="Uee-O6-IFf" id="Lmr-30-8en"/>
                         <outlet property="summary" destination="bO2-Ck-HRU" id="tsJ-1N-ymj"/>
                         <outlet property="temperature" destination="HnF-bh-CGa" id="6WD-Qk-Zva"/>
+                        <outlet property="titleLabel" destination="QSH-6n-54T" id="jPM-kz-2ue"/>
                         <outlet property="unitControl" destination="mMp-GW-lKU" id="lyD-AB-RTG"/>
                         <outlet property="windSpeedValue" destination="f0w-RT-KF8" id="WKE-49-E8t"/>
                     </connections>
