@@ -42,7 +42,6 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpInterface()
         fetchData(location: getLocation())
         
@@ -99,11 +98,22 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
                 return
             }
             let newData = JSON(parseJSON: data)
-            
+        
             DispatchQueue.main.async {
                 self.jsonFeed = newData
-                //GET THIS DATA TO THE VIEWS
+                self.updateDisplay()
             }
+        }
+    }
+    
+    func updateDisplay() {
+        print("UPDATE DISPLAY CALLED")
+        guard let feed = jsonFeed else { print("Error with feed"); return }
+        if let sum = feed["currently"]["summmary"].string {
+            summary.stringValue = sum
+            print("Success")
+        } else {
+            print("ERROR ASSIGNING SUMMARY VALUE")
         }
         
     }
