@@ -26,7 +26,7 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
     @IBOutlet weak var quit: NSButton!
     @IBOutlet weak var darkSkyLink: NSTextField!
     
-//    let bgColor = NSColor(srgbRed: 255/256, green: 123/256, blue: 60/256, alpha: 1)
+
     let bgColor = NSColor.systemOrange
     
     var metric: Int = 0
@@ -73,7 +73,7 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
         view.translatesAutoresizingMaskIntoConstraints = false
         
         titleLabel.stringValue = "Current Conditions"
-        darkSkyLink.stringValue = "Powered by DarkSky"
+//        darkSkyLink.stringValue = "Powered by DarkSky"
         // Sets background of view to orange
         self.view.wantsLayer = true
         self.view.layer?.backgroundColor = bgColor.cgColor
@@ -82,7 +82,18 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
         refresh.image = NSImage(named: "NSRefreshTemplate")
         unitControl.setLabel("ºC", forSegment: 0)
         unitControl.setLabel("ºF", forSegment: 1)
-        
+		
+		
+		// TODO: Set up and style DarkSky credit and link
+		let attributes: [NSAttributedString.Key: Any] = [
+			NSAttributedString.Key.foregroundColor: NSColor.linkColor,
+			NSAttributedString.Key.link: NSURL(string: "https://darksky.net/poweredby/")!
+		]
+		let darkSkyAttributedString = NSMutableAttributedString(string: "Powered by DarkSky", attributes: attributes)
+		
+		darkSkyLink.attributedStringValue = darkSkyAttributedString
+		
+		
         quit.title = "Quit"
     }
     
@@ -189,13 +200,18 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
         let loc = getLocation()
         fetchData(location: loc, units: metric)
     }
+	
     
     @IBAction func quitClicked(_ sender: NSButton) {
         NSApplication.shared.terminate(self)
     }
     
-    @IBAction func darkSkyClicked(_ sender: Any) {
-        NSWorkspace.shared.open(URL(string: "https://darksky.net/poweredby/")!)
+	
+	
+    @IBAction @objc func darkSkyClicked(_ sender: Any) {
+		
+		NSWorkspace.shared.open(URL(string: "https://darksky.net/poweredby/")!)
     }
 }
+
 
