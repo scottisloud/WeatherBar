@@ -53,6 +53,14 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
         fetchData(location: location, units: metric)
     }
     
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        location = getLocation()
+        
+        fetchData(location: location, units: metric)
+        
+    }
+    
     override var representedObject: Any? {
         didSet {
             // Update the view, if already loaded.
