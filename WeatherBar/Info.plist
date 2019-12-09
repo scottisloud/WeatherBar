@@ -20,25 +20,27 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.weather</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2019 Scott Lougheed. All rights reserved.</string>
-	<key>NSMainStoryboardFile</key>
-	<string>Main</string>
-	<key>NSPrincipalClass</key>
-	<string>NSApplication</string>
-	<key>NSSupportsAutomaticTermination</key>
-	<true/>
 	<key>LSUIElement</key>
 	<true/>
-	<key>NSSupportsSuddenTermination</key>
-	<true/>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2019 Scott Lougheed. All rights reserved.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>We need your current location to get you precise whether data</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>We need your current location to get you precise whether data</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need your current location to get you precise whether data</string>
+	<key>NSMainStoryboardFile</key>
+	<string>Main</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>NSSupportsAutomaticTermination</key>
+	<true/>
+	<key>NSSupportsSuddenTermination</key>
+	<true/>
 </dict>
 </plist>
