@@ -714,7 +714,7 @@
                                                 <rect key="frame" x="51" y="0.0" width="19" height="19"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" placeholderString="--" drawsBackground="YES" id="02h-8F-xWS">
                                                     <font key="font" metaFont="system" size="16"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </textFieldCell>
                                             </textField>
@@ -743,7 +743,7 @@
                                                 <rect key="frame" x="28" y="0.0" width="19" height="19"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" placeholderString="--" drawsBackground="YES" id="4KM-d4-bQn">
                                                     <font key="font" metaFont="system" size="16"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </textFieldCell>
                                             </textField>
@@ -772,7 +772,7 @@
                                                 <rect key="frame" x="39" y="0.0" width="19" height="19"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" placeholderString="--" drawsBackground="YES" id="DQ1-5D-9fp">
                                                     <font key="font" metaFont="system" size="16"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </textFieldCell>
                                             </textField>
@@ -847,7 +847,7 @@
                                 <rect key="frame" x="208" y="143" width="74" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="SUMMARY" placeholderString="ConditionSummary" drawsBackground="YES" id="Ded-NI-zOk">
                                     <font key="font" usesAppearanceFont="YES"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textFieldCell>
                             </textField>
@@ -860,12 +860,26 @@
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="B22-Tl-2HC"/>
                             </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fgo-fL-DTk">
+                                <rect key="frame" x="335" y="0.0" width="44" height="13"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" alignment="left" title="DarkSky" id="veO-n9-5Cg">
+                                    <font key="font" metaFont="systemLight" size="10"/>
+                                    <color key="textColor" name="linkColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="darkSkyClicked:" target="cEr-Ua-1N6" id="wGA-BV-n9S"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fgo-fL-DTk" secondAttribute="trailing" id="13Q-Hb-YOh"/>
                             <constraint firstItem="shu-a7-8b7" firstAttribute="centerX" secondItem="HnF-bh-CGa" secondAttribute="centerX" id="2OM-9R-VaN"/>
                             <constraint firstItem="Lgl-fP-D0c" firstAttribute="leading" secondItem="mMp-GW-lKU" secondAttribute="trailing" constant="122" id="3XT-j7-EUq"/>
+                            <constraint firstAttribute="bottom" secondItem="Fgo-fL-DTk" secondAttribute="bottom" id="3uC-Iz-67N"/>
                             <constraint firstItem="bO2-Ck-HRU" firstAttribute="centerY" secondItem="Txc-aw-Oif" secondAttribute="centerY" id="6gP-i8-hEJ"/>
                             <constraint firstAttribute="trailing" secondItem="Txc-aw-Oif" secondAttribute="trailing" constant="20" symbolic="YES" id="B20-Fh-85q"/>
+                            <constraint firstItem="Fgo-fL-DTk" firstAttribute="leading" secondItem="wTe-y0-saM" secondAttribute="leading" constant="337" id="CFv-af-fMk"/>
                             <constraint firstItem="bO2-Ck-HRU" firstAttribute="centerX" secondItem="wTe-y0-saM" secondAttribute="centerX" id="DKp-qp-2dw"/>
                             <constraint firstAttribute="bottom" secondItem="Uee-O6-IFf" secondAttribute="bottom" constant="20" symbolic="YES" id="DjZ-QG-AoF"/>
                             <constraint firstItem="shu-a7-8b7" firstAttribute="leading" secondItem="wTe-y0-saM" secondAttribute="leading" constant="46" id="Kff-La-Tvk"/>
@@ -885,6 +899,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="darkSkyLink" destination="Fgo-fL-DTk" id="L6a-96-Xdq"/>
                         <outlet property="humidityValue" destination="D4y-np-Kfa" id="ekh-Zg-6KO"/>
                         <outlet property="icon" destination="shu-a7-8b7" id="Nt2-HW-XuD"/>
                         <outlet property="precipValue" destination="Jl4-gP-WCc" id="kb5-Sc-pWX"/>

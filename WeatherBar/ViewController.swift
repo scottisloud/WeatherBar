@@ -24,8 +24,10 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
     @IBOutlet weak var unitControl: NSSegmentedControl!
     @IBOutlet weak var refresh: NSButton!
     @IBOutlet weak var quit: NSButton!
+    @IBOutlet weak var darkSkyLink: NSTextField!
     
-    let bgColor = NSColor(srgbRed: 0.992, green: 0.632, blue: 0.0117, alpha: 1)
+//    let bgColor = NSColor(srgbRed: 255/256, green: 123/256, blue: 60/256, alpha: 1)
+    let bgColor = NSColor.systemOrange
     
     var metric: Int = 0
     
@@ -71,7 +73,7 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
         view.translatesAutoresizingMaskIntoConstraints = false
         
         titleLabel.stringValue = "Current Conditions"
-                
+        darkSkyLink.stringValue = "Powered by DarkSky"
         // Sets background of view to orange
         self.view.wantsLayer = true
         self.view.layer?.backgroundColor = bgColor.cgColor
@@ -192,5 +194,8 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
         NSApplication.shared.terminate(self)
     }
     
+    @IBAction func darkSkyClicked(_ sender: Any) {
+        NSWorkspace.shared.open(URL(string: "https://darksky.net/poweredby/")!)
+    }
 }
 
