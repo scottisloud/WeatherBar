@@ -27,6 +27,8 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
     
     let bgColor = NSColor(srgbRed: 0.992, green: 0.632, blue: 0.0117, alpha: 1)
     
+    var metric: Bool = true
+    
     // MARK: API-related objects
     fileprivate let darkSkyApiKey = "960281f5a5cd1551f2f0446c79928e58"
     var baseUrl: URL {
@@ -38,13 +40,17 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     var lat: Double = 0.0
     var long: Double = 0.0
-    var location: String?
+    var location: String = ""
+    
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpInterface()
-        fetchData(location: getLocation())
         
+        
+        setUpInterface()
+        location = getLocation()
+        
+        fetchData(location: location, units: metric)
     }
     
     override var representedObject: Any? {
@@ -59,9 +65,7 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
         view.translatesAutoresizingMaskIntoConstraints = false
         
         titleLabel.stringValue = "Current Conditions"
-        
-        icon.image = NSImage(named: "clear-day")
-        
+                
         // Sets background of view to orange
         self.view.wantsLayer = true
         self.view.layer?.backgroundColor = bgColor.cgColor
@@ -87,10 +91,18 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
     }
     
     //MARK: CONNECT TO API AND RETRIEVE DATA
-    func fetchData(location: String) {
+    func fetchData(location: String, units: Bool) {
         DispatchQueue.global(qos: .utility).async { [unowned self] in
-            guard let dataUrl = URL(string: location, relativeTo: self.baseUrl) else { print("Invalid URL Request"); return }
+            var symbol = ""
+            if units {
+                symbol = "?units=ca"
+            } else {
+                symbol = "?units=us"
+            }
             
+            guard let dataUrl = URL(string: "\(location)\(symbol)", relativeTo: self.baseUrl) else { print("Invalid URL Request"); return }
+//            guard let dataUrl = URL(string: location, relativeTo: self.baseUrl) else { print("Invalid URL Request"); return }
+            print(dataUrl)
             guard let data = try? String(contentsOf: dataUrl) else {
                 DispatchQueue.main.async {
                     print("Bad API call")
@@ -106,20 +118,68 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
         }
     }
     
+    @IBAction func selectUnits(_ sender: NSSegmentedControl) {
+        if unitControl.selectedSegment == 0 {
+            metric = true
+            fetchData(location: getLocation(), units: metric)
+        } else {
+            metric = false
+            fetchData(location: getLocation(), units: metric)
+        }
+        
+    }
+    
+    
+    
     func updateDisplay() {
         print("UPDATE DISPLAY CALLED")
         guard let feed = jsonFeed else { print("Error with feed"); return }
-        if let sum = feed["currently"]["summmary"].string {
-            summary.stringValue = sum
-            print("Success")
+        if let weatherIcon = feed["currently"]["icon"].string {
+            print(weatherIcon)
+            icon?.image = NSImage(named: weatherIcon)
+        } else {
+            print("ERROR ASSIGNING ICON VALUE")
+        }
+        if let temp = feed["currently"]["temperature"].int {
+            var units = "C"
+            if metric == false {
+                units = "F"
+            }
+            temperature?.stringValue = "\(temp)º\(units)" // TODO: Display correct units
+        } else {
+            print("ERROR ASSIGNING TEMPERATURE VALUE")
+        }
+        if let sum = feed["currently"]["summary"].string {
+            summary?.stringValue = sum
         } else {
             print("ERROR ASSIGNING SUMMARY VALUE")
         }
+        if let precip = feed["currently"]["precipProbability"].double {
+            precipValue?.stringValue = "\(precip * 100)%"
+        } else {
+            print("ERROR ASSIGNING PRECIPITATION VALUE")
+        }
+        if let wind = feed["currently"]["windSpeed"].int {
+            var units = "kph"
+            if metric == false {
+                units = "mph"
+            }
+            windSpeedValue?.stringValue = "\(wind) \(units)" // TODO: Units
+        } else {
+            print("ERRROR ASSIGNING WINDSPEED VALUE")
+        }
+        if let hum = feed["currently"]["humidity"].double {
+            humidityValue?.stringValue = "\(hum * 100)%"
+        } else {
+            print("ERROR ASSIGNING HUMIDITY VALUE")
+        }
+        
         
     }
     
     @IBAction func refreshClicked(_ sender: NSButton) {
         let loc = getLocation()
+        fetchData(location: loc, units: metric)
         print(loc)
         print("refresh Clicked")
     }

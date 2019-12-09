@@ -14,7 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     let mainVC = ViewController()
     func applicationWillFinishLaunching(_ notification: Notification) {
-        mainVC.fetchData(location: mainVC.getLocation())
+        mainVC.fetchData(location: mainVC.getLocation(), units: mainVC.metric)
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
