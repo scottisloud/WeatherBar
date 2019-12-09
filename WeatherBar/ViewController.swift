@@ -27,7 +27,7 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
     
     let bgColor = NSColor(srgbRed: 0.992, green: 0.632, blue: 0.0117, alpha: 1)
     
-    var metric: Bool = true
+    var metric: Int = 0
     
     // MARK: API-related objects
     fileprivate let darkSkyApiKey = "960281f5a5cd1551f2f0446c79928e58"
@@ -40,25 +40,23 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     var lat: Double = 0.0
     var long: Double = 0.0
-    var location: String = ""
+    
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         setUpInterface()
-        location = getLocation()
-        
-        fetchData(location: location, units: metric)
+        let defaults = UserDefaults.standard
+        let units = defaults.integer(forKey: "units")
+        let location = getLocation()
+        fetchData(location: location, units: units)
     }
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        location = getLocation()
-        
-        fetchData(location: location, units: metric)
-        
+        let defaults = UserDefaults.standard
+        metric = defaults.integer(forKey: "units")
+        unitControl.selectedSegment = metric
     }
     
     override var representedObject: Any? {
@@ -92,24 +90,25 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         locationManager.startUpdatingLocation()
         
+        
         lat = locationManager.location?.coordinate.latitude ?? 0.0
         long = locationManager.location?.coordinate.longitude ?? 0.0
         
         return "\(lat),\(long)"
     }
     
+    
     //MARK: CONNECT TO API AND RETRIEVE DATA
-    func fetchData(location: String, units: Bool) {
+    func fetchData(location: String, units: Int) {
         DispatchQueue.global(qos: .utility).async { [unowned self] in
             var symbol = ""
-            if units {
+            if units == 0 {
                 symbol = "?units=ca"
             } else {
                 symbol = "?units=us"
             }
             
             guard let dataUrl = URL(string: "\(location)\(symbol)", relativeTo: self.baseUrl) else { print("Invalid URL Request"); return }
-//            guard let dataUrl = URL(string: location, relativeTo: self.baseUrl) else { print("Invalid URL Request"); return }
             print(dataUrl)
             guard let data = try? String(contentsOf: dataUrl) else {
                 DispatchQueue.main.async {
@@ -128,29 +127,28 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
     
     @IBAction func selectUnits(_ sender: NSSegmentedControl) {
         if unitControl.selectedSegment == 0 {
-            metric = true
+            metric = 0
             fetchData(location: getLocation(), units: metric)
         } else {
-            metric = false
+            metric = 1
             fetchData(location: getLocation(), units: metric)
         }
         
+        let defaults = UserDefaults.standard
+        defaults.set(unitControl.selectedSegment, forKey: "units")
+        
     }
     
-    
-    
     func updateDisplay() {
-        print("UPDATE DISPLAY CALLED")
         guard let feed = jsonFeed else { print("Error with feed"); return }
         if let weatherIcon = feed["currently"]["icon"].string {
-            print(weatherIcon)
             icon?.image = NSImage(named: weatherIcon)
         } else {
             print("ERROR ASSIGNING ICON VALUE")
         }
         if let temp = feed["currently"]["temperature"].int {
             var units = "C"
-            if metric == false {
+            if metric == 1 {
                 units = "F"
             }
             temperature?.stringValue = "\(temp)º\(units)" // TODO: Display correct units
@@ -169,7 +167,7 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
         }
         if let wind = feed["currently"]["windSpeed"].int {
             var units = "kph"
-            if metric == false {
+            if metric == 1 {
                 units = "mph"
             }
             windSpeedValue?.stringValue = "\(wind) \(units)" // TODO: Units
@@ -188,8 +186,6 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
     @IBAction func refreshClicked(_ sender: NSButton) {
         let loc = getLocation()
         fetchData(location: loc, units: metric)
-        print(loc)
-        print("refresh Clicked")
     }
     
     @IBAction func quitClicked(_ sender: NSButton) {

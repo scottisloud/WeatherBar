@@ -711,8 +711,8 @@
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jl4-gP-WCc">
-                                                <rect key="frame" x="39" y="0.0" width="44" height="19"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="100%" drawsBackground="YES" id="02h-8F-xWS">
+                                                <rect key="frame" x="51" y="0.0" width="19" height="19"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" placeholderString="--" drawsBackground="YES" id="02h-8F-xWS">
                                                     <font key="font" metaFont="system" size="16"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -740,8 +740,8 @@
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="D4y-np-Kfa">
-                                                <rect key="frame" x="16" y="0.0" width="44" height="19"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="100%" drawsBackground="YES" id="4KM-d4-bQn">
+                                                <rect key="frame" x="28" y="0.0" width="19" height="19"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" placeholderString="--" drawsBackground="YES" id="4KM-d4-bQn">
                                                     <font key="font" metaFont="system" size="16"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -769,8 +769,8 @@
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f0w-RT-KF8">
-                                                <rect key="frame" x="17" y="0.0" width="64" height="19"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="20 km/h" drawsBackground="YES" id="DQ1-5D-9fp">
+                                                <rect key="frame" x="39" y="0.0" width="19" height="19"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" placeholderString="--" drawsBackground="YES" id="DQ1-5D-9fp">
                                                     <font key="font" metaFont="system" size="16"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -837,7 +837,7 @@
                                     <constraint firstAttribute="height" constant="71" id="Et2-5v-eHL"/>
                                     <constraint firstAttribute="width" constant="125" id="M2n-d5-0Xy"/>
                                 </constraints>
-                                <textFieldCell key="cell" alignment="center" title="100º" drawsBackground="YES" id="ksn-cN-Ut8">
+                                <textFieldCell key="cell" alignment="center" placeholderString="--" drawsBackground="YES" id="ksn-cN-Ut8">
                                     <font key="font" metaFont="systemLight" size="60"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>

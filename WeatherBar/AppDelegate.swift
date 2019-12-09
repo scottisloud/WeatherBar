@@ -13,17 +13,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     let mainVC = ViewController()
-    func applicationWillFinishLaunching(_ notification: Notification) {
-        mainVC.fetchData(location: mainVC.getLocation(), units: mainVC.metric)
-    }
+
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        
         // Create status/menu bar item called Weather. CLicking the menu bar item calls showWindow(_:) which displays the main view controller.
         if let button = statusItem.button {
-            button.image = NSImage(named: "clear-day")
-            button.image?.size = NSMakeSize(36.0, 36.0)
-            button.action = #selector(showWindow)
+                button.image = NSImage(named: "clear-day")
+                button.image?.size = NSMakeSize(36.0, 36.0)
+                button.action = #selector(showWindow)
         }
     }
     
@@ -31,10 +28,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func showWindow(_ sender: NSStatusItem) {
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
         guard let vc = storyboard.instantiateController(withIdentifier: "MainViewController") as? ViewController else { return }
-        
-        NSApplication.shared.activate(ignoringOtherApps: true)
-        
         let popoverView = NSPopover()
+        NSApplication.shared.activate(ignoringOtherApps: true)
         
         popoverView.contentViewController = vc
         popoverView.behavior = .transient
@@ -42,7 +37,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
-          // Insert code here to tear down your application
-      }
+        // Insert code here to tear down your application
+    }
 }
 
