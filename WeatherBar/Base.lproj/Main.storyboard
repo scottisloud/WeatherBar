@@ -861,8 +861,8 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="B22-Tl-2HC"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fgo-fL-DTk">
-                                <rect key="frame" x="335" y="0.0" width="44" height="13"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" alignment="left" title="DarkSky" id="veO-n9-5Cg">
+                                <rect key="frame" x="335" y="0.0" width="4" height="13"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" alignment="left" id="veO-n9-5Cg">
                                     <font key="font" metaFont="systemLight" size="10"/>
                                     <color key="textColor" name="linkColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

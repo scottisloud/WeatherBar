@@ -90,6 +90,8 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
 			NSAttributedString.Key.link: NSURL(string: "https://darksky.net/poweredby/")!
 		]
 		let darkSkyAttributedString = NSMutableAttributedString(string: "Powered by DarkSky", attributes: attributes)
+		darkSkyLink.isSelectable = true
+		darkSkyLink.allowsEditingTextAttributes = true
 		
 		darkSkyLink.attributedStringValue = darkSkyAttributedString
 		
@@ -204,13 +206,6 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
     
     @IBAction func quitClicked(_ sender: NSButton) {
         NSApplication.shared.terminate(self)
-    }
-    
-	
-	
-    @IBAction @objc func darkSkyClicked(_ sender: Any) {
-		
-		NSWorkspace.shared.open(URL(string: "https://darksky.net/poweredby/")!)
     }
 }
 
