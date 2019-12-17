@@ -72,8 +72,8 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
 		
 		view.translatesAutoresizingMaskIntoConstraints = false
 		
-		// Set Location Name Title
-		print(getLocationName(lat: getLocation().lat, long: getLocation().long))
+		// TODO: Set Location Name Title
+		
 		
 		titleLabel.stringValue = "Current Conditions"
 		// Sets background of view to orange
@@ -123,30 +123,6 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
 			print("Location services not enabled")
 			return (0.0, 0.0, "")
 		}
-	}
-	
-	func getLocationName(lat: Double, long: Double) -> String {
-		
-		let geocoder = CLGeocoder()
-		guard let location = CLLocationManager().location else { return "Unknown Location" }
-		geocoder.reverseGeocodeLocation(location) { [weak self] (placemarks, error) in
-			guard error == nil else {
-				print("Oops")
-				return
-			}
-			
-			if let firstPlacemark = placemarks?.first {
-				var placemark = firstPlacemark
-			}
-		}
-		
-		guard let locationName = .locality else {return "Unknown location" }
-		return locationName
-		
-	}
-	
-	func makeLocationString(lat: Double, lon: Double) -> String {
-		return "\(lat),\(lon)"
 	}
 	
 	
