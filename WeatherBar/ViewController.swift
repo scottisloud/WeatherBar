@@ -42,8 +42,7 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
 	let locationManager = CLLocationManager()
 	var lat: Double = 0.0
 	var long: Double = 0.0
-	
-	
+	var locationName = ""
 	// MARK: viewDidLoad
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -72,10 +71,10 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
 		
 		view.translatesAutoresizingMaskIntoConstraints = false
 		
-		// TODO: Set Location Name Title
+		// Set Location Name Title
+		getLocationName(lat: getLocation().lat, long: getLocation().long)
 		
 		
-		titleLabel.stringValue = "Current Conditions"
 		// Sets background of view to orange
 		self.view.wantsLayer = true
 		self.view.layer?.backgroundColor = bgColor.cgColor
@@ -123,6 +122,30 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
 			print("Location services not enabled")
 			return (0.0, 0.0, "")
 		}
+	}
+	
+	
+	// Gets the name of the user's current location to display in the main app window.
+	func getLocationName(lat: Double, long: Double) {
+		
+		let geocoder = CLGeocoder()
+		guard let location = CLLocationManager().location else { return }
+		geocoder.reverseGeocodeLocation(location) { placemarks, error in
+			guard error == nil else {
+				print("Oops")
+				return
+			}
+			
+			if let firstPlacemark = placemarks?.first?.locality {
+				self.locationName = firstPlacemark
+				self.titleLabel.stringValue = firstPlacemark
+			}
+		}
+		
+	}
+	
+	func makeLocationString(lat: Double, lon: Double) -> String {
+		return "\(lat),\(lon)"
 	}
 	
 	
