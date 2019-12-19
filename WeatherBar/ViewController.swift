@@ -42,8 +42,7 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
 	let locationManager = CLLocationManager()
 	var lat: Double = 0.0
 	var long: Double = 0.0
-	
-	
+	var locationName = ""
 	// MARK: viewDidLoad
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -73,9 +72,9 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
 		view.translatesAutoresizingMaskIntoConstraints = false
 		
 		// Set Location Name Title
-		print(getLocationName(lat: getLocation().lat, long: getLocation().long))
+		getLocationName(lat: getLocation().lat, long: getLocation().long)
 		
-		titleLabel.stringValue = "Current Conditions"
+		
 		// Sets background of view to orange
 		self.view.wantsLayer = true
 		self.view.layer?.backgroundColor = bgColor.cgColor
@@ -110,9 +109,6 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
 			locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
 			locationManager.startUpdatingLocation()
 			
-			
-			
-			
 			lat = locationManager.location?.coordinate.latitude ?? 0.0
 			long = locationManager.location?.coordinate.longitude ?? 0.0
 			
@@ -125,23 +121,23 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
 		}
 	}
 	
-	func getLocationName(lat: Double, long: Double) -> String {
+	
+	// Gets the name of the user's current location to display in the main app window.
+	func getLocationName(lat: Double, long: Double) {
 		
 		let geocoder = CLGeocoder()
-		guard let location = CLLocationManager().location else { return "Unknown Location" }
-		geocoder.reverseGeocodeLocation(location) { [weak self] (placemarks, error) in
+		guard let location = CLLocationManager().location else { return }
+		geocoder.reverseGeocodeLocation(location) { placemarks, error in
 			guard error == nil else {
 				print("Oops")
 				return
 			}
 			
-			if let firstPlacemark = placemarks?.first {
-				var placemark = firstPlacemark
+			if let firstPlacemark = placemarks?.first?.locality {
+				self.locationName = firstPlacemark
+				self.titleLabel.stringValue = firstPlacemark
 			}
 		}
-		
-		guard let locationName = .locality else {return "Unknown location" }
-		return locationName
 		
 	}
 	
