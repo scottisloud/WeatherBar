@@ -109,9 +109,6 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
 			locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
 			locationManager.startUpdatingLocation()
 			
-			
-			
-			
 			lat = locationManager.location?.coordinate.latitude ?? 0.0
 			long = locationManager.location?.coordinate.longitude ?? 0.0
 			
