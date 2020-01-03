@@ -6,7 +6,7 @@
 //  Copyright © 2019 Scott Lougheed. All rights reserved.
 //
 
-import Cocoa 
+import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {

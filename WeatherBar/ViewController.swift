@@ -36,7 +36,7 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
 	var baseUrl: URL {
 		return URL(string: "https://api.darksky.net/forecast/\(self.darkSkyApiKey)/")!
 	}
-	var jsonFeed: JSON?
+	var jsonFeed: JSON? //A relic from using SwiftyJSON. Revise using native JSONDecoder()
 	
 	// MARK: Location-related objects
 	let locationManager = CLLocationManager()
