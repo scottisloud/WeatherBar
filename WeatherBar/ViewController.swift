@@ -11,7 +11,7 @@
 import Cocoa
 import CoreLocation
 
-class ViewController: NSViewController, CLLocationManagerDelegate {
+class ViewController: NSViewController {
 	
 	// MARK: Interface-related constants
 	@IBOutlet weak var icon: NSImageView!
@@ -36,21 +36,19 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
 	var baseUrl: URL {
 		return URL(string: "https://api.darksky.net/forecast/\(self.darkSkyApiKey)/")!
 	}
-	var jsonFeed: JSON? //A relic from using SwiftyJSON. Revise using native JSONDecoder()
 	
-	// MARK: Location-related objects
-	let locationManager = CLLocationManager()
-	var lat: Double = 0.0
-	var long: Double = 0.0
-	var locationName = ""
+	let locationTools = Location()
+	
+	
+
 	// MARK: viewDidLoad
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setUpInterface()
 		let defaults = UserDefaults.standard
 		let units = defaults.integer(forKey: "units")
-		let location = getLocation()
-		fetchData(location: location.locString, units: units)
+		
+		fetchData(location: locationTools.coordString, units: units)
 	}
 	
 	override func viewWillAppear() {
@@ -72,7 +70,7 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
 		view.translatesAutoresizingMaskIntoConstraints = false
 		
 		// Set Location Name Title
-		getLocationName(lat: getLocation().lat, long: getLocation().long)
+		titleLabel.stringValue = locationTools.locationName
 		
 		
 		// Sets background of view to orange
@@ -101,49 +99,11 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
 	}
 	
 	
-	// MARK: GET USER LOCATION
-	func getLocation() -> (lat: Double, long: Double, locString: String) {
-		
-		if CLLocationManager.locationServicesEnabled() {
-			locationManager.delegate = self
-			locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
-			locationManager.startUpdatingLocation()
-			
-			lat = locationManager.location?.coordinate.latitude ?? 0.0
-			long = locationManager.location?.coordinate.longitude ?? 0.0
-			
-			print("Location services enabled!")
-			return (lat, long, "\(lat),\(long)")
-			
-		} else {
-			print("Location services not enabled")
-			return (0.0, 0.0, "")
-		}
-	}
+	
 	
 	
 	// Gets the name of the user's current location to display in the main app window.
-	func getLocationName(lat: Double, long: Double) {
-		
-		let geocoder = CLGeocoder()
-		guard let location = CLLocationManager().location else { return }
-		geocoder.reverseGeocodeLocation(location) { placemarks, error in
-			guard error == nil else {
-				print("Oops")
-				return
-			}
-			
-			if let firstPlacemark = placemarks?.first?.locality {
-				self.locationName = firstPlacemark
-				self.titleLabel.stringValue = firstPlacemark
-			}
-		}
-		
-	}
 	
-	func makeLocationString(lat: Double, lon: Double) -> String {
-		return "\(lat),\(lon)"
-	}
 	
 	
 	//MARK: CONNECT TO API AND RETRIEVE DATA
@@ -176,10 +136,10 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
 	@IBAction func selectUnits(_ sender: NSSegmentedControl) {
 		if unitControl.selectedSegment == 0 {
 			metric = 0
-			fetchData(location: getLocation().locString, units: metric)
+			fetchData(location: locationTools.coordString, units: metric)
 		} else {
 			metric = 1
-			fetchData(location: getLocation().locString, units: metric)
+			fetchData(location: locationTools.coordString, units: metric)
 		}
 		
 		let defaults = UserDefaults.standard
@@ -232,7 +192,7 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
 	}
 	
 	@IBAction func refreshClicked(_ sender: NSButton) {
-		let loc = getLocation().locString
+		let loc = locationTools.coordString
 		fetchData(location: loc, units: metric)
 	}
 	
