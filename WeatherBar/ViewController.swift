@@ -29,7 +29,7 @@ class ViewController: NSViewController {
 	
 	let bgColor = NSColor.systemOrange
 	
-	var metric: Int = 0
+	var units: Int = 0
 	
 	// MARK: API-related objects
 	fileprivate let darkSkyApiKey = "960281f5a5cd1551f2f0446c79928e58"
@@ -39,23 +39,15 @@ class ViewController: NSViewController {
 	
 	let locationTools = Location()
 	
-	
-
 	// MARK: viewDidLoad
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		setUpInterface()
-		let defaults = UserDefaults.standard
-		let units = defaults.integer(forKey: "units")
 		
-		fetchData(location: locationTools.coordString, units: units)
-	}
-	
-	override func viewWillAppear() {
-		super.viewWillAppear()
 		let defaults = UserDefaults.standard
-		metric = defaults.integer(forKey: "units")
-		unitControl.selectedSegment = metric
+		units = defaults.integer(forKey: "units")
+        unitControl.selectedSegment = units
+		fetchData(location: locationTools.coordString, units: units)
+        setUpInterface()
 	}
 	
 	override var representedObject: Any? {
@@ -71,8 +63,7 @@ class ViewController: NSViewController {
 		
 		// Set Location Name Title
 		titleLabel.stringValue = locationTools.locationName
-		
-		
+
 		// Sets background of view to orange
 		self.view.wantsLayer = true
 		self.view.layer?.backgroundColor = bgColor.cgColor
@@ -82,7 +73,7 @@ class ViewController: NSViewController {
 		unitControl.setLabel("ºC", forSegment: 0)
 		unitControl.setLabel("ºF", forSegment: 1)
 		
-		
+
 		// TODO: Fix the DarkSky text looking strange when clicked
 		let attributes: [NSAttributedString.Key: Any] = [
 			NSAttributedString.Key.foregroundColor: NSColor.linkColor,
@@ -97,14 +88,6 @@ class ViewController: NSViewController {
 		
 		quit.title = "Quit"
 	}
-	
-	
-	
-	
-	
-	// Gets the name of the user's current location to display in the main app window.
-	
-	
 	
 	//MARK: CONNECT TO API AND RETRIEVE DATA
 	func fetchData(location: String, units: Int) {
@@ -135,11 +118,11 @@ class ViewController: NSViewController {
 	
 	@IBAction func selectUnits(_ sender: NSSegmentedControl) {
 		if unitControl.selectedSegment == 0 {
-			metric = 0
-			fetchData(location: locationTools.coordString, units: metric)
+			units = 0
+			fetchData(location: locationTools.coordString, units: units)
 		} else {
-			metric = 1
-			fetchData(location: locationTools.coordString, units: metric)
+			units = 1
+			fetchData(location: locationTools.coordString, units: units)
 		}
 		
 		let defaults = UserDefaults.standard
@@ -155,9 +138,9 @@ class ViewController: NSViewController {
 			print("ERROR ASSIGNING ICON VALUE")
 		}
 		if let temp = feed["currently"]["temperature"].int {
-			var units = "C"
-			if metric == 1 {
-				units = "F"
+			var unitDisplay = "C"
+			if units == 1 {
+				unitDisplay = "F"
 			}
 			temperature?.stringValue = "\(temp)º\(units)" // TODO: Display correct units
 		} else {
@@ -174,9 +157,9 @@ class ViewController: NSViewController {
 			print("ERROR ASSIGNING PRECIPITATION VALUE")
 		}
 		if let wind = feed["currently"]["windSpeed"].int {
-			var units = "kph"
-			if metric == 1 {
-				units = "mph"
+			var unitDisplay = "kph"
+			if units == 1 {
+				unitDisplay = "mph"
 			}
 			windSpeedValue?.stringValue = "\(wind) \(units)" // TODO: Units
 		} else {
@@ -193,7 +176,7 @@ class ViewController: NSViewController {
 	
 	@IBAction func refreshClicked(_ sender: NSButton) {
 		let loc = locationTools.coordString
-		fetchData(location: loc, units: metric)
+		fetchData(location: loc, units: units)
 	}
 	
 	

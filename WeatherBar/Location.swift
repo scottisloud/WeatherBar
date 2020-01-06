@@ -10,6 +10,10 @@ import CoreLocation
 import Foundation
 
 
+
+/// Class can fetch the users current location with getLocation(). Returns a tuple (lat: Double, long: Double, "lat,long": String)
+/// Class also gets the current location's name and sets the class's locationName property.
+///
 class Location: NSObject, CLLocationManagerDelegate {
 	
 	// MARK: Location-related objects
@@ -34,6 +38,7 @@ class Location: NSObject, CLLocationManagerDelegate {
 			lat = locationManager.location?.coordinate.latitude ?? 0.0
 			long = locationManager.location?.coordinate.longitude ?? 0.0
 			
+            getLocationName(lat: lat, long: long)
 			print("Location services enabled!")
 			return (lat, long, "\(lat),\(long)")
 			

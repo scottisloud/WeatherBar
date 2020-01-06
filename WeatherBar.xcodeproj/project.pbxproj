@@ -14,7 +14,6 @@
 		2313C59423BF7E4D005BDACA /* DarkSkyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313C59323BF7E4D005BDACA /* DarkSkyError.swift */; };
 		232C9AA723960C8D00AF2E55 /* DarkSkyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C9AA623960C8D00AF2E55 /* DarkSkyClient.swift */; };
 		232C9AAB2396B14300AF2E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C9AAA2396B14300AF2E55 /* Location.swift */; };
-		234A287723C256B20072B408 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234A287623C256B20072B408 /* Weather.swift */; };
 		23A69DC82395B79C001B80B7 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A69DC72395B79C001B80B7 /* CurrentWeather.swift */; };
 		23A69DCA2395B930001B80B7 /* CurrentWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A69DC92395B930001B80B7 /* CurrentWeatherViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -30,7 +29,6 @@
 		2313C59323BF7E4D005BDACA /* DarkSkyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkSkyError.swift; sourceTree = "<group>"; };
 		232C9AA623960C8D00AF2E55 /* DarkSkyClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkSkyClient.swift; sourceTree = "<group>"; };
 		232C9AAA2396B14300AF2E55 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		234A287623C256B20072B408 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		23A69DC72395B79C001B80B7 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		23A69DC92395B930001B80B7 /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,7 +67,6 @@
 				230BCB3623943A9800911403 /* ViewController.swift */,
 				2313C59323BF7E4D005BDACA /* DarkSkyError.swift */,
 				23A69DC72395B79C001B80B7 /* CurrentWeather.swift */,
-				234A287623C256B20072B408 /* Weather.swift */,
 				23A69DC92395B930001B80B7 /* CurrentWeatherViewModel.swift */,
 				232C9AA623960C8D00AF2E55 /* DarkSkyClient.swift */,
 				232C9AAA2396B14300AF2E55 /* Location.swift */,
@@ -151,7 +148,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				234A287723C256B20072B408 /* Weather.swift in Sources */,
 				2313C59423BF7E4D005BDACA /* DarkSkyError.swift in Sources */,
 				230BCB3723943A9800911403 /* ViewController.swift in Sources */,
 				230BCB3523943A9800911403 /* AppDelegate.swift in Sources */,
