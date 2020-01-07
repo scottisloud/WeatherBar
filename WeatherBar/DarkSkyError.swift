@@ -8,8 +8,9 @@
 
 import Foundation
 
-enum DarkSkyError {
+enum DarkSkyError: Error {
 	case RequestFailed
 	case ResponseUnsuccessful(statusCode: Int)
-	
+    case BadAPICall
 }
+

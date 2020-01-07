@@ -21,30 +21,49 @@ class DarkSkyClient {
     let decoder = JSONDecoder()
     let session: URLSession
 
-	
     init(configuration: URLSessionConfiguration) {
         self.session = URLSession(configuration: .default)
     }
+    
+    convenience init() {
+        self.init(configuration: .default)
+    }
 
-    func fetchData(at location: Location) {
-        DispatchQueue.global(qos: .utility).async { [unowned self] in
-
-			guard let dataUrl = URL(string: location.coordString, relativeTo: self.baseUrl) else { print("Invalid URL Request"); return }
-
-            guard let data = try? String(contentsOf: dataUrl) else {
-                DispatchQueue.main.async {
-                    print("Bad API call")
-                }
-                return
-            }
-            let newData = JSON(parseJSON: data)
-
-            DispatchQueue.main.async {
-                self.jsonFeed = newData
-                //GET THIS DATA TO THE VIEWS
-            }
-        }
+    
+    
+    //MARK: CONNECT TO API AND RETRIEVE DATA
+    func fetchData(location: String, units: Int) {
         
+        
+        
+// LIKELY OUTDATED CODE TO BE DELETED
+//        DispatchQueue.global(qos: .utility).async { [unowned self] in
+//            var symbol = ""
+//            if units == 0 {
+//                symbol = "?units=ca"
+//            } else {
+//                symbol = "?units=us"
+//            }
+//
+//            guard let dataUrl = URL(string: "\(location)\(symbol)", relativeTo: self.baseUrl) else { print("Invalid URL Request"); return }
+//
+//            print(dataUrl)
+//
+//            guard let data = try? String(contentsOf: dataUrl) else {
+//                DispatchQueue.main.async {
+//                    print("Bad API call")
+//                }
+//
+//                return
+//            }
+//
+//            let newData = JSON(parseJSON: data)
+//
+//            DispatchQueue.main.async {
+//                self.jsonFeed = newData
+//                self.updateDisplay()
+//            }
+//        }
     }
 }
 

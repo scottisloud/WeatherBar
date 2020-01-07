@@ -13,15 +13,17 @@ import Foundation
 
 /// Class can fetch the users current location with getLocation(). Returns a tuple (lat: Double, long: Double, "lat,long": String)
 /// Class also gets the current location's name and sets the class's locationName property.
-///
+
 class Location: NSObject, CLLocationManagerDelegate {
 	
 	// MARK: Location-related objects
 	let locationManager = CLLocationManager()
-	var lat: Double = 0.0
+	
+    var lat: Double = 0.0
 	var long: Double = 0.0
-	var locationName = ""
 	var coordString: String
+    var locationName = ""
+	
 
 	override init() {
 		coordString = "\(self.lat),\(self.long)"
@@ -50,7 +52,6 @@ class Location: NSObject, CLLocationManagerDelegate {
 	
 	
 	func getLocationName(lat: Double, long: Double) {
-		
 		let geocoder = CLGeocoder()
 		guard let location = CLLocationManager().location else { return }
 		geocoder.reverseGeocodeLocation(location) { placemarks, error in

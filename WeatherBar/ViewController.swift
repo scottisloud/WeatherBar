@@ -36,8 +36,9 @@ class ViewController: NSViewController {
 	var baseUrl: URL {
 		return URL(string: "https://api.darksky.net/forecast/\(self.darkSkyApiKey)/")!
 	}
-	
-	let locationTools = Location()
+    
+    let client = DarkSkyClient()
+	let locationClient = Location()
 	
 	// MARK: viewDidLoad
 	override func viewDidLoad() {
@@ -46,7 +47,7 @@ class ViewController: NSViewController {
 		let defaults = UserDefaults.standard
 		units = defaults.integer(forKey: "units")
         unitControl.selectedSegment = units
-		fetchData(location: locationTools.coordString, units: units)
+        client.fetchData(location: locationClient.coordString, units: units)
         setUpInterface()
 	}
 	
@@ -62,7 +63,7 @@ class ViewController: NSViewController {
 		view.translatesAutoresizingMaskIntoConstraints = false
 		
 		// Set Location Name Title
-		titleLabel.stringValue = locationTools.locationName
+		titleLabel.stringValue = locationClient.locationName
 
 		// Sets background of view to orange
 		self.view.wantsLayer = true
@@ -89,40 +90,15 @@ class ViewController: NSViewController {
 		quit.title = "Quit"
 	}
 	
-	//MARK: CONNECT TO API AND RETRIEVE DATA
-	func fetchData(location: String, units: Int) {
-		DispatchQueue.global(qos: .utility).async { [unowned self] in
-			var symbol = ""
-			if units == 0 {
-				symbol = "?units=ca"
-			} else {
-				symbol = "?units=us"
-			}
-			
-			guard let dataUrl = URL(string: "\(location)\(symbol)", relativeTo: self.baseUrl) else { print("Invalid URL Request"); return }
-			print(dataUrl)
-			guard let data = try? String(contentsOf: dataUrl) else {
-				DispatchQueue.main.async {
-					print("Bad API call")
-				}
-				return
-			}
-			let newData = JSON(parseJSON: data)
-			
-			DispatchQueue.main.async {
-				self.jsonFeed = newData
-				self.updateDisplay()
-			}
-		}
-	}
+
 	
 	@IBAction func selectUnits(_ sender: NSSegmentedControl) {
 		if unitControl.selectedSegment == 0 {
 			units = 0
-			fetchData(location: locationTools.coordString, units: units)
+            client.fetchData(location: locationClient.coordString, units: units)
 		} else {
 			units = 1
-			fetchData(location: locationTools.coordString, units: units)
+            client.fetchData(location: locationClient.coordString, units: units)
 		}
 		
 		let defaults = UserDefaults.standard
@@ -175,8 +151,7 @@ class ViewController: NSViewController {
 	}
 	
 	@IBAction func refreshClicked(_ sender: NSButton) {
-		let loc = locationTools.coordString
-		fetchData(location: loc, units: units)
+        client.fetchData(location: locationClient.getLocation().locString, units: units)
 	}
 	
 	
