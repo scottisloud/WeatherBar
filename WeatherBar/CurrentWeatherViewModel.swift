@@ -21,7 +21,12 @@ struct CurrentWeatherViewModel {
     init(model: CurrentWeather) {
         
         let roundedTemperature = Int(model.temperature)
-        self.temperature = "\(roundedTemperature)º"
+        let defaults = UserDefaults.standard
+        var displayUnits = "C"
+        if defaults.integer(forKey: "units") == 1 {
+            displayUnits = "F"
+        }
+        self.temperature = "\(roundedTemperature)º \(displayUnits)"
         
         let humidityPercentValue = Int(model.humidity * 100)
         self.humidity = "\(humidityPercentValue)%"

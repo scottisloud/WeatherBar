@@ -29,8 +29,6 @@ class DarkSkyClient {
         self.init(configuration: .default)
     }
     
-    
-    
     //MARK: CONNECT TO API AND RETRIEVE DATA
     func fetchData(location: String, units: Int, completionHandler completion: @escaping (Weather?, Error?) -> Void) {
         var symbol = ""
@@ -40,11 +38,14 @@ class DarkSkyClient {
             symbol = "?units=us"
         }
         
+        print("FETCH DATA CALLED")
+        
         guard let dataUrl = URL(string: "\(location)\(symbol)", relativeTo: self.baseUrl) else {
             completion(nil, DarkSkyError.invalidURL)
+            print("FAILED TO MAKE DATAURL")
             return
         }
-        
+        print("GUARD LET DATAURL \(dataUrl)")
         let request = URLRequest(url: dataUrl)
         
         let task = session.dataTask(with: request) { data, response, error in
@@ -52,11 +53,13 @@ class DarkSkyClient {
                 if let data = data {
                     guard let httpResponse = response as? HTTPURLResponse else {
                         completion(nil, DarkSkyError.requestFailed)
+                        print("FAILED TO GET GOOD HTTPRESPONSE")
                         return
                     }
                     if httpResponse.statusCode == 200 {
                         do {
                             let newData = try self.decoder.decode(Weather.self, from: data)
+                            print("GOT NEW DATA!")
                             completion(newData, nil)
                         } catch let error {
                             completion(nil, error)
@@ -69,15 +72,14 @@ class DarkSkyClient {
                     completion(nil, error)
                 }
             }
-            
         }
-        
         task.resume()
     }
     
-    
     func getCurrentWeather(at location: Location, units: Int, completionHandler completion: @escaping (CurrentWeather?, Error?) -> Void) {
+        print("getCurrentWeather() called!")
         fetchData(location: location.coordString, units: units) { weather, error in
+            print("fetchData() called from within getCurrentWeather()")
             completion(weather?.currently, error)
         }
     }

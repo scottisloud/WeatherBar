@@ -31,7 +31,7 @@ class Location: NSObject, CLLocationManagerDelegate {
 
 	// MARK: GET USER LOCATION
 	func getLocation() -> (lat: Double, long: Double, locString: String) {
-		
+		print("GET LOCATION CALLED")
 		if CLLocationManager.locationServicesEnabled() {
 			locationManager.delegate = self
 			locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
@@ -42,6 +42,7 @@ class Location: NSObject, CLLocationManagerDelegate {
 			
             getLocationName(lat: lat, long: long)
 			print("Location services enabled!")
+            print("\(lat),\(long)")
 			return (lat, long, "\(lat),\(long)")
 			
 		} else {
@@ -52,6 +53,7 @@ class Location: NSObject, CLLocationManagerDelegate {
 	
 	
 	func getLocationName(lat: Double, long: Double) {
+        print("getLocationName() called")
 		let geocoder = CLGeocoder()
 		guard let location = CLLocationManager().location else { return }
 		geocoder.reverseGeocodeLocation(location) { placemarks, error in
