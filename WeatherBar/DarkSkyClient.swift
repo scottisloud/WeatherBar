@@ -13,14 +13,14 @@ import AppKit
 
 class DarkSkyClient {
     fileprivate let darkSkyApiKey = "960281f5a5cd1551f2f0446c79928e58"
-
+    
     var baseUrl: URL {
         return URL(string: "https://api.darksky.net/forecast/\(self.darkSkyApiKey)/")!
     }
-
+    
     let decoder = JSONDecoder()
     let session: URLSession
-
+    
     init(configuration: URLSessionConfiguration) {
         self.session = URLSession(configuration: .default)
     }
@@ -28,42 +28,58 @@ class DarkSkyClient {
     convenience init() {
         self.init(configuration: .default)
     }
-
+    
     
     
     //MARK: CONNECT TO API AND RETRIEVE DATA
-    func fetchData(location: String, units: Int) {
+    func fetchData(location: String, units: Int, completionHandler completion: @escaping (Weather?, Error?) -> Void) {
+        var symbol = ""
+        if units == 0 {
+            symbol = "?units=ca"
+        } else {
+            symbol = "?units=us"
+        }
         
+        guard let dataUrl = URL(string: "\(location)\(symbol)", relativeTo: self.baseUrl) else {
+            completion(nil, DarkSkyError.invalidURL)
+            return
+        }
         
+        let request = URLRequest(url: dataUrl)
         
-// LIKELY OUTDATED CODE TO BE DELETED
-//        DispatchQueue.global(qos: .utility).async { [unowned self] in
-//            var symbol = ""
-//            if units == 0 {
-//                symbol = "?units=ca"
-//            } else {
-//                symbol = "?units=us"
-//            }
-//
-//            guard let dataUrl = URL(string: "\(location)\(symbol)", relativeTo: self.baseUrl) else { print("Invalid URL Request"); return }
-//
-//            print(dataUrl)
-//
-//            guard let data = try? String(contentsOf: dataUrl) else {
-//                DispatchQueue.main.async {
-//                    print("Bad API call")
-//                }
-//
-//                return
-//            }
-//
-//            let newData = JSON(parseJSON: data)
-//
-//            DispatchQueue.main.async {
-//                self.jsonFeed = newData
-//                self.updateDisplay()
-//            }
-//        }
+        let task = session.dataTask(with: request) { data, response, error in
+            DispatchQueue.main.async {
+                if let data = data {
+                    guard let httpResponse = response as? HTTPURLResponse else {
+                        completion(nil, DarkSkyError.requestFailed)
+                        return
+                    }
+                    if httpResponse.statusCode == 200 {
+                        do {
+                            let newData = try self.decoder.decode(Weather.self, from: data)
+                            completion(newData, nil)
+                        } catch let error {
+                            completion(nil, error)
+                        }
+                    } else {
+                        completion(nil, DarkSkyError.responseUnsuccessful(statusCode: httpResponse.statusCode))
+                        return
+                    }
+                } else if let error = error {
+                    completion(nil, error)
+                }
+            }
+            
+        }
+        
+        task.resume()
+    }
+    
+    
+    func getCurrentWeather(at location: Location, units: Int, completionHandler completion: @escaping (CurrentWeather?, Error?) -> Void) {
+        fetchData(location: location.coordString, units: units) { weather, error in
+            completion(weather?.currently, error)
+        }
     }
 }
 

@@ -9,8 +9,10 @@
 import Foundation
 
 enum DarkSkyError: Error {
-	case RequestFailed
-	case ResponseUnsuccessful(statusCode: Int)
-    case BadAPICall
+	case invalidURL
+    case parsingError
+    case requestFailed
+	case responseUnsuccessful(statusCode: Int)
+    case badAPICall
 }
 
