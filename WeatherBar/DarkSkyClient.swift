@@ -45,7 +45,6 @@ class DarkSkyClient {
         } else {
             symbol = "?units=us"
         }
-        print("****fetchData() called****\n")
         
         guard let dataUrl = URL(string: "\(location)\(symbol)", relativeTo: baseUrl) else {
             completion(nil, DarkSkyError.invalidURL)
@@ -68,10 +67,8 @@ class DarkSkyClient {
                     if httpResponse.statusCode == 200 {
                         do {
                             let newData = try self.decoder.decode(Weather.self, from: data)
-                            print("GOT NEW DATA!")
                             completion(newData, nil)
                         } catch let error {
-                            print("DID NOT GET NEW DATA?")
                             completion(nil, error)
                         }
                     } else {
@@ -87,9 +84,7 @@ class DarkSkyClient {
     }
     
     func getCurrentWeather(at location: String, units: Int, completionHandler completion: @escaping GetCurrentWeatherCompletionHandler) {
-        print("getCurrentWeather() called!")
         fetchData(at: location, units: units) { weather, error in
-            print("fetchData() called from within getCurrentWeather()")
             completion(weather?.currently, error)
         }
     }

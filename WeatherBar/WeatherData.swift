@@ -13,7 +13,7 @@ struct CurrentWeather: Codable {
     let temperature: Double
     let humidity: Double
     let precipProbability: Double
-    let precipType: String
+    let precipType: String?
     let windSpeed: Double
     let summary: String
     let icon: String

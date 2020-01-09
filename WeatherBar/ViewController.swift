@@ -91,19 +91,17 @@ class ViewController: NSViewController {
     
     
     func updateData() {
-        print("******updateData() called******\n")
+
         client.getCurrentWeather(at: locationClient.getLocation().locString, units: units) { currentWeather, error in
             
             if let currentWeather = currentWeather {
                 let viewModel = CurrentWeatherViewModel(model: currentWeather)
                 self.updateCurrentDisplay(using: viewModel)
-                print("****updateData() succeeded****\n")
             }
         }
     }
     
     func updateCurrentDisplay(using viewModel: CurrentWeatherViewModel) {
-        print("*******updateCurrentDisplay() called*******\n")
         temperature.stringValue = viewModel.temperature
         summary.stringValue = viewModel.summary
         precipValue.stringValue = viewModel.precipProb

@@ -65,8 +65,6 @@ class Location: NSObject, CLLocationManagerDelegate {
 				self.locationName = firstPlacemark
 			}
 		}
-		
 	}
-	
 }
 
