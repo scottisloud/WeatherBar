@@ -20,9 +20,10 @@ struct CurrentWeatherViewModel {
     
     init(model: CurrentWeather) {
         
+        var displayUnits = "C"
         let roundedTemperature = Int(model.temperature)
         let defaults = UserDefaults.standard
-        var displayUnits = "C"
+        
         if defaults.integer(forKey: "units") == 1 {
             displayUnits = "F"
         }

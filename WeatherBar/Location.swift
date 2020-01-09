@@ -23,7 +23,6 @@ class Location: NSObject, CLLocationManagerDelegate {
 	var long: Double = 0.0
 	var coordString: String
     var locationName = ""
-	
 
 	override init() {
 		coordString = "\(self.lat),\(self.long)"

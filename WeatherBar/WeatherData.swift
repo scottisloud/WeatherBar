@@ -9,21 +9,6 @@
 import Foundation
 import AppKit
 
-
-// POTENTIAL STRUCT FOR DAILY WEATHER 
-//struct Daily: Codable {
-//    struct Data: Codable {
-//        let time: Int
-//        let precipProbability: Double
-//        let precipType: String
-//        let temperatureHigh: Double
-//        let temperatureLow: Double
-//        let summary: String
-//        let windSpeed: Double
-//        let icon: String
-//    }
-//}
-
 struct CurrentWeather: Codable {
     let temperature: Double
     let humidity: Double
@@ -51,3 +36,17 @@ extension CurrentWeather {
         }
     }
 }
+
+// POTENTIAL STRUCT FOR DAILY WEATHER
+//struct Daily: Codable {
+//    struct Data: Codable {
+//        let time: Int
+//        let precipProbability: Double
+//        let precipType: String
+//        let temperatureHigh: Double
+//        let temperatureLow: Double
+//        let summary: String
+//        let windSpeed: Double
+//        let icon: String
+//    }
+//}

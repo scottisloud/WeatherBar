@@ -43,8 +43,9 @@ class ViewController: NSViewController {
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         let defaults = UserDefaults.standard
+        
         units = defaults.integer(forKey: "units")
         unitControl.selectedSegment = units
         
@@ -60,7 +61,6 @@ class ViewController: NSViewController {
     
     //MARK: SET UP GENERAL APPEARANCE
     func setUpInterface() {
-        
         view.translatesAutoresizingMaskIntoConstraints = false
         
         // Set Location Name Title
@@ -91,23 +91,25 @@ class ViewController: NSViewController {
     
     
     func updateData() {
-        client.fetchData(location: locationClient.coordString, units: units) { weather, error in
-            guard let weather = weather else {
-                return
+        print("******updateData() called******\n")
+        client.getCurrentWeather(at: locationClient.getLocation().locString, units: units) { currentWeather, error in
+            
+            if let currentWeather = currentWeather {
+                let viewModel = CurrentWeatherViewModel(model: currentWeather)
+                self.updateCurrentDisplay(using: viewModel)
+                print("****updateData() succeeded****\n")
             }
-            let currentWeather = weather.currently
-            let viewModel = CurrentWeatherViewModel(model: currentWeather)
-            self.updateCurrentDisplay(using: viewModel)
         }
     }
     
     func updateCurrentDisplay(using viewModel: CurrentWeatherViewModel) {
-        icon.image = viewModel.icon
+        print("*******updateCurrentDisplay() called*******\n")
         temperature.stringValue = viewModel.temperature
         summary.stringValue = viewModel.summary
         precipValue.stringValue = viewModel.precipProb
         windSpeedValue.stringValue = viewModel.windSpeed
         humidityValue.stringValue = viewModel.humidity
+        
     }
     
     @IBAction func selectUnits(_ sender: NSSegmentedControl) {
@@ -115,48 +117,6 @@ class ViewController: NSViewController {
         defaults.set(unitControl.selectedSegment, forKey: "units")
         updateData()
     }
-    
-//    func updateDisplay() {
-//        guard let feed = jsonFeed else { print("Error with feed"); return }
-//        if let weatherIcon = feed["currently"]["icon"].string {
-//            icon?.image = NSImage(named: weatherIcon)
-//        } else {
-//            print("ERROR ASSIGNING ICON VALUE")
-//        }
-//        if let temp = feed["currently"]["temperature"].int {
-//            var unitDisplay = "C"
-//            if units == 1 {
-//                unitDisplay = "F"
-//            }
-//            temperature?.stringValue = "\(temp)º\(units)" // TODO: Display correct units
-//        } else {
-//            print("ERROR ASSIGNING TEMPERATURE VALUE")
-//        }
-//        if let sum = feed["currently"]["summary"].string {
-//            summary?.stringValue = sum
-//        } else {
-//            print("ERROR ASSIGNING SUMMARY VALUE")
-//        }
-//        if let precip = feed["currently"]["precipProbability"].double {
-//            precipValue?.stringValue = "\(precip * 100)%"
-//        } else {
-//            print("ERROR ASSIGNING PRECIPITATION VALUE")
-//        }
-//        if let wind = feed["currently"]["windSpeed"].int {
-//            var unitDisplay = "kph"
-//            if units == 1 {
-//                unitDisplay = "mph"
-//            }
-//            windSpeedValue?.stringValue = "\(wind) \(units)" // TODO: Units
-//        } else {
-//            print("ERRROR ASSIGNING WINDSPEED VALUE")
-//        }
-//        if let hum = feed["currently"]["humidity"].double {
-//            humidityValue?.stringValue = "\(hum * 100)%"
-//        } else {
-//            print("ERROR ASSIGNING HUMIDITY VALUE")
-//        }
-//    }
     
     @IBAction func refreshClicked(_ sender: NSButton) {
         updateData()
