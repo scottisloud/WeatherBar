@@ -12,7 +12,8 @@ enum DarkSkyError: Error {
 	case invalidURL
     case parsingError
     case requestFailed
-	case responseUnsuccessful(statusCode: Int)
+    case responseUnsuccessful(statusCode: Int)
     case badAPICall
+    case cannotGetLocation
 }
 

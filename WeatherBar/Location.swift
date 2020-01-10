@@ -40,7 +40,6 @@ class Location: NSObject, CLLocationManagerDelegate {
             lat = locationManager.location?.coordinate.latitude ?? 0.0
             long = locationManager.location?.coordinate.longitude ?? 0.0
             
-            
             print("Location services enabled!")
             print("\(lat),\(long)")
             return (lat, long, "\(lat),\(long)")
@@ -51,20 +50,38 @@ class Location: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    //MARK: Not sure whether the getlocationname feature should be a separate method or integrated into the getLocation() method. Currently it's integrated into the getLocation() method but still does not result in the locationName property being set.
-    func getLocationName(lat: Double, long: Double, completion: (String?) -> Void) {
-        print("getLocationName() called")
+    typealias GetPlacemarkCompletionHandler = (CLPlacemark?, Error?) -> Void
+    
+    func getLocationPlacemark(completionHandler completion: @escaping GetPlacemarkCompletionHandler) {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.startUpdatingLocation()
         let geocoder = CLGeocoder()
         guard let location = CLLocationManager().location else { return }
         geocoder.reverseGeocodeLocation(location) { placemarks, error in
             guard error == nil else {
                 print("Oops")
+                completion(nil, DarkSkyError.cannotGetLocation)
                 return
             }
-
+            if let placemarks = placemarks {
+                completion(placemarks.first, nil)
+            }
+            // probably will need to delete this conditional once I get the completion block working.
             if let firstPlacemark = placemarks?.first?.locality {
+                print(firstPlacemark)
                 self.locationName = firstPlacemark
+                
             }
         }
     }
+    
+    func getLocationName(completionHandler completion: @escaping (String?, Error?) -> Void) {
+        getLocationPlacemark() { placemark, error in
+            print("getLocationName() called")
+            completion(placemark?.locality, error)
+        }
+        
+    }
+
 }

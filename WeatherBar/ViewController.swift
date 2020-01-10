@@ -27,7 +27,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var darkSkyLink: NSTextField!
     
     
-    let bgColor = NSColor.systemOrange
+    let bgColor = NSColor.systemGray
     
     var units: Int = 0
     
@@ -43,14 +43,15 @@ class ViewController: NSViewController {
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        setUpInterface()
+        
         let defaults = UserDefaults.standard
         
         units = defaults.integer(forKey: "units")
         unitControl.selectedSegment = units
-        
         updateData()
-        setUpInterface()
+        
     }
     
     override var representedObject: Any? {
@@ -61,11 +62,15 @@ class ViewController: NSViewController {
     
     //MARK: SET UP GENERAL APPEARANCE
     func setUpInterface() {
+
+        displayLocationName()
+        
         view.translatesAutoresizingMaskIntoConstraints = false
         
         // Set Location Name Title
-        titleLabel.stringValue = locationClient.locationName
         
+        titleLabel.stringValue = locationClient.locationName
+        print("LOCATION NAME: ", locationClient.locationName)
         // Sets background of view to orange
         self.view.wantsLayer = true
         self.view.layer?.backgroundColor = bgColor.cgColor
@@ -97,6 +102,16 @@ class ViewController: NSViewController {
             if let currentWeather = currentWeather {
                 let viewModel = CurrentWeatherViewModel(model: currentWeather)
                 self.updateCurrentDisplay(using: viewModel)
+            }
+        }
+    }
+    
+    func displayLocationName() {
+        print("displayLocationName() called")
+        locationClient.getLocationName(){ placemark, error in
+            if let placemark = placemark {
+                print(placemark)
+                self.titleLabel.stringValue = placemark
             }
         }
     }
