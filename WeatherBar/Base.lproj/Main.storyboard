@@ -900,8 +900,10 @@
                     </view>
                     <connections>
                         <outlet property="darkSkyLink" destination="Fgo-fL-DTk" id="L6a-96-Xdq"/>
+                        <outlet property="humidityLabel" destination="cGd-EZ-hAG" id="p6Z-Ul-Tw8"/>
                         <outlet property="humidityValue" destination="D4y-np-Kfa" id="ekh-Zg-6KO"/>
                         <outlet property="icon" destination="shu-a7-8b7" id="Nt2-HW-XuD"/>
+                        <outlet property="precipLabel" destination="q0Q-QH-0w6" id="Wjc-Oq-94l"/>
                         <outlet property="precipValue" destination="Jl4-gP-WCc" id="kb5-Sc-pWX"/>
                         <outlet property="quit" destination="Lgl-fP-D0c" id="HmZ-gg-trZ"/>
                         <outlet property="refresh" destination="Uee-O6-IFf" id="Lmr-30-8en"/>
@@ -909,6 +911,7 @@
                         <outlet property="temperature" destination="HnF-bh-CGa" id="6WD-Qk-Zva"/>
                         <outlet property="titleLabel" destination="QSH-6n-54T" id="jPM-kz-2ue"/>
                         <outlet property="unitControl" destination="mMp-GW-lKU" id="lyD-AB-RTG"/>
+                        <outlet property="windSpeedLabel" destination="8zx-43-pmj" id="Qoe-tW-ydW"/>
                         <outlet property="windSpeedValue" destination="f0w-RT-KF8" id="WKE-49-E8t"/>
                     </connections>
                 </viewController>

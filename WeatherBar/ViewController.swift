@@ -18,13 +18,17 @@ class ViewController: NSViewController {
     @IBOutlet weak var temperature: NSTextField!
     @IBOutlet weak var summary: NSTextField!
     @IBOutlet weak var precipValue: NSTextField!
+    @IBOutlet weak var precipLabel: NSTextField!
     @IBOutlet weak var humidityValue: NSTextField!
+    @IBOutlet weak var humidityLabel: NSTextField!
     @IBOutlet weak var windSpeedValue: NSTextField!
+    @IBOutlet weak var windSpeedLabel: NSTextField!
     @IBOutlet weak var titleLabel: NSTextField!
     @IBOutlet weak var unitControl: NSSegmentedControl!
     @IBOutlet weak var refresh: NSButton!
     @IBOutlet weak var quit: NSButton!
     @IBOutlet weak var darkSkyLink: NSTextField!
+    
     
     
     let bgColor = NSColor.systemGray
@@ -70,8 +74,10 @@ class ViewController: NSViewController {
         // Set Location Name Title
         
         titleLabel.stringValue = locationClient.locationName
+        titleLabel.textColor = NSColor.textColor
         print("LOCATION NAME: ", locationClient.locationName)
-        // Sets background of view to orange
+        
+        // Sets background color
         self.view.wantsLayer = true
         self.view.layer?.backgroundColor = bgColor.cgColor
         
@@ -79,6 +85,10 @@ class ViewController: NSViewController {
         refresh.image = NSImage(named: "NSRefreshTemplate")
         unitControl.setLabel("ºC", forSegment: 0)
         unitControl.setLabel("ºF", forSegment: 1)
+        precipLabel.textColor = NSColor.tertiaryLabelColor
+        humidityLabel.textColor = NSColor.tertiaryLabelColor
+        windSpeedLabel.textColor = NSColor.tertiaryLabelColor
+        
         
         // TODO: Fix the DarkSky text looking strange when clicked
         let attributes: [NSAttributedString.Key: Any] = [
