@@ -29,9 +29,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var quit: NSButton!
     @IBOutlet weak var darkSkyLink: NSTextField!
     
-    
-    
-    let bgColor = NSColor.systemGray
+//    let bgColor = NSColor.systemGray
     
     var units: Int = 0
     
@@ -79,15 +77,15 @@ class ViewController: NSViewController {
         
         // Sets background color
         self.view.wantsLayer = true
-        self.view.layer?.backgroundColor = bgColor.cgColor
+
         
         // Set button titles
         refresh.image = NSImage(named: "NSRefreshTemplate")
         unitControl.setLabel("ºC", forSegment: 0)
         unitControl.setLabel("ºF", forSegment: 1)
-        precipLabel.textColor = NSColor.tertiaryLabelColor
-        humidityLabel.textColor = NSColor.tertiaryLabelColor
-        windSpeedLabel.textColor = NSColor.tertiaryLabelColor
+		precipLabel.textColor = NSColor.textColor
+		humidityLabel.textColor = NSColor.textColor
+		windSpeedLabel.textColor = NSColor.textColor
         
         
         // TODO: Fix the DarkSky text looking strange when clicked
