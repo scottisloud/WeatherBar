@@ -22,7 +22,7 @@ class Location: NSObject, CLLocationManagerDelegate {
     var lat: Double = 0.0
     var long: Double = 0.0
     var coordString: String
-    var locationName: String = "" // FIXME: The locationName property is not being correclty set by the getLocation() method, nor was it being set correctly when broken out to its own getLocationName() method.
+    var locationName: String = "" 
     
     override init() {
         coordString = "\(self.lat),\(self.long)"
