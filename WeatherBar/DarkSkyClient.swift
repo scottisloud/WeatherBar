@@ -39,14 +39,14 @@ class DarkSkyClient {
     ///   - units: An integer of 0, which denotes celcius, or 1, denoting F. Presently determined by userDefaults/segmented controller. Used to set the units flag on the API request
     ///   - completion: completion handler to pass parsed json data to whatever method is calling this function.
     func fetchData(at location: String, units: Int, completionHandler completion: @escaping FetchWeatherDataCompletionHandler ) {
-        var symbol = ""
+        var unitsFlag = ""
         if units == 0 {
-            symbol = "?units=ca"
+            unitsFlag = "?units=ca"
         } else {
-            symbol = "?units=us"
+            unitsFlag = "?units=us"
         }
         
-        guard let dataUrl = URL(string: "\(location)\(symbol)", relativeTo: baseUrl) else {
+        guard let dataUrl = URL(string: "\(location)\(unitsFlag)", relativeTo: baseUrl) else {
             completion(nil, DarkSkyError.invalidURL)
             print("fetachData() failed to make dataUrl ")
             return

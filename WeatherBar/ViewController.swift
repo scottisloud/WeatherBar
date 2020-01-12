@@ -45,14 +45,11 @@ class ViewController: NSViewController {
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setUpInterface()
-        
         let defaults = UserDefaults.standard
-        
         units = defaults.integer(forKey: "units")
         unitControl.selectedSegment = units
         updateData()
+        setUpInterface()
         
     }
     
@@ -76,7 +73,7 @@ class ViewController: NSViewController {
         print("LOCATION NAME: ", locationClient.locationName)
         
         // Sets background color
-        self.view.wantsLayer = true
+//        self.view.wantsLayer = true
 
         
         // Set button titles
@@ -104,6 +101,7 @@ class ViewController: NSViewController {
     
     
     func updateData() {
+        print("updateData() called")
 
         client.getCurrentWeather(at: locationClient.getLocation().locString, units: units) { currentWeather, error in
             
@@ -125,11 +123,13 @@ class ViewController: NSViewController {
     }
     
     func updateCurrentDisplay(using viewModel: CurrentWeatherViewModel) {
+        print("updateCurrentDisplay() called")
         temperature.stringValue = viewModel.temperature
         summary.stringValue = viewModel.summary
         precipValue.stringValue = viewModel.precipProb
         windSpeedValue.stringValue = viewModel.windSpeed
         humidityValue.stringValue = viewModel.humidity
+        icon.image = viewModel.icon
         
     }
     
