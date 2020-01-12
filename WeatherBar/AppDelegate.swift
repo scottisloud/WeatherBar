@@ -22,6 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 button.image?.size = NSMakeSize(36.0, 36.0)
                 button.action = #selector(showWindow)
         }
+        
     }
     
     // Displays the main application window as a popup from the menu bar when clicked by the user

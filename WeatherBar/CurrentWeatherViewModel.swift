@@ -20,14 +20,17 @@ struct CurrentWeatherViewModel {
     
     init(model: CurrentWeather) {
         
-        var displayUnits = "C"
         let roundedTemperature = Int(model.temperature)
-        let defaults = UserDefaults.standard
-        let units = defaults.integer(forKey: "units")
-        if units == 1 {
-            displayUnits = "F"
+        let units = UserDefaults.standard.integer(forKey: "units")
+        print("weatherModel units: ", units)
+        switch units {
+        case 0:
+            self.temperature = "\(roundedTemperature)ºC"
+        case 1:
+            self.temperature = "\(roundedTemperature)ºF"
+        default:
+            self.temperature = "\(roundedTemperature)ºC"
         }
-        self.temperature = "\(roundedTemperature)º \(displayUnits)"
         
         let humidityPercentValue = Int(model.humidity * 100)
         self.humidity = "\(humidityPercentValue)%"
@@ -36,7 +39,15 @@ struct CurrentWeatherViewModel {
         self.precipProb = "\(precipitationPercentValue)%"
         
         let windSpeedValue = Int(model.windSpeed)
-        self.windSpeed = "\(windSpeedValue)"
+        
+        switch units {
+        case 0:
+            self.windSpeed = "\(windSpeedValue) kph"
+        case 1:
+            self.windSpeed = "\(windSpeedValue) mph"
+        default:
+            self.windSpeed = "\(windSpeedValue) kph"
+        }
         
         self.summary = model.summary
         

@@ -28,10 +28,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var refresh: NSButton!
     @IBOutlet weak var quit: NSButton!
     @IBOutlet weak var darkSkyLink: NSTextField!
-    
-//    let bgColor = NSColor.systemGray
-    
-    var units: Int = 0
+        
     
     // MARK: API-related objects
     fileprivate let darkSkyApiKey = "960281f5a5cd1551f2f0446c79928e58"
@@ -42,15 +39,29 @@ class ViewController: NSViewController {
     let client = DarkSkyClient()
     let locationClient = Location()
     
+    
+    
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        
+        let defaults = UserDefaults.standard
+        let units = defaults.integer(forKey: "units")
+        
+        unitControl.selectedSegment = units
+    }
+    
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        let defaults = UserDefaults.standard
-        units = defaults.integer(forKey: "units")
-        unitControl.selectedSegment = units
+        print("viewDidLoad(): ", UserDefaults.standard.integer(forKey: "units"))
         updateData()
         setUpInterface()
         
+    }
+    
+    override func viewWillDisappear() {
+        super.viewWillDisappear()
     }
     
     override var representedObject: Any? {
@@ -61,7 +72,6 @@ class ViewController: NSViewController {
     
     //MARK: SET UP GENERAL APPEARANCE
     func setUpInterface() {
-
         displayLocationName()
         
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -72,8 +82,6 @@ class ViewController: NSViewController {
         titleLabel.textColor = NSColor.textColor
         print("LOCATION NAME: ", locationClient.locationName)
         
-        // Sets background color
-//        self.view.wantsLayer = true
 
         
         // Set button titles
@@ -102,8 +110,8 @@ class ViewController: NSViewController {
     
     func updateData() {
         print("updateData() called")
-
-        client.getCurrentWeather(at: locationClient.getLocation().locString, units: units) { currentWeather, error in
+        print("updateData(): ", UserDefaults.standard.integer(forKey: "units"))
+        client.getCurrentWeather(at: locationClient.getLocation().locString, units: UserDefaults.standard.integer(forKey: "units")) { currentWeather, error in
             
             if let currentWeather = currentWeather {
                 let viewModel = CurrentWeatherViewModel(model: currentWeather)
@@ -114,6 +122,7 @@ class ViewController: NSViewController {
     
     func displayLocationName() {
         print("displayLocationName() called")
+        
         locationClient.getLocationName(){ placemark, error in
             if let placemark = placemark {
                 print(placemark)
@@ -134,8 +143,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func selectUnits(_ sender: NSSegmentedControl) {
-        let defaults = UserDefaults.standard
-        defaults.set(unitControl.selectedSegment, forKey: "units")
+        UserDefaults.standard.set(unitControl.selectedSegment, forKey: "units")
         updateData()
     }
     

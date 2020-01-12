@@ -831,18 +831,6 @@
                                     <action selector="refreshClicked:" target="cEr-Ua-1N6" id="6NF-Yo-Xmj"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="259" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HnF-bh-CGa">
-                                <rect key="frame" x="34" y="74" width="125" height="71"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="71" id="Et2-5v-eHL"/>
-                                    <constraint firstAttribute="width" constant="125" id="M2n-d5-0Xy"/>
-                                </constraints>
-                                <textFieldCell key="cell" alignment="center" placeholderString="--" drawsBackground="YES" id="ksn-cN-Ut8">
-                                    <font key="font" metaFont="systemLight" size="60"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                </textFieldCell>
-                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bO2-Ck-HRU">
                                 <rect key="frame" x="208" y="143" width="74" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="SUMMARY" placeholderString="ConditionSummary" drawsBackground="YES" id="Ded-NI-zOk">
@@ -871,10 +859,22 @@
                                     <action selector="darkSkyClicked:" target="cEr-Ua-1N6" id="wGA-BV-n9S"/>
                                 </connections>
                             </textField>
+                            <textField horizontalHuggingPriority="259" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HnF-bh-CGa">
+                                <rect key="frame" x="20" y="72" width="140" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="Et2-5v-eHL"/>
+                                    <constraint firstAttribute="width" constant="140" id="M2n-d5-0Xy"/>
+                                </constraints>
+                                <textFieldCell key="cell" alignment="center" placeholderString="--" drawsBackground="YES" id="ksn-cN-Ut8">
+                                    <font key="font" metaFont="systemLight" size="60"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fgo-fL-DTk" secondAttribute="trailing" id="13Q-Hb-YOh"/>
-                            <constraint firstItem="shu-a7-8b7" firstAttribute="centerX" secondItem="HnF-bh-CGa" secondAttribute="centerX" id="2OM-9R-VaN"/>
+                            <constraint firstItem="shu-a7-8b7" firstAttribute="centerX" secondItem="HnF-bh-CGa" secondAttribute="centerX" constant="6.5" id="2OM-9R-VaN"/>
                             <constraint firstItem="Lgl-fP-D0c" firstAttribute="leading" secondItem="mMp-GW-lKU" secondAttribute="trailing" constant="122" id="3XT-j7-EUq"/>
                             <constraint firstAttribute="bottom" secondItem="Fgo-fL-DTk" secondAttribute="bottom" id="3uC-Iz-67N"/>
                             <constraint firstItem="bO2-Ck-HRU" firstAttribute="centerY" secondItem="Txc-aw-Oif" secondAttribute="centerY" id="6gP-i8-hEJ"/>
@@ -884,8 +884,8 @@
                             <constraint firstAttribute="bottom" secondItem="Uee-O6-IFf" secondAttribute="bottom" constant="20" symbolic="YES" id="DjZ-QG-AoF"/>
                             <constraint firstItem="shu-a7-8b7" firstAttribute="leading" secondItem="wTe-y0-saM" secondAttribute="leading" constant="46" id="Kff-La-Tvk"/>
                             <constraint firstItem="shu-a7-8b7" firstAttribute="top" secondItem="wTe-y0-saM" secondAttribute="top" constant="42" id="Mmg-Lb-5Lf"/>
-                            <constraint firstItem="HnF-bh-CGa" firstAttribute="leading" secondItem="wTe-y0-saM" secondAttribute="leading" constant="34" id="Pn8-D0-Yhx"/>
-                            <constraint firstAttribute="bottom" secondItem="HnF-bh-CGa" secondAttribute="bottom" constant="74" id="RN8-i8-NpM"/>
+                            <constraint firstItem="HnF-bh-CGa" firstAttribute="leading" secondItem="wTe-y0-saM" secondAttribute="leading" constant="20" id="Pn8-D0-Yhx"/>
+                            <constraint firstAttribute="bottom" secondItem="HnF-bh-CGa" secondAttribute="bottom" constant="72" id="RN8-i8-NpM"/>
                             <constraint firstItem="Txc-aw-Oif" firstAttribute="trailing" secondItem="Lgl-fP-D0c" secondAttribute="trailing" id="YPQ-io-Sth"/>
                             <constraint firstItem="Lgl-fP-D0c" firstAttribute="top" secondItem="Txc-aw-Oif" secondAttribute="bottom" constant="26" id="cHv-28-EdC"/>
                             <constraint firstItem="Uee-O6-IFf" firstAttribute="top" secondItem="mMp-GW-lKU" secondAttribute="top" id="dN6-ou-O09"/>
