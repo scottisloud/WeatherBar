@@ -39,9 +39,6 @@ class ViewController: NSViewController {
     let client = DarkSkyClient()
     let locationClient = Location()
     
-    
-    
-    
     override func viewWillAppear() {
         super.viewWillAppear()
         
@@ -54,7 +51,7 @@ class ViewController: NSViewController {
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad(): ", UserDefaults.standard.integer(forKey: "units"))
+        
         updateData()
         setUpInterface()
         
@@ -80,9 +77,7 @@ class ViewController: NSViewController {
         
         titleLabel.stringValue = locationClient.locationName
         titleLabel.textColor = NSColor.textColor
-        print("LOCATION NAME: ", locationClient.locationName)
         
-
         
         // Set button titles
         refresh.image = NSImage(named: "NSRefreshTemplate")
@@ -91,9 +86,8 @@ class ViewController: NSViewController {
 		precipLabel.textColor = NSColor.textColor
 		humidityLabel.textColor = NSColor.textColor
 		windSpeedLabel.textColor = NSColor.textColor
-        
-        
-        // TODO: Fix the DarkSky text looking strange when clicked
+                
+        // FIXME: Fix the DarkSky text looking strange when clicked
         let attributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.foregroundColor: NSColor.linkColor,
             NSAttributedString.Key.link: NSURL(string: "https://darksky.net/poweredby/")!
@@ -109,8 +103,6 @@ class ViewController: NSViewController {
     
     
     func updateData() {
-        print("updateData() called")
-        print("updateData(): ", UserDefaults.standard.integer(forKey: "units"))
         client.getCurrentWeather(at: locationClient.getLocation().locString, units: UserDefaults.standard.integer(forKey: "units")) { currentWeather, error in
             
             if let currentWeather = currentWeather {
@@ -121,18 +113,14 @@ class ViewController: NSViewController {
     }
     
     func displayLocationName() {
-        print("displayLocationName() called")
-        
         locationClient.getLocationName(){ placemark, error in
             if let placemark = placemark {
-                print(placemark)
                 self.titleLabel.stringValue = placemark
             }
         }
     }
     
     func updateCurrentDisplay(using viewModel: CurrentWeatherViewModel) {
-        print("updateCurrentDisplay() called")
         temperature.stringValue = viewModel.temperature
         summary.stringValue = viewModel.summary
         precipValue.stringValue = viewModel.precipProb
@@ -148,6 +136,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func refreshClicked(_ sender: NSButton) {
+        
         updateData()
     }
     

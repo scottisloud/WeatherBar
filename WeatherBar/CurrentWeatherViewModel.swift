@@ -22,7 +22,7 @@ struct CurrentWeatherViewModel {
         
         let roundedTemperature = Int(model.temperature)
         let units = UserDefaults.standard.integer(forKey: "units")
-        print("weatherModel units: ", units)
+        
         switch units {
         case 0:
             self.temperature = "\(roundedTemperature)ºC"

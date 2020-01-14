@@ -56,7 +56,6 @@ class DarkSkyClient {
         let request = URLRequest(url: dataUrl)
         
         let task = session.dataTask(with: request) { data, response, error in
-            print("REQUEST", request)
             DispatchQueue.main.async {
                 if let data = data {
                     guard let httpResponse = response as? HTTPURLResponse else {

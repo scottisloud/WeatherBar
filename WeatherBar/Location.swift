@@ -22,16 +22,15 @@ class Location: NSObject, CLLocationManagerDelegate {
     var lat: Double = 0.0
     var long: Double = 0.0
     var coordString: String
-    var locationName: String = "" 
+    var locationName: String = ""
+    var userCurrentLocation: CLLocation?
     
     override init() {
         coordString = "\(self.lat),\(self.long)"
-        
     }
     
     // MARK: GET USER LOCATION
     func getLocation() -> (lat: Double, long: Double, locString: String) {
-        print("GET LOCATION CALLED")
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
@@ -39,6 +38,7 @@ class Location: NSObject, CLLocationManagerDelegate {
             
             lat = locationManager.location?.coordinate.latitude ?? 0.0
             long = locationManager.location?.coordinate.longitude ?? 0.0
+            userCurrentLocation = locationManager.location
             
             print("Location services enabled!")
             print("\(lat),\(long)")
@@ -60,7 +60,6 @@ class Location: NSObject, CLLocationManagerDelegate {
         guard let location = CLLocationManager().location else { return }
         geocoder.reverseGeocodeLocation(location) { placemarks, error in
             guard error == nil else {
-                print("Oops")
                 completion(nil, DarkSkyError.cannotGetLocation)
                 return
             }
@@ -69,7 +68,6 @@ class Location: NSObject, CLLocationManagerDelegate {
             }
             // probably will need to delete this conditional once I get the completion block working.
             if let firstPlacemark = placemarks?.first?.locality {
-                print(firstPlacemark)
                 self.locationName = firstPlacemark
                 
             }
@@ -78,10 +76,7 @@ class Location: NSObject, CLLocationManagerDelegate {
     
     func getLocationName(completionHandler completion: @escaping (String?, Error?) -> Void) {
         getLocationPlacemark() { placemark, error in
-            print("getLocationName() called")
             completion(placemark?.locality, error)
         }
-        
     }
-
 }
