@@ -12,8 +12,8 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-    let mainVC = ViewController()
-
+    let mainVC = TabViewController()
+    
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create status/menu bar item called Weather. CLicking the menu bar item calls showWindow(_:) which displays the main view controller.
@@ -23,12 +23,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 button.action = #selector(showWindow)
         }
         
+        
     }
     
     // Displays the main application window as a popup from the menu bar when clicked by the user
     @objc func showWindow(_ sender: NSStatusItem) {
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        guard let vc = storyboard.instantiateController(withIdentifier: "MainViewController") as? ViewController else { return }
+        guard let vc = storyboard.instantiateController(withIdentifier: "MainViewController") as? TabViewController else { return }
         let popoverView = NSPopover()
         NSApplication.shared.activate(ignoringOtherApps: true)
         

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -91,10 +91,64 @@
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
-        <!--View Controller-->
+        <!--Tab View Controller-->
+        <scene sceneID="u1S-1g-NE4">
+            <objects>
+                <tabViewController storyboardIdentifier="MainViewController" selectedTabViewItemIndex="0" id="ATW-tF-Lzd" customClass="TabViewController" customModule="WeatherBar" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabViewItems>
+                        <tabViewItem id="mPh-We-Jpr"/>
+                        <tabViewItem identifier="" id="ubp-fF-sSQ"/>
+                        <tabViewItem identifier="" id="jqo-2L-MJb"/>
+                    </tabViewItems>
+                    <tabView key="tabView" type="noTabsNoBorder" id="Pfr-qS-eOh">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <font key="font" metaFont="system"/>
+                        <connections>
+                            <outlet property="delegate" destination="ATW-tF-Lzd" id="pVR-lJ-aOV"/>
+                        </connections>
+                    </tabView>
+                    <connections>
+                        <outlet property="tabView" destination="Pfr-qS-eOh" id="oq7-Hg-F4c"/>
+                        <segue destination="cEr-Ua-1N6" kind="relationship" relationship="tabItems" id="URE-2M-jW2"/>
+                        <segue destination="hKA-Wi-wGp" kind="relationship" relationship="tabItems" id="K7O-SI-zBk"/>
+                        <segue destination="UGh-J4-rxu" kind="relationship" relationship="tabItems" id="1k2-hH-VEo"/>
+                    </connections>
+                </tabViewController>
+                <customObject id="pWS-Jn-hRD" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-654" y="823"/>
+        </scene>
+        <!--Forecast View Controller-->
+        <scene sceneID="mco-nm-47E">
+            <objects>
+                <viewController id="hKA-Wi-wGp" customClass="ForecastViewController" customModule="WeatherBar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Yyh-HA-EBM">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="Oou-Bz-mc1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="249" y="823"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="kjM-ze-7gg">
+            <objects>
+                <viewController id="UGh-J4-rxu" customClass="SettingsViewController" customModule="WeatherBar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="wq5-dq-575">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="rqz-mI-3mC" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="249" y="1295"/>
+        </scene>
+        <!--Current View Controller-->
         <scene sceneID="ARE-0I-Sse">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="cEr-Ua-1N6" customClass="ViewController" customModule="WeatherBar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CurrentViewController" id="cEr-Ua-1N6" customClass="CurrentViewController" customModule="WeatherBar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" focusRingType="none" id="wTe-y0-saM">
                         <rect key="frame" x="0.0" y="0.0" width="490" height="293"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -325,7 +379,7 @@
                 </viewController>
                 <customObject id="Fb2-8j-biK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="80" y="295"/>
+            <point key="canvasLocation" x="229" y="397.5"/>
         </scene>
     </scenes>
 </document>
