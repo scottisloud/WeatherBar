@@ -16,6 +16,8 @@ class CurrentViewController: NSViewController {
     // MARK: Interface-related constants
     @IBOutlet weak var icon: NSImageView!
     @IBOutlet weak var temperature: NSTextField!
+    @IBOutlet weak var highLabel: NSTextField!
+    @IBOutlet weak var lowLabel: NSTextField!
     @IBOutlet weak var summary: NSTextField!
     @IBOutlet weak var precipValue: NSTextField!
     @IBOutlet weak var precipLabel: NSTextField!
@@ -24,27 +26,24 @@ class CurrentViewController: NSViewController {
     @IBOutlet weak var windSpeedValue: NSTextField!
     @IBOutlet weak var windSpeedLabel: NSTextField!
     @IBOutlet weak var titleLabel: NSTextField!
-    @IBOutlet weak var unitControl: NSSegmentedControl!
-    @IBOutlet weak var refresh: NSButton!
-    @IBOutlet weak var quit: NSButton!
-    @IBOutlet weak var darkSkyLink: NSTextField!
     
     let client = DarkSkyClient()
     let locationClient = Location()
-    
+    var userLocation: (Double, Double, String)?
     
     override func viewWillAppear() {
+        
         super.viewWillAppear()
-        let defaults = UserDefaults.standard
-        let units = defaults.integer(forKey: "units")
-        unitControl.selectedSegment = units
+        print("viewWillAppear")
+
     }
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "Current"
- 
+        
         updateData()
         setUpInterface()
         
@@ -73,30 +72,23 @@ class CurrentViewController: NSViewController {
         
         
         // Set button titles
-        refresh.image = NSImage(named: "NSRefreshTemplate")
-        unitControl.setLabel("ºC", forSegment: 0)
-        unitControl.setLabel("ºF", forSegment: 1)
-		precipLabel.textColor = NSColor.textColor
-		humidityLabel.textColor = NSColor.textColor
-		windSpeedLabel.textColor = NSColor.textColor
-                
-        // FIXME: Fix the DarkSky text looking strange when clicked
-        let attributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: NSColor.linkColor,
-            NSAttributedString.Key.link: NSURL(string: "https://darksky.net/poweredby/")!
-        ]
+//        refresh.image = NSImage(named: "NSRefreshTemplate")
         
-        let darkSkyAttributedString = NSMutableAttributedString(string: "Powered by DarkSky", attributes: attributes)
-        darkSkyLink.isSelectable = true
-        darkSkyLink.allowsEditingTextAttributes = true
-        darkSkyLink.attributedStringValue = darkSkyAttributedString
+        precipLabel.textColor = NSColor.textColor
+        humidityLabel.textColor = NSColor.textColor
+        windSpeedLabel.textColor = NSColor.textColor
         
-        quit.title = "Quit"
+        //TEMPORARY
+        highLabel.stringValue = "High: 100º"
+        lowLabel.stringValue = "Low: -19º"
+        
+        
     }
     
     
     func updateData() {
         displayLocationName()
+        
         client.getCurrentWeather(at: locationClient.getLocation().locString, units: UserDefaults.standard.integer(forKey: "units")) { currentWeather, error in
             
             if let currentWeather = currentWeather {
@@ -125,20 +117,13 @@ class CurrentViewController: NSViewController {
         
     }
     
-    @IBAction func selectUnits(_ sender: NSSegmentedControl) {
-        UserDefaults.standard.set(unitControl.selectedSegment, forKey: "units")
-        updateData()
-        print("Selected Units Pressed")
-    }
+    
     
     @IBAction func refreshClicked(_ sender: NSButton) {
-        
         updateData()
     }
-
-    @IBAction func quitClicked(_ sender: NSButton) {
-        NSApplication.shared.terminate(self)
-    }
+    
+    
 }
 
 

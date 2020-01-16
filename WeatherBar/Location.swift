@@ -27,6 +27,7 @@ class Location: NSObject, CLLocationManagerDelegate {
     
     override init() {
         coordString = "\(self.lat),\(self.long)"
+        
     }
     
     // MARK: GET USER LOCATION
