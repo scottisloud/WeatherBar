@@ -78,7 +78,7 @@ class CurrentViewController: NSViewController {
         humidityLabel.textColor = NSColor.textColor
         windSpeedLabel.textColor = NSColor.textColor
         
-        //TEMPORARY
+        //FIXME: TEMPORARY VALUES HERE. Need to connect to Daily data in WeatherData.swift.
         highLabel.stringValue = "High: 100º"
         lowLabel.stringValue = "Low: -19º"
         
