@@ -27,10 +27,12 @@ class Location: NSObject, CLLocationManagerDelegate {
     
     override init() {
         coordString = "\(self.lat),\(self.long)"
+        
     }
     
     // MARK: GET USER LOCATION
     func getLocation() -> (lat: Double, long: Double, locString: String) {
+        print("getLocation() called")
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
@@ -53,6 +55,7 @@ class Location: NSObject, CLLocationManagerDelegate {
     typealias GetPlacemarkCompletionHandler = (CLPlacemark?, Error?) -> Void
     
     func getLocationPlacemark(completionHandler completion: @escaping GetPlacemarkCompletionHandler) {
+        print("getLocationPlacemark() called")
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         locationManager.startUpdatingLocation()
@@ -66,15 +69,11 @@ class Location: NSObject, CLLocationManagerDelegate {
             if let placemarks = placemarks {
                 completion(placemarks.first, nil)
             }
-            // probably will need to delete this conditional once I get the completion block working.
-            if let firstPlacemark = placemarks?.first?.locality {
-                self.locationName = firstPlacemark
-                
-            }
         }
     }
     
     func getLocationName(completionHandler completion: @escaping (String?, Error?) -> Void) {
+        print("getLocationName() called")
         getLocationPlacemark() { placemark, error in
             completion(placemark?.locality, error)
         }
