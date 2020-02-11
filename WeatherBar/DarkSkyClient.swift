@@ -32,11 +32,14 @@ class DarkSkyClient {
     typealias FetchWeatherDataCompletionHandler = (Weather?, Error?) -> Void
     typealias GetCurrentWeatherCompletionHandler = (CurrentWeather?, Error?) -> Void
     
-    //MARK: CONNECT TO API AND RETRIEVE DATA
+    typealias GetDailyWeatherCompletionHandler = (DailyWeather?, Error?) -> Void
+    
+    //MARK:- CONNECT TO API AND RETRIEVE DATA
     /// Opens a URL session to retrieve the JSON feed from the DarkSky API. Constructs a URL using a string contaiing the latitude and logitude, as well as the units flag for C or Fº
     /// - Parameters:
     ///   - location: User's current location passed as a string concatenating the lat and long as "lat,long"
-    ///   - units: An integer of 0, which denotes celcius, or 1, denoting F. Presently determined by userDefaults/segmented controller. Used to set the units flag on the API request
+    ///   - units: An integer of 0, which denotes celcius, or 1, denoting F.
+    ///            Presently determined by userDefaults/segmented controller. Used to set the units flag on the API request
     ///   - completion: completion handler to pass parsed json data to whatever method is calling this function.
     func fetchData(at location: String, units: Int, completionHandler completion: @escaping FetchWeatherDataCompletionHandler ) {
         var unitsFlag = ""
@@ -85,6 +88,12 @@ class DarkSkyClient {
     func getCurrentWeather(at location: String, units: Int, completionHandler completion: @escaping GetCurrentWeatherCompletionHandler) {
         fetchData(at: location, units: units) { weather, error in
             completion(weather?.currently, error)
+        }
+    }
+    
+    func getDailyWeather(at location: String, units: Int, completionHandler completion: @escaping GetDailyWeatherCompletionHandler) {
+        fetchData(at: location, units: units) { weather, error in
+            completion(weather?.daily, error)
         }
     }
 }

@@ -119,7 +119,7 @@ class CurrentViewController: NSViewController {
     
     
     
-    @IBAction func refreshClicked(_ sender: NSButton) {
+    @IBAction func refreshClicked(_ sender: Any) {
         updateData()
     }
     
