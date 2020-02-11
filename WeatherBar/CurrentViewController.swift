@@ -35,6 +35,9 @@ class CurrentViewController: NSViewController {
         
         super.viewWillAppear()
         print("viewWillAppear")
+        
+        // TODO: - Write conditional (using notificaitons?) to ensure that this only fetches new data if the settings have changed, or only if coming from the SettingsViewController (whichever is easier to implement).
+        updateData()
 
     }
     
@@ -46,7 +49,7 @@ class CurrentViewController: NSViewController {
         
         updateData()
         setUpInterface()
-        
+        print(UserDefaults.standard.integer(forKey: "units"))
     }
     
     override func viewWillDisappear() {
@@ -90,7 +93,7 @@ class CurrentViewController: NSViewController {
         displayLocationName()
         
         client.getCurrentWeather(at: locationClient.getLocation().locString, units: UserDefaults.standard.integer(forKey: "units")) { currentWeather, error in
-            
+        
             if let currentWeather = currentWeather {
                 let viewModel = CurrentWeatherViewModel(model: currentWeather)
                 self.updateCurrentDisplay(using: viewModel)
@@ -115,6 +118,7 @@ class CurrentViewController: NSViewController {
         humidityValue.stringValue = viewModel.humidity
         icon.image = viewModel.icon
         
+        print(UserDefaults.standard.integer(forKey: "units"))
     }
     
     

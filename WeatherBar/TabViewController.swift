@@ -24,7 +24,8 @@ class TabViewController: NSTabViewController {
         super.viewDidLoad()
         self.selectedTabViewItemIndex = 0
         self.tabView.tabViewItems[0].label = "Current"
-        self.tabView.tabViewItems[1].label = "Settings"
+        self.tabView.tabViewItems[1].label = "Forecast"
+        self.tabView.tabViewItems[2].label = "Settings"
         
 
         
