@@ -6,7 +6,6 @@
 //  Copyright © 2020 Scott Lougheed. All rights reserved.
 //
 import AppKit
-import Cocoa
 import CoreLocation
 import Foundation
 

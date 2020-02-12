@@ -75,7 +75,7 @@ class Location: NSObject, CLLocationManagerDelegate {
     func getLocationName(completionHandler completion: @escaping (String?, Error?) -> Void) {
         print("getLocationName() called")
         getLocationPlacemark() { placemark, error in
-            completion(placemark?.locality, error)
+            completion(placemark?.locality, DarkSkyError.cannotGetLocation)
         }
     }
 }

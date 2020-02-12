@@ -6,8 +6,9 @@
 //  Copyright © 2019 Scott Lougheed. All rights reserved.
 //
 
-import Foundation
 import AppKit
+import Foundation
+
 
 struct CurrentWeather: Codable {
     let temperature: Double

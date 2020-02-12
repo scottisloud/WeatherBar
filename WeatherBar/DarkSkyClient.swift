@@ -7,8 +7,9 @@
 //
 // lat/long of home: 40.435198, -86.907378
 
-import Foundation
 import AppKit
+import Foundation
+
 
 
 class DarkSkyClient {

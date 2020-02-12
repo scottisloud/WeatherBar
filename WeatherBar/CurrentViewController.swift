@@ -8,7 +8,7 @@
 
 // API Key: "960281f5a5cd1551f2f0446c79928e58"
 
-import Cocoa
+import AppKit
 import CoreLocation
 
 class CurrentViewController: NSViewController {
@@ -47,7 +47,7 @@ class CurrentViewController: NSViewController {
         
         updateData()
         setUpInterface()
-        print(UserDefaults.standard.integer(forKey: "units"))
+        
     }
     
     override func viewWillDisappear() {
@@ -116,7 +116,7 @@ class CurrentViewController: NSViewController {
         humidityValue.stringValue = viewModel.humidity
         icon.image = viewModel.icon
         
-        print(UserDefaults.standard.integer(forKey: "units"))
+        
     }
     
     
