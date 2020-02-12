@@ -32,7 +32,7 @@ class DarkSkyClient {
     typealias FetchWeatherDataCompletionHandler = (Weather?, Error?) -> Void
     typealias GetCurrentWeatherCompletionHandler = (CurrentWeather?, Error?) -> Void
     
-    typealias GetDailyWeatherCompletionHandler = (DailyWeather?, Error?) -> Void
+    typealias GetDailyWeatherCompletionHandler = (DailyData?, Error?) -> Void
     
     //MARK:- CONNECT TO API AND RETRIEVE DATA
     /// Opens a URL session to retrieve the JSON feed from the DarkSky API. Constructs a URL using a string contaiing the latitude and logitude, as well as the units flag for C or Fº
@@ -94,6 +94,7 @@ class DarkSkyClient {
     func getDailyWeather(at location: String, units: Int, completionHandler completion: @escaping GetDailyWeatherCompletionHandler) {
         fetchData(at: location, units: units) { weather, error in
             completion(weather?.daily, error)
+            
         }
     }
 }

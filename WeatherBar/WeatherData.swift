@@ -20,6 +20,14 @@ struct CurrentWeather: Codable {
 }
 
 struct DailyData: Codable {
+    let summary: String
+    let icon: String
+    let data: [DailyWeather]
+    
+    
+}
+
+struct DailyWeather: Codable {
     let time: Int
     let summary: String
     let icon: String
@@ -48,12 +56,6 @@ struct DailyData: Codable {
     //    let apparentTemperatureMinTime: Int
     //    let apparentTemperatureMax: Double
     //    let apparentTemperatureMaxTime: Int
-}
-
-struct DailyWeather: Codable {
-    let summary: String
-    let icon: String
-    let data: [DailyData]
 }
 
 

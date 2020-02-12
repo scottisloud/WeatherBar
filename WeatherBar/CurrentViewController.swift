@@ -34,8 +34,6 @@ class CurrentViewController: NSViewController {
     override func viewWillAppear() {
         
         super.viewWillAppear()
-        print("viewWillAppear")
-        
         // TODO: - Write conditional (using notificaitons?) to ensure that this only fetches new data if the settings have changed, or only if coming from the SettingsViewController (whichever is easier to implement).
         updateData()
 

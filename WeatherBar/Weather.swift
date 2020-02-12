@@ -10,6 +10,6 @@ import Foundation
 
 struct Weather: Codable {
 	let currently: CurrentWeather
-    let daily: DailyWeather
+    let daily: DailyData
 //    let hourly: HourlyWeather
 }
