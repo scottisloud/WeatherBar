@@ -17,6 +17,9 @@ class ForecastViewController: NSViewController, NSTableViewDelegate, NSTableView
     var units = UserDefaults.standard.integer(forKey: "units")
     var dailyData: DailyData?
     
+    @IBOutlet var forecastTable: NSTableView!
+    
+    
     override func viewWillAppear() {
         super.viewWillAppear()
         print("VIEW WILL APPEAR")
@@ -28,8 +31,7 @@ class ForecastViewController: NSViewController, NSTableViewDelegate, NSTableView
         self.title = "Forecast"
         print("VIEW DID LOAD")
         updateData()
-        
-        print(dailyData)
+        forecastTable.reloadData()
     }
     
     
@@ -37,9 +39,8 @@ class ForecastViewController: NSViewController, NSTableViewDelegate, NSTableView
         client.getDailyWeather(at: locationClient.getLocation().locString, units: units) { dailyData, error in
             if let dailyData = dailyData {
                 self.dailyData = dailyData
-                for day in dailyData.data {
-                    print(day.summary, "\n")
-                }
+                print("data assignment succeeded")
+                self.forecastTable.reloadData()
             }
         }
     }
@@ -48,11 +49,29 @@ class ForecastViewController: NSViewController, NSTableViewDelegate, NSTableView
     func numberOfRows(in tableView: NSTableView) -> Int {
         if let data = dailyData?.data {
 
-            
+            print("got number of rows!")
             return data.count
         } else {
             print("problem getting number of rows")
             return 0
         }
     }
+    
+//    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+//        guard let data = dailyData?.data[row].summary else { return "error" }
+//        print(data)
+//        return data
+//    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        guard let vw = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: self) as? NSTableCellView else { return nil }
+
+        if let summary = dailyData?.data[row].summary {
+            print(summary)
+            print("assigning summary success!")
+            vw.textField?.stringValue = summary
+        }
+        return vw
+    }
+
 }

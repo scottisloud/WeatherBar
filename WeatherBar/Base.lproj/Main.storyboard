@@ -430,6 +430,9 @@
                             </scrollView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="forecastTable" destination="Y03-oV-ceD" id="lxp-9V-23O"/>
+                    </connections>
                 </viewController>
                 <customObject id="XYU-06-zFz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
