@@ -13,7 +13,7 @@ import Foundation
 class TabViewController: NSTabViewController {
     
     let currentViewController = CurrentViewController()
-    let forecastViewController = ForecastViewController()
+//    let forecastViewController = ForecastViewController()
     let settingsViewController = SettingsViewController()
 
     override func viewWillAppear() {
@@ -24,8 +24,7 @@ class TabViewController: NSTabViewController {
         super.viewDidLoad()
         self.selectedTabViewItemIndex = 0
         self.tabView.tabViewItems[0].label = "Current"
-        self.tabView.tabViewItems[1].label = "Forecast"
-        self.tabView.tabViewItems[2].label = "Settings"
+        self.tabView.tabViewItems[1].label = "Settings"
 
         
     }

@@ -41,6 +41,7 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
         super.viewWillAppear()
         // TODO: - Write conditional (using notificaitons?) to ensure that this only fetches new data if the settings have changed, or only if coming from the SettingsViewController (whichever is easier to implement).
         updateData()
+		forecastTable.reloadData()
 
     }
     
@@ -52,7 +53,6 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
         
         updateData()
         setUpInterface()
-        
     }
     
     override func viewWillDisappear() {
@@ -69,25 +69,18 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
     func setUpInterface() {
         displayLocationName()
         
-        
-        
         // Set Location Name Title
-        
         titleLabel.stringValue = locationClient.locationName
         titleLabel.textColor = NSColor.textColor
-        
-        
-        // Set button titles
-//        refresh.image = NSImage(named: "NSRefreshTemplate")
-        
+
+		// Set label colors
         precipLabel.textColor = NSColor.textColor
         humidityLabel.textColor = NSColor.textColor
         windSpeedLabel.textColor = NSColor.textColor
         
         //FIXME: TEMPORARY VALUES HERE. Need to connect to Daily data in WeatherData.swift.
-        highLabel.stringValue = "High: 100º"
-        lowLabel.stringValue = "Low: -19º"
         
+		forecastTable.reloadData()
         
     }
     
@@ -123,13 +116,21 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
     
     func updateCurrentDisplay(using viewModel: CurrentWeatherViewModel) {
         temperature.stringValue = viewModel.temperature
+		
         summary.stringValue = viewModel.summary
         precipValue.stringValue = viewModel.precipProb
         windSpeedValue.stringValue = viewModel.windSpeed
         humidityValue.stringValue = viewModel.humidity
         icon.image = viewModel.icon
-        
-        
+		
+		//FIXME: THIS IS A BIG HACK AND VERY BROKEN!
+		if let dailyData = dailyData?.data.first {
+			let roundedHighTemp = Int(dailyData.temperatureHigh)
+			let roundedLowTemp = Int(dailyData.temperatureLow)
+			highLabel.stringValue = "\(roundedHighTemp)º"
+			lowLabel.stringValue = "\(roundedLowTemp)º"
+		}
+		
     }
     
 	func numberOfRows(in tableView: NSTableView) -> Int {
@@ -143,12 +144,6 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 			}
 		}
 		
-	//    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-	//        guard let data = dailyData?.data[row].summary else { return "error" }
-	//        print(data)
-	//        return data
-	//    }
-		
 		func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
 			guard let vw = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: self) as? NSTableCellView else { return nil }
 
@@ -159,13 +154,6 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 			}
 			return vw
 		}
-    
-    
-    @IBAction func refreshClicked(_ sender: Any) {
-        updateData()
-    }
-    
-    
 }
 
 

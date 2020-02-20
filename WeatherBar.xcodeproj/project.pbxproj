@@ -74,7 +74,6 @@
 				230BCB3423943A9800911403 /* AppDelegate.swift */,
 				23E7871623CF80CB00D59620 /* TabViewController.swift */,
 				230BCB3623943A9800911403 /* CurrentViewController.swift */,
-				23E7871823CF80DC00D59620 /* ForecastViewController.swift */,
 				23E7871A23CF80E300D59620 /* SettingsViewController.swift */,
 				232C9AA623960C8D00AF2E55 /* DarkSkyClient.swift */,
 				232C9AAA2396B14300AF2E55 /* Location.swift */,
@@ -86,8 +85,17 @@
 				230BCB3A23943A9E00911403 /* Main.storyboard */,
 				230BCB3D23943A9E00911403 /* Info.plist */,
 				230BCB3E23943A9E00911403 /* WeatherBar.entitlements */,
+				23E507C223FF3543007773BC /* Purgatory */,
 			);
 			path = WeatherBar;
+			sourceTree = "<group>";
+		};
+		23E507C223FF3543007773BC /* Purgatory */ = {
+			isa = PBXGroup;
+			children = (
+				23E7871823CF80DC00D59620 /* ForecastViewController.swift */,
+			);
+			path = Purgatory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
