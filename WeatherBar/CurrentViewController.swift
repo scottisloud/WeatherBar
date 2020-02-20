@@ -146,11 +146,13 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 		
 		func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
 			guard let vw = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: self) as? NSTableCellView else { return nil }
+			
 
-			if let summary = dailyData?.data[row].summary {
-				print(summary)
-				print("assigning summary success!")
-				vw.textField?.stringValue = summary
+			if let data = dailyData?.data[row] {
+				let roundedHighTemp = Int(data.temperatureHigh)
+				let roundedLowTemp = Int(data.temperatureLow)
+				let precipPercent = Int(data.precipProbability * 100)
+				vw.textField?.stringValue = "\(data.summary), the high will be \(roundedHighTemp), and the low will be \(roundedLowTemp). There is a \(precipPercent)% chance of precipitation"
 			}
 			return vw
 		}
