@@ -29,7 +29,6 @@ class ForecastViewController: NSViewController, NSTableViewDelegate, NSTableView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Forecast"
-        print("VIEW DID LOAD")
         updateData()
         forecastTable.reloadData()
     }

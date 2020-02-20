@@ -15,17 +15,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let mainVC = TabViewController()
     let currentViewController = CurrentViewController()
     let locationClient = Location()
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
+    
+	func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create status/menu bar item called Weather. CLicking the menu bar item calls showWindow(_:) which displays the main view controller.
         if let button = statusItem.button {
                 button.image = NSImage(named: "clear-day")
-                button.image?.size = NSMakeSize(36.0, 36.0)
+                button.image?.size = NSMakeSize(32.0, 32.0)
                 button.action = #selector(showWindow)
         }
+		
         
         currentViewController.userLocation = locationClient.getLocation()
-        
-        
         
     }
     
