@@ -11,7 +11,7 @@
 import AppKit
 import CoreLocation
 
-class CurrentViewController: NSViewController {
+class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
     
     // MARK: Interface-related constants
     @IBOutlet weak var icon: NSImageView!
@@ -27,8 +27,13 @@ class CurrentViewController: NSViewController {
     @IBOutlet weak var windSpeedLabel: NSTextField!
     @IBOutlet weak var titleLabel: NSTextField!
     
-    let client = DarkSkyClient()
+	@IBOutlet var forecastTable: NSTableView!
+	
+	
+	let client = DarkSkyClient()
     let locationClient = Location()
+	var units = UserDefaults.standard.integer(forKey: "units")
+	var dailyData: DailyData?
     var userLocation: (Double, Double, String)?
     
     override func viewWillAppear() {
@@ -97,6 +102,14 @@ class CurrentViewController: NSViewController {
                 self.updateCurrentDisplay(using: viewModel)
             }
         }
+		
+        client.getDailyWeather(at: locationClient.getLocation().locString, units: units) { dailyData, error in
+            if let dailyData = dailyData {
+                self.dailyData = dailyData
+                print("data assignment succeeded")
+                self.forecastTable.reloadData()
+            }
+        }
     }
     
     func displayLocationName() {
@@ -119,6 +132,33 @@ class CurrentViewController: NSViewController {
         
     }
     
+	func numberOfRows(in tableView: NSTableView) -> Int {
+			if let data = dailyData?.data {
+
+				print("got number of rows!")
+				return data.count
+			} else {
+				print("problem getting number of rows")
+				return 0
+			}
+		}
+		
+	//    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+	//        guard let data = dailyData?.data[row].summary else { return "error" }
+	//        print(data)
+	//        return data
+	//    }
+		
+		func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+			guard let vw = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: self) as? NSTableCellView else { return nil }
+
+			if let summary = dailyData?.data[row].summary {
+				print(summary)
+				print("assigning summary success!")
+				vw.textField?.stringValue = summary
+			}
+			return vw
+		}
     
     
     @IBAction func refreshClicked(_ sender: Any) {
