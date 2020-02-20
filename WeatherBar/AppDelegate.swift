@@ -19,8 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create status/menu bar item called Weather. CLicking the menu bar item calls showWindow(_:) which displays the main view controller.
         if let button = statusItem.button {
-                button.image = NSImage(named: "clear-day")
-                button.image?.size = NSMakeSize(32.0, 32.0)
+                button.image = NSImage(named: "menuBarIconFilled")
                 button.action = #selector(showWindow)
         }
 		
