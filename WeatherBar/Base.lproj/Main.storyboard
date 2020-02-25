@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16092.1" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16092.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -303,48 +303,62 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="imageCell:dXs-7e-gHX:image" id="dXs-7e-gHX"/>
                                 <color key="contentTintColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             </imageView>
-                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybN-gw-LrS">
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="42" horizontalPageScroll="10" verticalLineScroll="42" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybN-gw-LrS">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="152"/>
                                 <clipView key="contentView" drawsBackground="NO" id="XfW-cq-ct1">
                                     <rect key="frame" x="0.0" y="0.0" width="450" height="152"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView identifier="forecastTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="Gk7-GH-F3P">
+                                        <tableView identifier="forecastTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="40" viewBased="YES" id="Gk7-GH-F3P">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="152"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
-                                            <color key="backgroundColor" red="0.46442507410392309" green="0.62312883578921108" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="447" minWidth="40" maxWidth="1000" id="IKs-QB-891">
+                                                <tableColumn identifier="forecastColumn" width="447" minWidth="40" maxWidth="1000" id="IKs-QB-891">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="charWrapping" selectable="YES" editable="YES" allowsUndo="NO" title="Text Cell" id="gnz-09-aoo">
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" allowsUndo="NO" title="Text Cell" placeholderString="Summary" id="gnz-09-aoo">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="c4m-Bl-xYQ">
-                                                            <rect key="frame" x="1" y="1" width="447" height="17"/>
+                                                        <tableCellView identifier="forecastTableCell" id="c4m-Bl-xYQ" customClass="ForecastTableCell" customModule="WeatherBar" customModuleProvider="target">
+                                                            <rect key="frame" x="1" y="1" width="447" height="20"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e8M-dx-LMY">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="447" height="17"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Table View Cell" id="1la-Wp-H80">
+                                                                <textField identifier="forecastSummaryLabel" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="MuX-0I-VZw">
+                                                                    <rect key="frame" x="44" y="2" width="397" height="16"/>
+                                                                    <textFieldCell key="cell" selectable="YES" title="Multiline Label" placeholderString="Loading Data" id="IXw-HP-GW2">
                                                                         <font key="font" metaFont="system"/>
-                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
+                                                                <imageView identifier="forecastCellIcon" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r7X-oU-bGT">
+                                                                    <rect key="frame" x="8" y="-5" width="30" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="30" id="3hv-rm-Jjh"/>
+                                                                        <constraint firstAttribute="height" constant="30" id="bjd-c7-wfd"/>
+                                                                    </constraints>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="clear-day" id="Com-WQ-GBi"/>
+                                                                </imageView>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="MuX-0I-VZw" firstAttribute="leading" secondItem="r7X-oU-bGT" secondAttribute="trailing" constant="8" id="NQ8-CT-139"/>
+                                                                <constraint firstItem="MuX-0I-VZw" firstAttribute="centerY" secondItem="c4m-Bl-xYQ" secondAttribute="centerY" id="TMG-M3-NPS"/>
+                                                                <constraint firstItem="r7X-oU-bGT" firstAttribute="centerY" secondItem="c4m-Bl-xYQ" secondAttribute="centerY" id="Tdy-ab-sl1"/>
+                                                                <constraint firstItem="r7X-oU-bGT" firstAttribute="leading" secondItem="c4m-Bl-xYQ" secondAttribute="leading" constant="8" id="aaI-pi-bNP"/>
+                                                                <constraint firstAttribute="trailing" secondItem="MuX-0I-VZw" secondAttribute="trailing" constant="8" id="enF-Xk-bxw"/>
+                                                            </constraints>
                                                             <connections>
-                                                                <outlet property="textField" destination="e8M-dx-LMY" id="cUi-g9-Ge1"/>
+                                                                <outlet property="forecastCellIcon" destination="r7X-oU-bGT" id="7dt-q9-MqI"/>
+                                                                <outlet property="forecastCellSummaryLabel" destination="MuX-0I-VZw" id="3hh-xw-rOW"/>
                                                             </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
@@ -356,7 +370,7 @@
                                             </connections>
                                         </tableView>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="backgroundColor"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="pdM-vd-6BI">
                                     <rect key="frame" x="1" y="118" width="410" height="16"/>
@@ -422,6 +436,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="clear-day" width="100" height="100"/>
         <image name="imageCell:dXs-7e-gHX:image" width="100" height="100">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T

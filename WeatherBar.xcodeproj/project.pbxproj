@@ -20,6 +20,7 @@
 		23E7871723CF80CB00D59620 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E7871623CF80CB00D59620 /* TabViewController.swift */; };
 		23E7871923CF80DC00D59620 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E7871823CF80DC00D59620 /* ForecastViewController.swift */; };
 		23E7871B23CF80E300D59620 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E7871A23CF80E300D59620 /* SettingsViewController.swift */; };
+		23FDA2DA24048D8C0025E994 /* ForecastTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FDA2D924048D8C0025E994 /* ForecastTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		23E7871623CF80CB00D59620 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		23E7871823CF80DC00D59620 /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
 		23E7871A23CF80E300D59620 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		23FDA2D924048D8C0025E994 /* ForecastTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				23E7871623CF80CB00D59620 /* TabViewController.swift */,
 				230BCB3623943A9800911403 /* CurrentViewController.swift */,
 				23E7871A23CF80E300D59620 /* SettingsViewController.swift */,
+				23FDA2D924048D8C0025E994 /* ForecastTableCell.swift */,
 				232C9AA623960C8D00AF2E55 /* DarkSkyClient.swift */,
 				232C9AAA2396B14300AF2E55 /* Location.swift */,
 				23A69DC72395B79C001B80B7 /* WeatherData.swift */,
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23AD6B9323C37274000A6813 /* Weather.swift in Sources */,
+				23FDA2DA24048D8C0025E994 /* ForecastTableCell.swift in Sources */,
 				2313C59423BF7E4D005BDACA /* DarkSkyError.swift in Sources */,
 				23E7871B23CF80E300D59620 /* SettingsViewController.swift in Sources */,
 				230BCB3723943A9800911403 /* CurrentViewController.swift in Sources */,

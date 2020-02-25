@@ -145,16 +145,16 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 		}
 		
 		func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-			guard let vw = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: self) as? NSTableCellView else { return nil }
+			guard let forecastCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "forecastTableCell"), owner: self) as? ForecastTableCell else { return nil }
 			
-
 			if let data = dailyData?.data[row] {
 				let roundedHighTemp = Int(data.temperatureHigh)
 				let roundedLowTemp = Int(data.temperatureLow)
 				let precipPercent = Int(data.precipProbability * 100)
-				vw.textField?.stringValue = "\(data.summary), the high will be \(roundedHighTemp), and the low will be \(roundedLowTemp). There is a \(precipPercent)% chance of precipitation"
+				forecastCell.forecastCellSummaryLabel.stringValue = "\(data.summary) The high will be \(roundedHighTemp), and the low will be \(roundedLowTemp). There is a \(precipPercent)% chance of precipitation"
+				forecastCell.forecastCellIcon.image = NSImage(named: data.icon)
 			}
-			return vw
+			return forecastCell
 		}
 }
 
