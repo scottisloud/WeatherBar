@@ -151,7 +151,7 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 				let roundedHighTemp = Int(data.temperatureHigh)
 				let roundedLowTemp = Int(data.temperatureLow)
 				let precipPercent = Int(data.precipProbability * 100)
-				forecastCell.forecastCellSummaryLabel.stringValue = "\(data.summary) The high will be \(roundedHighTemp), and the low will be \(roundedLowTemp). There is a \(precipPercent)% chance of precipitation"
+				forecastCell.forecastCellSummaryLabel.stringValue = "\(data.summary) The high will be \(roundedHighTemp)º and the low will be \(roundedLowTemp)º. There is a \(precipPercent)% chance of precipitation"
 				forecastCell.forecastCellIcon.image = NSImage(named: data.icon)
 			}
 			return forecastCell
