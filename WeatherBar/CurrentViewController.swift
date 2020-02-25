@@ -47,7 +47,6 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 		
 		updateData()
 		forecastTable.reloadData()
-		
 	}
 	
 	// MARK: - viewDidLoad
@@ -64,7 +63,6 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 	override func viewWillDisappear() {
 		super.viewWillDisappear()
 	}
-	
 	
 	//MARK: - SET UP GENERAL APPEARANCE
 	func setUpInterface() {
@@ -87,8 +85,7 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 	func updateData() {
 		displayLocationName()
 		
-		client.getCurrentWeather(at: locationClient.getLocation().locString, units: UserDefaults.standard.integer(forKey: "units")) { currentWeather, error in
-			
+		client.getCurrentWeather(at: locationClient.getLocation().locString, units: units) { currentWeather, error in
 			if let currentWeather = currentWeather {
 				let viewModel = CurrentWeatherViewModel(model: currentWeather)
 				self.updateCurrentDisplay(using: viewModel)
@@ -96,7 +93,6 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 		}
 		
 		client.getDailyWeather(at: locationClient.getLocation().locString, units: units) { dailyData, error in
-			
 			if let unwrappedDailyData = dailyData {
 				self.dailyData = unwrappedDailyData
 				self.forecastTable.reloadData()
@@ -123,7 +119,6 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 	}
 	
 	// MARK: - TABLEVIEW DELEGATE
-	
 	func numberOfRows(in tableView: NSTableView) -> Int {
 		if let data = dailyData?.data { return data.count } else { return 0 }
 	}
@@ -134,7 +129,7 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 		if let unwrappedDailyData = dailyData {
 			let viewModel = ForecastViewModel(model: unwrappedDailyData.data[row])
 			forecastCell.forecastCellIcon.image = viewModel.icon
-			forecastCell.forecastCellSummaryLabel.stringValue = "\(viewModel.summary) The high will be \(viewModel.highTemp)º and the low will be \(viewModel.lowTemp)º. There is a \(viewModel.precipProb) chance of precipitation"
+			forecastCell.forecastCellSummaryLabel.stringValue = "\(viewModel.summary) The high will be \(viewModel.highTemp) and the low will be \(viewModel.lowTemp). There is a \(viewModel.precipProb) chance of precipitation"
 		}
 
 		return forecastCell
