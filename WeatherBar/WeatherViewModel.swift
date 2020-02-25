@@ -1,5 +1,5 @@
 //
-//  CurrentWeatherViewModel.swift
+//  WeatherViewModel.swift
 //  WeatherBar
 //
 //  Created by Scott Lougheed on 2019/12/2.
@@ -61,7 +61,7 @@ struct CurrentWeatherViewModel {
 }
 
 struct ForecastViewModel {
-	
+	let time: String
 	let highTemp: String
 	let lowTemp: String
 	let humidity: String
@@ -73,6 +73,16 @@ struct ForecastViewModel {
 	init (model: DailyWeather) {
 			
 		let units = UserDefaults.standard.integer(forKey: "units")
+		
+		
+		//TODO: Finish the date parsing
+		let date = Date(timeIntervalSince1970: model.time)
+		let formatter = DateFormatter()
+		formatter.dateFormat = "EEEE"
+		let weekday = formatter.string(from: date)
+		self.time = weekday
+		
+		
 		let roundedHighTemp = Int(model.temperatureHigh)
 		let roundedLowTemp = Int(model.temperatureLow)
 		

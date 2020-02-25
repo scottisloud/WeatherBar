@@ -129,7 +129,12 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 		if let unwrappedDailyData = dailyData {
 			let viewModel = ForecastViewModel(model: unwrappedDailyData.data[row])
 			forecastCell.forecastCellIcon.image = viewModel.icon
-			forecastCell.forecastCellSummaryLabel.stringValue = "\(viewModel.summary) The high will be \(viewModel.highTemp) and the low will be \(viewModel.lowTemp). There is a \(viewModel.precipProb) chance of precipitation"
+			forecastCell.weekdayLabel.stringValue = viewModel.time
+			forecastCell.forecastCellSummaryLabel.stringValue = "\(viewModel.summary)"
+			forecastCell.highTempValue.stringValue = viewModel.highTemp
+			forecastCell.lowTempVlue.stringValue = viewModel.lowTemp
+			forecastCell.windSpeedValue.stringValue = viewModel.windSpeed
+			forecastCell.precipValue.stringValue = viewModel.precipProb
 		}
 
 		return forecastCell

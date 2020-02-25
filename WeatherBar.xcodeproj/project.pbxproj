@@ -15,7 +15,7 @@
 		232C9AA723960C8D00AF2E55 /* DarkSkyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C9AA623960C8D00AF2E55 /* DarkSkyClient.swift */; };
 		232C9AAB2396B14300AF2E55 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C9AAA2396B14300AF2E55 /* Location.swift */; };
 		23A69DC82395B79C001B80B7 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A69DC72395B79C001B80B7 /* WeatherData.swift */; };
-		23A69DCA2395B930001B80B7 /* CurrentWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A69DC92395B930001B80B7 /* CurrentWeatherViewModel.swift */; };
+		23A69DCA2395B930001B80B7 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A69DC92395B930001B80B7 /* WeatherViewModel.swift */; };
 		23AD6B9323C37274000A6813 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD6B9223C37274000A6813 /* Weather.swift */; };
 		23E7871723CF80CB00D59620 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E7871623CF80CB00D59620 /* TabViewController.swift */; };
 		23E7871923CF80DC00D59620 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E7871823CF80DC00D59620 /* ForecastViewController.swift */; };
@@ -35,7 +35,7 @@
 		232C9AA623960C8D00AF2E55 /* DarkSkyClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkSkyClient.swift; sourceTree = "<group>"; };
 		232C9AAA2396B14300AF2E55 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		23A69DC72395B79C001B80B7 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
-		23A69DC92395B930001B80B7 /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModel.swift; sourceTree = "<group>"; };
+		23A69DC92395B930001B80B7 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		23AD6B9223C37274000A6813 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		23E7871623CF80CB00D59620 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		23E7871823CF80DC00D59620 /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 				232C9AAA2396B14300AF2E55 /* Location.swift */,
 				23A69DC72395B79C001B80B7 /* WeatherData.swift */,
 				23AD6B9223C37274000A6813 /* Weather.swift */,
-				23A69DC92395B930001B80B7 /* CurrentWeatherViewModel.swift */,
+				23A69DC92395B930001B80B7 /* WeatherViewModel.swift */,
 				2313C59323BF7E4D005BDACA /* DarkSkyError.swift */,
 				230BCB3823943A9E00911403 /* Assets.xcassets */,
 				230BCB3A23943A9E00911403 /* Main.storyboard */,
@@ -178,7 +178,7 @@
 				230BCB3723943A9800911403 /* CurrentViewController.swift in Sources */,
 				230BCB3523943A9800911403 /* AppDelegate.swift in Sources */,
 				232C9AAB2396B14300AF2E55 /* Location.swift in Sources */,
-				23A69DCA2395B930001B80B7 /* CurrentWeatherViewModel.swift in Sources */,
+				23A69DCA2395B930001B80B7 /* WeatherViewModel.swift in Sources */,
 				23A69DC82395B79C001B80B7 /* WeatherData.swift in Sources */,
 				23E7871923CF80DC00D59620 /* ForecastViewController.swift in Sources */,
 				232C9AA723960C8D00AF2E55 /* DarkSkyClient.swift in Sources */,

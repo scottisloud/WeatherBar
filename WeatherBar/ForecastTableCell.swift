@@ -12,6 +12,11 @@ class ForecastTableCell: NSTableCellView {
 
 	@IBOutlet weak var forecastCellIcon: NSImageView!
 	@IBOutlet weak var forecastCellSummaryLabel: NSTextField!
+	@IBOutlet weak var weekdayLabel: NSTextField!
+	@IBOutlet weak var precipValue: NSTextField!
+	@IBOutlet weak var windSpeedValue: NSTextField!
+	@IBOutlet weak var highTempValue: NSTextField!
+	@IBOutlet weak var lowTempVlue: NSTextField!
 	
 	override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
