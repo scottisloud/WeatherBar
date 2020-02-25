@@ -13,7 +13,7 @@ import CoreLocation
 
 class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
 	
-	// MARK: Interface-related constants
+	// MARK: INTERFACE-RELATED CONSTANTS
 	@IBOutlet weak var icon: NSImageView!
 	@IBOutlet weak var temperature: NSTextField!
 	@IBOutlet weak var highLabel: NSTextField!
@@ -29,7 +29,7 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 	
 	@IBOutlet var forecastTable: NSTableView!
 	
-	
+	// MARK: - DATA-RELATED CONSTANTS
 	let client = DarkSkyClient()
 	let locationClient = Location()
 	var units = UserDefaults.standard.integer(forKey: "units")
@@ -39,13 +39,18 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 	override func viewWillAppear() {
 		
 		super.viewWillAppear()
+		if units != UserDefaults.standard.integer(forKey: "units") {
+			units = UserDefaults.standard.integer(forKey: "units")
+		}
+		
 		// TODO: - Write conditional (using notificaitons?) to ensure that this only fetches new data if the settings have changed, or only if coming from the SettingsViewController (whichever is easier to implement).
+		
 		updateData()
 		forecastTable.reloadData()
 		
 	}
 	
-	// MARK: viewDidLoad
+	// MARK: - viewDidLoad
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -53,19 +58,15 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 		
 		updateData()
 		setUpInterface()
+		forecastTable.reloadData()
 	}
 	
 	override func viewWillDisappear() {
 		super.viewWillDisappear()
 	}
 	
-	override var representedObject: Any? {
-		didSet {
-			// Update the view, if already loaded.
-		}
-	}
 	
-	//MARK: SET UP GENERAL APPEARANCE
+	//MARK: - SET UP GENERAL APPEARANCE
 	func setUpInterface() {
 		displayLocationName()
 		
@@ -82,7 +83,7 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 		
 	}
 	
-	
+	// MARK: - RETREIVE DATA
 	func updateData() {
 		displayLocationName()
 		
@@ -95,6 +96,7 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 		}
 		
 		client.getDailyWeather(at: locationClient.getLocation().locString, units: units) { dailyData, error in
+			
 			if let unwrappedDailyData = dailyData {
 				self.dailyData = unwrappedDailyData
 				self.forecastTable.reloadData()
@@ -113,37 +115,28 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 	
 	func updateCurrentDisplay(using viewModel: CurrentWeatherViewModel) {
 		temperature.stringValue = viewModel.temperature
-		
 		summary.stringValue = viewModel.summary
 		precipValue.stringValue = viewModel.precipProb
 		windSpeedValue.stringValue = viewModel.windSpeed
 		humidityValue.stringValue = viewModel.humidity
 		icon.image = viewModel.icon
-		
 	}
 	
+	// MARK: - TABLEVIEW DELEGATE
+	
 	func numberOfRows(in tableView: NSTableView) -> Int {
-		if let data = dailyData?.data {
-			
-			print("got number of rows!")
-			return data.count
-		} else {
-			print("problem getting number of rows")
-			return 0
-		}
+		if let data = dailyData?.data { return data.count } else { return 0 }
 	}
 	
 	func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
 		guard let forecastCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "forecastTableCell"), owner: self) as? ForecastTableCell else { return nil }
-		let units = UserDefaults.standard.integer(forKey: "units")
-		client.getDailyWeather(at: locationClient.getLocation().locString, units: units) { dailyData, error in
-			if let unwrappedDailyData = dailyData {
-				self.dailyData = unwrappedDailyData
-				let viewModel = ForecastViewModel(model: unwrappedDailyData.data[row])
-				forecastCell.forecastCellIcon.image = viewModel.icon
-				forecastCell.forecastCellSummaryLabel.stringValue = "\(viewModel.summary) The high will be \(viewModel.highTemp)º and the low will be \(viewModel.lowTemp)º. There is a \(viewModel.precipProb) chance of precipitation"
-			}
+
+		if let unwrappedDailyData = dailyData {
+			let viewModel = ForecastViewModel(model: unwrappedDailyData.data[row])
+			forecastCell.forecastCellIcon.image = viewModel.icon
+			forecastCell.forecastCellSummaryLabel.stringValue = "\(viewModel.summary) The high will be \(viewModel.highTemp)º and the low will be \(viewModel.lowTemp)º. There is a \(viewModel.precipProb) chance of precipitation"
 		}
+
 		return forecastCell
 	}
 }

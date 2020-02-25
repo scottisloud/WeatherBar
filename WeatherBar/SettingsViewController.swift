@@ -27,6 +27,10 @@ class SettingsViewController: NSViewController {
         self.title = "Settings"
         print("Settings")
     }
+	
+	override func viewWillDisappear() {
+		
+	}
     
     
     func setUpInterface() {
