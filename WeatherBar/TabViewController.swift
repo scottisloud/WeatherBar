@@ -23,7 +23,7 @@ class TabViewController: NSTabViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.selectedTabViewItemIndex = 0
-        self.tabView.tabViewItems[0].label = "Current"
+        self.tabView.tabViewItems[0].label = "Weather"
         self.tabView.tabViewItems[1].label = "Settings"
 
         
