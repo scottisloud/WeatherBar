@@ -70,7 +70,7 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 		
 		// Set Location Name Title
 		titleLabel.stringValue = locationClient.locationName
-		titleLabel.textColor = NSColor.textColor
+		
 		
 		// Set label colors
 		precipLabel.textColor = NSColor.textColor

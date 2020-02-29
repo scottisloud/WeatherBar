@@ -196,111 +196,23 @@
                 <customObject id="Fb2-8j-biK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="currentViewController" id="cEr-Ua-1N6" customClass="CurrentViewController" customModule="WeatherBar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" focusRingType="none" id="wTe-y0-saM">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="251"/>
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="352"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2nW-Gr-8OW">
-                                <rect key="frame" x="18" y="184" width="154" height="16"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="Jnc-PT-VVZ"/>
-                                </constraints>
-                                <textFieldCell key="cell" alignment="center" title="Summary" placeholderString="Weather Summary" id="VGb-m2-YNa">
-                                    <font key="font" usesAppearanceFont="YES"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField identifier="currentTemp" toolTip="Current Temperature" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g7k-uk-uc0">
-                                <rect key="frame" x="212" y="222" width="26" height="19"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="--º" placeholderString="--º" id="cDo-pU-lJG">
-                                    <font key="font" metaFont="systemBold" size="16"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                                <accessibility description="Current Temperature"/>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Uwf-OC-iiB">
-                                <rect key="frame" x="18" y="225" width="154" height="16"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="n9y-7P-Ypv"/>
-                                </constraints>
-                                <textFieldCell key="cell" alignment="center" title="Location" id="lRp-K0-44R">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RsJ-d1-t3Z">
-                                <rect key="frame" x="403" y="179" width="39" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" placeholderString="--" id="jLf-vi-djp">
-                                    <font key="font" metaFont="systemSemibold" size="13"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="753" translatesAutoresizingMaskIntoConstraints="NO" id="htE-9Y-kdv">
-                                <rect key="frame" x="306" y="225" width="96" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Precip. Chance" id="9KG-qb-2S1">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="60T-qv-6HS">
-                                <rect key="frame" x="324" y="179" width="78" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Wind Speed" id="DZd-d2-pSp">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vNJ-qc-WCA">
-                                <rect key="frame" x="403" y="225" width="39" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" placeholderString="--" id="ajG-tg-DkX">
-                                    <font key="font" metaFont="systemSemibold" size="13"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="Fed-XG-ujM">
-                                <rect key="frame" x="343" y="202" width="59" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Humidity" id="NaN-z5-0g0">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pd9-Rn-f1r">
-                                <rect key="frame" x="403" y="202" width="39" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" placeholderString="--" id="VUb-xa-KSl">
-                                    <font key="font" metaFont="systemSemibold" size="13"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JgI-Ci-2Z0">
-                                <rect key="frame" x="205" y="172" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="gaS-Oy-NDn"/>
-                                    <constraint firstAttribute="width" constant="40" id="gae-ow-7zV"/>
-                                </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="imageCell:dXs-7e-gHX:image" id="dXs-7e-gHX"/>
-                                <color key="contentTintColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            </imageView>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="72" horizontalPageScroll="10" verticalLineScroll="72" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybN-gw-LrS">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="152"/>
+                                <rect key="frame" x="0.0" y="0.0" width="500" height="152"/>
                                 <clipView key="contentView" drawsBackground="NO" id="XfW-cq-ct1">
-                                    <rect key="frame" x="0.0" y="0.0" width="450" height="152"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="500" height="152"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView identifier="forecastTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" selectionHighlightStyle="none" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="70" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" id="Gk7-GH-F3P">
-                                            <rect key="frame" x="0.0" y="0.0" width="450" height="152"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="500" height="152"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="forecastColumn" width="447" minWidth="40" maxWidth="1000" id="IKs-QB-891">
+                                                <tableColumn identifier="forecastColumn" width="497" minWidth="40" maxWidth="1000" id="IKs-QB-891">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -313,7 +225,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="forecastTableCell" id="c4m-Bl-xYQ" customClass="ForecastTableCell" customModule="WeatherBar" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="1" width="447" height="70"/>
+                                                            <rect key="frame" x="1" y="1" width="497" height="70"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <imageView identifier="forecastCellIcon" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r7X-oU-bGT">
@@ -334,7 +246,10 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField identifier="forecastSummaryLabel" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="MuX-0I-VZw">
-                                                                    <rect key="frame" x="51" y="27" width="123" height="16"/>
+                                                                    <rect key="frame" x="51" y="27" width="154" height="16"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="150" id="DiC-hY-NHc"/>
+                                                                    </constraints>
                                                                     <textFieldCell key="cell" selectable="YES" title="Daily Summary" placeholderString="Loading Data" id="IXw-HP-GW2">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -342,23 +257,23 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <stackView distribution="fillEqually" orientation="horizontal" alignment="bottom" spacing="3" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" translatesAutoresizingMaskIntoConstraints="NO" id="22i-Px-IX7">
-                                                                    <rect key="frame" x="177" y="0.0" width="262" height="70"/>
+                                                                    <rect key="frame" x="208" y="0.0" width="275" height="70"/>
                                                                     <subviews>
                                                                         <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="3" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V8v-7p-jL8" userLabel="Temp Label Stack">
-                                                                            <rect key="frame" x="15" y="19" width="55" height="33"/>
+                                                                            <rect key="frame" x="15" y="19" width="59" height="33"/>
                                                                             <subviews>
                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kCD-EG-vyH">
-                                                                                    <rect key="frame" x="-2" y="18" width="58" height="15"/>
+                                                                                    <rect key="frame" x="-2" y="18" width="62" height="15"/>
                                                                                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="High:" id="vTu-Oh-vXo">
-                                                                                        <font key="font" metaFont="label" size="12"/>
+                                                                                        <font key="font" metaFont="system" size="12"/>
                                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                     </textFieldCell>
                                                                                 </textField>
                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3WO-NP-kB8">
-                                                                                    <rect key="frame" x="-2" y="0.0" width="58" height="15"/>
+                                                                                    <rect key="frame" x="-2" y="0.0" width="62" height="15"/>
                                                                                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Low:" id="E5C-xB-gSv">
-                                                                                        <font key="font" metaFont="label" size="12"/>
+                                                                                        <font key="font" metaFont="system" size="12"/>
                                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                     </textFieldCell>
@@ -380,10 +295,10 @@
                                                                             </customSpacing>
                                                                         </stackView>
                                                                         <stackView distribution="fill" orientation="vertical" alignment="trailing" spacing="3" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t3i-M5-Va7" userLabel="Temp Value Stack">
-                                                                            <rect key="frame" x="73" y="18" width="55" height="35"/>
+                                                                            <rect key="frame" x="77" y="18" width="60" height="35"/>
                                                                             <subviews>
                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3DF-lm-3MD">
-                                                                                    <rect key="frame" x="-1" y="19" width="58" height="16"/>
+                                                                                    <rect key="frame" x="-1" y="19" width="63" height="16"/>
                                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="BYB-2b-DE0">
                                                                                         <font key="font" metaFont="systemSemibold" size="13"/>
                                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -391,7 +306,7 @@
                                                                                     </textFieldCell>
                                                                                 </textField>
                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ADE-Lb-saa">
-                                                                                    <rect key="frame" x="-1" y="0.0" width="58" height="16"/>
+                                                                                    <rect key="frame" x="-1" y="0.0" width="63" height="16"/>
                                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="QyH-qd-eMX">
                                                                                         <font key="font" metaFont="systemSemibold" size="13"/>
                                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -415,12 +330,12 @@
                                                                             </customSpacing>
                                                                         </stackView>
                                                                         <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="3" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lHB-yf-eFH" userLabel="Weather Label Stack">
-                                                                            <rect key="frame" x="131" y="19" width="73" height="33"/>
+                                                                            <rect key="frame" x="140" y="19" width="73" height="33"/>
                                                                             <subviews>
                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qkJ-La-Dqk">
                                                                                     <rect key="frame" x="-2" y="18" width="76" height="15"/>
                                                                                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Precip:" id="ky2-YX-7WB">
-                                                                                        <font key="font" metaFont="label" size="12"/>
+                                                                                        <font key="font" metaFont="system" size="12"/>
                                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                     </textFieldCell>
@@ -428,7 +343,7 @@
                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EGH-rW-34N">
                                                                                     <rect key="frame" x="-2" y="0.0" width="76" height="15"/>
                                                                                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Wind Speed:" id="q4h-Fl-wgY">
-                                                                                        <font key="font" metaFont="label" size="12"/>
+                                                                                        <font key="font" metaFont="system" size="12"/>
                                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                     </textFieldCell>
@@ -450,7 +365,7 @@
                                                                             </customSpacing>
                                                                         </stackView>
                                                                         <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="3" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m7W-2v-GXs" userLabel="Weather Value Stack">
-                                                                            <rect key="frame" x="207" y="18" width="55" height="35"/>
+                                                                            <rect key="frame" x="216" y="18" width="59" height="35"/>
                                                                             <subviews>
                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9Wj-gx-MZ7">
                                                                                     <rect key="frame" x="-1" y="19" width="39" height="16"/>
@@ -490,6 +405,7 @@
                                                                         <constraint firstItem="lHB-yf-eFH" firstAttribute="centerY" secondItem="22i-Px-IX7" secondAttribute="centerY" id="CgM-AT-TFo"/>
                                                                         <constraint firstItem="t3i-M5-Va7" firstAttribute="centerY" secondItem="22i-Px-IX7" secondAttribute="centerY" id="KOa-qu-spY"/>
                                                                         <constraint firstItem="V8v-7p-jL8" firstAttribute="centerY" secondItem="22i-Px-IX7" secondAttribute="centerY" id="Ynh-2K-uFM"/>
+                                                                        <constraint firstAttribute="width" constant="275" id="dr6-dP-OXX"/>
                                                                     </constraints>
                                                                     <visibilityPriorities>
                                                                         <integer value="1000"/>
@@ -506,7 +422,6 @@
                                                                 </stackView>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="MuX-0I-VZw" secondAttribute="trailing" constant="275" id="1Gd-hs-fuj"/>
                                                                 <constraint firstItem="MuX-0I-VZw" firstAttribute="centerY" secondItem="c4m-Bl-xYQ" secondAttribute="centerY" id="5Qk-jE-XFu"/>
                                                                 <constraint firstItem="r7X-oU-bGT" firstAttribute="leading" secondItem="c4m-Bl-xYQ" secondAttribute="leading" id="Eog-E7-qQH"/>
                                                                 <constraint firstItem="MuX-0I-VZw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qmN-E8-5Xq" secondAttribute="bottom" constant="2" id="GZz-Ik-gxR"/>
@@ -515,7 +430,6 @@
                                                                 <constraint firstItem="22i-Px-IX7" firstAttribute="centerY" secondItem="c4m-Bl-xYQ" secondAttribute="centerY" id="Syw-Pb-MuI"/>
                                                                 <constraint firstItem="MuX-0I-VZw" firstAttribute="leading" secondItem="r7X-oU-bGT" secondAttribute="trailing" constant="3" id="bsI-qm-dFx"/>
                                                                 <constraint firstItem="22i-Px-IX7" firstAttribute="top" secondItem="c4m-Bl-xYQ" secondAttribute="top" id="cPY-lG-hqR"/>
-                                                                <constraint firstAttribute="trailing" secondItem="22i-Px-IX7" secondAttribute="trailing" constant="8" id="dMq-Bb-vSb"/>
                                                                 <constraint firstItem="r7X-oU-bGT" firstAttribute="centerY" secondItem="c4m-Bl-xYQ" secondAttribute="centerY" id="pCc-VG-6UW"/>
                                                                 <constraint firstAttribute="bottom" secondItem="22i-Px-IX7" secondAttribute="bottom" id="u9n-qa-94T"/>
                                                                 <constraint firstItem="22i-Px-IX7" firstAttribute="leading" secondItem="MuX-0I-VZw" secondAttribute="trailing" constant="5" id="wBA-ZL-g5A"/>
@@ -542,7 +456,7 @@
                                     <nil key="backgroundColor"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="pdM-vd-6BI">
-                                    <rect key="frame" x="1" y="118" width="410" height="16"/>
+                                    <rect key="frame" x="0.0" y="136" width="450" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="iQi-GT-Ork">
@@ -550,36 +464,191 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RHc-t7-KnG">
+                                <rect key="frame" x="0.0" y="152" width="500" height="200"/>
+                                <subviews>
+                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6pS-sU-zmI" userLabel="Loc and Summary">
+                                        <rect key="frame" x="0.0" y="81" width="75" height="38"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Uwf-OC-iiB">
+                                                <rect key="frame" x="11" y="24" width="53" height="14"/>
+                                                <textFieldCell key="cell" alignment="center" title="Location" id="lRp-K0-44R">
+                                                    <font key="font" metaFont="system" size="11"/>
+                                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2nW-Gr-8OW">
+                                                <rect key="frame" x="5" y="0.0" width="66" height="16"/>
+                                                <textFieldCell key="cell" alignment="center" title="Summary" placeholderString="Weather Summary" id="VGb-m2-YNa">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="8rX-UH-Hxi"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rR7-zB-PUS" userLabel="Temp and Icon">
+                                        <rect key="frame" x="85" y="62" width="60" height="77"/>
+                                        <subviews>
+                                            <textField identifier="currentTemp" toolTip="Current Temperature" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g7k-uk-uc0">
+                                                <rect key="frame" x="-2" y="58" width="64" height="19"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="jI4-Ey-vMU"/>
+                                                </constraints>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="--º" placeholderString="--º" id="cDo-pU-lJG">
+                                                    <font key="font" metaFont="systemBold" size="16"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <accessibility description="Current Temperature"/>
+                                            </textField>
+                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JgI-Ci-2Z0">
+                                                <rect key="frame" x="5" y="0.0" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="gaS-Oy-NDn"/>
+                                                    <constraint firstAttribute="width" constant="50" id="gae-ow-7zV"/>
+                                                </constraints>
+                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="imageCell:dXs-7e-gHX:image" id="dXs-7e-gHX"/>
+                                                <color key="contentTintColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="g7k-uk-uc0" firstAttribute="centerX" secondItem="JgI-Ci-2Z0" secondAttribute="centerX" id="gTF-9Z-CB7"/>
+                                            <constraint firstAttribute="width" constant="60" id="ijm-n0-GOU"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <stackView distribution="fill" orientation="vertical" alignment="trailing" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mh6-6T-Y5y" userLabel="Condition Labels">
+                                        <rect key="frame" x="365" y="68" width="80" height="64"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="753" translatesAutoresizingMaskIntoConstraints="NO" id="htE-9Y-kdv">
+                                                <rect key="frame" x="39" y="48" width="43" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Precip" id="9KG-qb-2S1">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="60T-qv-6HS">
+                                                <rect key="frame" x="4" y="24" width="78" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Wind Speed" id="DZd-d2-pSp">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="Fed-XG-ujM">
+                                                <rect key="frame" x="23" y="0.0" width="59" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Humidity" id="NaN-z5-0g0">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="4Od-ic-dpM"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hN1-xE-agB" userLabel="Condition Values">
+                                        <rect key="frame" x="450" y="68" width="50" height="64"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RsJ-d1-t3Z">
+                                                <rect key="frame" x="-2" y="48" width="39" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" placeholderString="--" id="jLf-vi-djp">
+                                                    <font key="font" metaFont="systemSemibold" size="13"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vNJ-qc-WCA">
+                                                <rect key="frame" x="-2" y="24" width="39" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" placeholderString="--" id="ajG-tg-DkX">
+                                                    <font key="font" metaFont="systemSemibold" size="13"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pd9-Rn-f1r">
+                                                <rect key="frame" x="-2" y="0.0" width="39" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" placeholderString="--" id="VUb-xa-KSl">
+                                                    <font key="font" metaFont="systemSemibold" size="13"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="Zi8-WJ-Xuv"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="500" id="3PF-6U-O0z"/>
+                                    <constraint firstItem="Mh6-6T-Y5y" firstAttribute="leading" secondItem="rR7-zB-PUS" secondAttribute="trailing" constant="10" id="82U-D7-Lz6"/>
+                                    <constraint firstItem="rR7-zB-PUS" firstAttribute="leading" secondItem="6pS-sU-zmI" secondAttribute="trailing" constant="10" id="UMQ-TL-2kc"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Fed-XG-ujM" firstAttribute="top" secondItem="htE-9Y-kdv" secondAttribute="bottom" constant="7" id="38q-e9-4YO"/>
-                            <constraint firstItem="vNJ-qc-WCA" firstAttribute="leading" secondItem="htE-9Y-kdv" secondAttribute="trailing" constant="5" id="6yl-4X-9fB"/>
-                            <constraint firstItem="JgI-Ci-2Z0" firstAttribute="centerX" secondItem="wTe-y0-saM" secondAttribute="centerX" id="82f-3K-hDK"/>
-                            <constraint firstItem="60T-qv-6HS" firstAttribute="trailing" secondItem="htE-9Y-kdv" secondAttribute="trailing" id="AoQ-JV-QLI"/>
-                            <constraint firstItem="RsJ-d1-t3Z" firstAttribute="leading" secondItem="60T-qv-6HS" secondAttribute="trailing" constant="5" id="DIY-F7-lZL"/>
+                            <constraint firstItem="ybN-gw-LrS" firstAttribute="top" secondItem="RHc-t7-KnG" secondAttribute="bottom" id="3DJ-rx-zBd"/>
                             <constraint firstAttribute="bottom" secondItem="ybN-gw-LrS" secondAttribute="bottom" id="N8W-wx-qEh"/>
-                            <constraint firstItem="60T-qv-6HS" firstAttribute="top" secondItem="Fed-XG-ujM" secondAttribute="bottom" constant="7" id="N8X-CD-5hl"/>
-                            <constraint firstAttribute="trailing" secondItem="vNJ-qc-WCA" secondAttribute="trailing" constant="10" id="Pcq-W6-rVF"/>
-                            <constraint firstItem="Uwf-OC-iiB" firstAttribute="leading" secondItem="wTe-y0-saM" secondAttribute="leading" constant="20" id="Ppc-7R-NS6"/>
                             <constraint firstAttribute="trailing" secondItem="ybN-gw-LrS" secondAttribute="trailing" id="SHt-cK-bD0"/>
-                            <constraint firstItem="htE-9Y-kdv" firstAttribute="top" secondItem="wTe-y0-saM" secondAttribute="top" constant="10" id="Yg1-Il-USV"/>
-                            <constraint firstItem="2nW-Gr-8OW" firstAttribute="top" secondItem="Uwf-OC-iiB" secondAttribute="bottom" constant="25" id="Yho-TT-1IU"/>
-                            <constraint firstItem="Pd9-Rn-f1r" firstAttribute="leading" secondItem="Fed-XG-ujM" secondAttribute="trailing" constant="5" id="Zuq-Yx-IYE"/>
-                            <constraint firstItem="g7k-uk-uc0" firstAttribute="centerX" secondItem="wTe-y0-saM" secondAttribute="centerX" id="a0C-zT-P18"/>
+                            <constraint firstAttribute="trailing" secondItem="RHc-t7-KnG" secondAttribute="trailing" id="Ywr-3P-A7C"/>
                             <constraint firstItem="ybN-gw-LrS" firstAttribute="leading" secondItem="wTe-y0-saM" secondAttribute="leading" id="asP-0o-RVj"/>
-                            <constraint firstItem="vNJ-qc-WCA" firstAttribute="centerY" secondItem="htE-9Y-kdv" secondAttribute="centerY" id="b7b-mt-b8t"/>
-                            <constraint firstItem="RsJ-d1-t3Z" firstAttribute="top" secondItem="Pd9-Rn-f1r" secondAttribute="bottom" constant="7" id="cL7-BE-nVA"/>
-                            <constraint firstAttribute="trailing" secondItem="RsJ-d1-t3Z" secondAttribute="trailing" constant="10" id="diz-iw-Vun"/>
-                            <constraint firstItem="Uwf-OC-iiB" firstAttribute="top" secondItem="wTe-y0-saM" secondAttribute="top" constant="10" id="fCI-5X-0eZ"/>
-                            <constraint firstItem="2nW-Gr-8OW" firstAttribute="leading" secondItem="wTe-y0-saM" secondAttribute="leading" constant="20" id="gcu-9H-bxI"/>
-                            <constraint firstItem="ybN-gw-LrS" firstAttribute="top" secondItem="JgI-Ci-2Z0" secondAttribute="bottom" constant="20" id="hec-Bm-ube"/>
-                            <constraint firstItem="g7k-uk-uc0" firstAttribute="top" secondItem="wTe-y0-saM" secondAttribute="top" constant="10" id="hoi-y5-RB7"/>
-                            <constraint firstItem="Fed-XG-ujM" firstAttribute="trailing" secondItem="htE-9Y-kdv" secondAttribute="trailing" id="mNA-jj-0gR"/>
-                            <constraint firstItem="JgI-Ci-2Z0" firstAttribute="top" secondItem="g7k-uk-uc0" secondAttribute="bottom" constant="10" id="pTL-1i-l3j"/>
-                            <constraint firstItem="Pd9-Rn-f1r" firstAttribute="centerY" secondItem="Fed-XG-ujM" secondAttribute="centerY" id="rVA-LC-0mq"/>
-                            <constraint firstAttribute="trailing" secondItem="Pd9-Rn-f1r" secondAttribute="trailing" constant="10" id="sKR-Vz-uNg"/>
-                            <constraint firstItem="Pd9-Rn-f1r" firstAttribute="top" secondItem="vNJ-qc-WCA" secondAttribute="bottom" constant="7" id="xdK-RJ-QOs"/>
-                            <constraint firstItem="RsJ-d1-t3Z" firstAttribute="centerY" secondItem="60T-qv-6HS" secondAttribute="centerY" id="xlD-wp-2FN"/>
+                            <constraint firstItem="RHc-t7-KnG" firstAttribute="leading" secondItem="wTe-y0-saM" secondAttribute="leading" id="zBA-Rd-RTJ"/>
+                            <constraint firstItem="RHc-t7-KnG" firstAttribute="top" secondItem="wTe-y0-saM" secondAttribute="top" id="zMM-5B-vHE"/>
                         </constraints>
                     </view>
                     <connections>
@@ -597,7 +666,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-65" y="359.5"/>
+            <point key="canvasLocation" x="-50" y="359"/>
         </scene>
     </scenes>
     <resources>
