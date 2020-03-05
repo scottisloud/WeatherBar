@@ -123,7 +123,7 @@
                 <customObject id="rqz-mI-3mC" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <viewController id="UGh-J4-rxu" customClass="SettingsViewController" customModule="WeatherBar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" translatesAutoresizingMaskIntoConstraints="NO" id="wq5-dq-575">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="401" height="100"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OFx-GL-Lax">
                                 <rect key="frame" x="80" y="42" width="39" height="16"/>
@@ -134,7 +134,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mzS-NH-5XZ">
-                                <rect key="frame" x="332" y="1" width="66" height="32"/>
+                                <rect key="frame" x="333" y="1" width="66" height="32"/>
                                 <buttonCell key="cell" type="push" title="Quit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LTn-Gl-WRE">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -144,7 +144,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="evG-9L-FvY">
-                                <rect key="frame" x="233" y="64" width="165" height="32"/>
+                                <rect key="frame" x="234" y="64" width="165" height="32"/>
                                 <buttonCell key="cell" type="push" title="Powered by DarkSky" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fla-pZ-4UM">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -168,7 +168,9 @@
                             </segmentedControl>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="OFx-GL-Lax" firstAttribute="leading" relation="lessThanOrEqual" secondItem="wq5-dq-575" secondAttribute="leading" constant="82" id="C3d-gX-LYL"/>
                             <constraint firstAttribute="trailing" secondItem="mzS-NH-5XZ" secondAttribute="trailing" constant="8" id="Di9-fW-doU"/>
+                            <constraint firstItem="mzS-NH-5XZ" firstAttribute="leading" relation="lessThanOrEqual" secondItem="wq5-dq-575" secondAttribute="leading" constant="339" id="Jkc-dE-Ve2"/>
                             <constraint firstItem="OFx-GL-Lax" firstAttribute="centerY" secondItem="rZ8-P7-sUI" secondAttribute="centerY" id="LHD-cQ-Km1"/>
                             <constraint firstItem="rZ8-P7-sUI" firstAttribute="centerX" secondItem="wq5-dq-575" secondAttribute="centerX" id="TFj-0V-pix"/>
                             <constraint firstItem="rZ8-P7-sUI" firstAttribute="leading" secondItem="OFx-GL-Lax" secondAttribute="trailing" constant="50" id="TNk-rR-QXG"/>
@@ -177,6 +179,7 @@
                             <constraint firstAttribute="height" constant="100" id="b2O-HK-NPK"/>
                             <constraint firstItem="evG-9L-FvY" firstAttribute="top" secondItem="wq5-dq-575" secondAttribute="top" constant="8" id="cLE-uj-rIR"/>
                             <constraint firstAttribute="trailing" secondItem="evG-9L-FvY" secondAttribute="trailing" constant="8" id="iM5-6M-ufF"/>
+                            <constraint firstItem="evG-9L-FvY" firstAttribute="leading" relation="lessThanOrEqual" secondItem="wq5-dq-575" secondAttribute="leading" constant="240" id="nf9-Fh-XAg"/>
                             <constraint firstItem="rZ8-P7-sUI" firstAttribute="centerX" secondItem="wq5-dq-575" secondAttribute="centerX" id="vfC-Ux-gIx"/>
                         </constraints>
                     </view>
