@@ -75,7 +75,6 @@ struct ForecastViewModel {
 		let units = UserDefaults.standard.integer(forKey: "units")
 		
 		
-		//TODO: Finish the date parsing
 		let date = Date(timeIntervalSince1970: model.time)
 		let formatter = DateFormatter()
 		formatter.dateFormat = "EEEE"

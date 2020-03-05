@@ -73,9 +73,6 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 		
 		
 		// Set label colors
-		precipLabel.textColor = NSColor.textColor
-		humidityLabel.textColor = NSColor.textColor
-		windSpeedLabel.textColor = NSColor.textColor
 		
 		forecastTable.reloadData()
 		
