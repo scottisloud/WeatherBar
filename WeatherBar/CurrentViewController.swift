@@ -122,18 +122,22 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 	
 	func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
 		guard let forecastCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "forecastTableCell"), owner: self) as? ForecastTableCell else { return nil }
-
+		
 		if let unwrappedDailyData = dailyData {
 			let viewModel = ForecastViewModel(model: unwrappedDailyData.data[row])
 			forecastCell.forecastCellIcon.image = viewModel.icon
-			forecastCell.weekdayLabel.stringValue = viewModel.time
+			if row == 0 {
+				forecastCell.weekdayLabel.stringValue = "Today"
+			} else {
+				forecastCell.weekdayLabel.stringValue = viewModel.time
+			}
 			forecastCell.forecastCellSummaryLabel.stringValue = "\(viewModel.summary)"
 			forecastCell.highTempValue.stringValue = viewModel.highTemp
 			forecastCell.lowTempVlue.stringValue = viewModel.lowTemp
 			forecastCell.windSpeedValue.stringValue = viewModel.windSpeed
 			forecastCell.precipValue.stringValue = viewModel.precipProb
 		}
-
+		
 		return forecastCell
 	}
 }

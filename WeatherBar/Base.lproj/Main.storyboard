@@ -222,10 +222,10 @@
                                         </textFieldCell>
                                     </textField>
                                     <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RHc-t7-KnG">
-                                        <rect key="frame" x="260" y="16" width="135" height="68"/>
+                                        <rect key="frame" x="260" y="9" width="135" height="83"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="vertical" alignment="trailing" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mh6-6T-Y5y" userLabel="Condition Labels">
-                                                <rect key="frame" x="0.0" y="6" width="80" height="56"/>
+                                                <rect key="frame" x="0.0" y="13" width="80" height="56"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="753" translatesAutoresizingMaskIntoConstraints="NO" id="htE-9Y-kdv">
                                                         <rect key="frame" x="39" y="40" width="43" height="16"/>
@@ -267,7 +267,7 @@
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hN1-xE-agB" userLabel="Condition Values">
-                                                <rect key="frame" x="85" y="6" width="50" height="56"/>
+                                                <rect key="frame" x="85" y="13" width="50" height="56"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vNJ-qc-WCA">
                                                         <rect key="frame" x="-2" y="40" width="39" height="16"/>
@@ -323,10 +323,10 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rR7-zB-PUS" userLabel="Temp and Icon">
-                                        <rect key="frame" x="5" y="16" width="100" height="68"/>
+                                        <rect key="frame" x="5" y="9" width="100" height="83"/>
                                         <subviews>
                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JgI-Ci-2Z0">
-                                                <rect key="frame" x="25" y="23" width="50" height="50"/>
+                                                <rect key="frame" x="25" y="38" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="gaS-Oy-NDn"/>
                                                     <constraint firstAttribute="width" constant="50" id="gae-ow-7zV"/>
@@ -335,7 +335,7 @@
                                                 <color key="contentTintColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             </imageView>
                                             <textField identifier="currentTemp" toolTip="Current Temperature" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g7k-uk-uc0">
-                                                <rect key="frame" x="33" y="-5" width="35" height="28"/>
+                                                <rect key="frame" x="33" y="10" width="35" height="28"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="--º" placeholderString="--º" id="cDo-pU-lJG">
                                                     <font key="font" metaFont="systemSemibold" size="24"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -344,7 +344,7 @@
                                                 <accessibility description="Current Temperature"/>
                                             </textField>
                                         </subviews>
-                                        <edgeInsets key="edgeInsets" left="0.0" right="0.0" top="-5" bottom="-5"/>
+                                        <edgeInsets key="edgeInsets" left="0.0" right="0.0" top="-5" bottom="10"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="ijm-n0-GOU"/>
                                         </constraints>
