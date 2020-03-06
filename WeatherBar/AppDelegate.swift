@@ -7,6 +7,8 @@
 //
 
 import AppKit
+import ServiceManagement
+
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -18,18 +20,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create status/menu bar item called Weather. CLicking the menu bar item calls showWindow(_:) which displays the main view controller.
+        let launcherAppId = "com.scottlougheed.WeatherLauncher"
+        let runningApps = NSWorkspace.shared.runningApplications
+        let isRunning = !runningApps.filter { $0.bundleIdentifier == launcherAppId }.isEmpty
+        
+        SMLoginItemSetEnabled(launcherAppId as CFString, true)
+        
+        if isRunning {
+            DistributedNotificationCenter.default().post(name: .killLauncher, object: Bundle.main.bundleIdentifier!)
+        }
+        
         if let button = statusItem.button {
                 button.image = NSImage(named: "menuBarIconFilled")
                 button.action = #selector(showWindow)
         }
-		
         
         currentViewController.userLocation = locationClient.getLocation()
-        
     }
     
     // Displays the main application window as a popup from the menu bar when clicked by the user
     @objc func showWindow(_ sender: NSStatusItem) {
+        
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
         guard let vc = storyboard.instantiateController(withIdentifier: "MainViewController") as? TabViewController else { return }
         let popoverView = NSPopover()
@@ -45,3 +56,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 }
 
+
+// MARK: - Launcher
+
+extension Notification.Name {
+    static let killLauncher = Notification.Name("killLauncher")
+}

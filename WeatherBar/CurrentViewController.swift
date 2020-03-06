@@ -70,9 +70,7 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 		
 		// Set Location Name Title
 		titleLabel.stringValue = locationClient.locationName
-		
-		
-		// Set label colors
+
 		
 		forecastTable.reloadData()
 		

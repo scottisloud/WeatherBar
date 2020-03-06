@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16092.1" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16095" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16092.1"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16095"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -126,7 +127,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="401" height="100"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OFx-GL-Lax">
-                                <rect key="frame" x="76" y="42" width="43" height="16"/>
+                                <rect key="frame" x="60" y="57" width="43" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Units:" id="2Td-BS-5nz">
                                     <font key="font" metaFont="systemBold"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -154,7 +155,7 @@
                                 </connections>
                             </button>
                             <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rZ8-P7-sUI">
-                                <rect key="frame" x="165" y="38" width="71" height="24"/>
+                                <rect key="frame" x="119" y="52" width="163" height="24"/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Wrh-Bp-qor">
                                     <font key="font" metaFont="system"/>
                                     <segments>
@@ -166,26 +167,49 @@
                                     <action selector="selectUnits:" target="UGh-J4-rxu" id="xrZ-d8-cwp"/>
                                 </connections>
                             </segmentedControl>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jvz-ur-caY">
+                                <rect key="frame" x="10" y="31" width="93" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Start at login:" id="Cpt-NV-bE3">
+                                    <font key="font" metaFont="systemBold"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zfF-YF-EtD">
+                                <rect key="frame" x="119" y="30" width="22" height="18"/>
+                                <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="24o-PS-Oga">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="startAtLoginChecked:" target="UGh-J4-rxu" id="sQV-pU-7n6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="OFx-GL-Lax" firstAttribute="leading" relation="lessThanOrEqual" secondItem="wq5-dq-575" secondAttribute="leading" constant="82" id="C3d-gX-LYL"/>
+                            <constraint firstItem="OFx-GL-Lax" firstAttribute="leading" relation="lessThanOrEqual" secondItem="wq5-dq-575" secondAttribute="leading" constant="62" id="C3d-gX-LYL"/>
                             <constraint firstAttribute="trailing" secondItem="mzS-NH-5XZ" secondAttribute="trailing" constant="8" id="Di9-fW-doU"/>
                             <constraint firstItem="mzS-NH-5XZ" firstAttribute="leading" relation="lessThanOrEqual" secondItem="wq5-dq-575" secondAttribute="leading" constant="339" id="Jkc-dE-Ve2"/>
                             <constraint firstItem="OFx-GL-Lax" firstAttribute="centerY" secondItem="rZ8-P7-sUI" secondAttribute="centerY" id="LHD-cQ-Km1"/>
                             <constraint firstItem="rZ8-P7-sUI" firstAttribute="centerX" secondItem="wq5-dq-575" secondAttribute="centerX" id="TFj-0V-pix"/>
-                            <constraint firstItem="rZ8-P7-sUI" firstAttribute="leading" secondItem="OFx-GL-Lax" secondAttribute="trailing" constant="50" id="TNk-rR-QXG"/>
+                            <constraint firstItem="rZ8-P7-sUI" firstAttribute="leading" secondItem="OFx-GL-Lax" secondAttribute="trailing" constant="20" id="TNk-rR-QXG"/>
+                            <constraint firstItem="zfF-YF-EtD" firstAttribute="leading" secondItem="rZ8-P7-sUI" secondAttribute="leading" id="UWa-BD-ZNe"/>
+                            <constraint firstItem="Jvz-ur-caY" firstAttribute="trailing" secondItem="OFx-GL-Lax" secondAttribute="trailing" id="VaC-9j-nZu"/>
                             <constraint firstAttribute="bottom" secondItem="mzS-NH-5XZ" secondAttribute="bottom" constant="8" id="X55-E3-EvA"/>
-                            <constraint firstItem="rZ8-P7-sUI" firstAttribute="centerY" secondItem="wq5-dq-575" secondAttribute="centerY" id="Ydh-FK-Y0t"/>
+                            <constraint firstItem="rZ8-P7-sUI" firstAttribute="top" secondItem="wq5-dq-575" secondAttribute="top" constant="25" id="Ydh-FK-Y0t"/>
                             <constraint firstAttribute="height" constant="100" id="b2O-HK-NPK"/>
                             <constraint firstItem="evG-9L-FvY" firstAttribute="top" secondItem="wq5-dq-575" secondAttribute="top" constant="8" id="cLE-uj-rIR"/>
                             <constraint firstAttribute="trailing" secondItem="evG-9L-FvY" secondAttribute="trailing" constant="8" id="iM5-6M-ufF"/>
                             <constraint firstItem="evG-9L-FvY" firstAttribute="leading" relation="lessThanOrEqual" secondItem="wq5-dq-575" secondAttribute="leading" constant="240" id="nf9-Fh-XAg"/>
+                            <constraint firstItem="Jvz-ur-caY" firstAttribute="top" secondItem="OFx-GL-Lax" secondAttribute="bottom" constant="10" id="sho-zw-ZDP"/>
                             <constraint firstItem="rZ8-P7-sUI" firstAttribute="centerX" secondItem="wq5-dq-575" secondAttribute="centerX" id="vfC-Ux-gIx"/>
+                            <constraint firstItem="zfF-YF-EtD" firstAttribute="centerY" secondItem="Jvz-ur-caY" secondAttribute="centerY" id="vpL-1R-1pf"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="darkSkyButton" destination="evG-9L-FvY" id="dMH-Vj-hiy"/>
                         <outlet property="quit" destination="mzS-NH-5XZ" id="Zrw-6M-I1R"/>
+                        <outlet property="startAtLoginButton" destination="zfF-YF-EtD" id="eTt-HB-jBg"/>
                         <outlet property="unitControl" destination="rZ8-P7-sUI" id="bEX-7M-d6B"/>
                         <outlet property="unitsLabel" destination="OFx-GL-Lax" id="Zjc-aa-4xa"/>
                     </connections>

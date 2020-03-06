@@ -14,6 +14,9 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var unitControl: NSSegmentedControl!
     @IBOutlet weak var quit: NSButton!
     @IBOutlet weak var darkSkyButton: NSButton!
+    @IBOutlet weak var startAtLoginButton: NSButton!
+    
+    
     
     override func viewWillAppear() {
         super.viewWillAppear()
@@ -25,7 +28,6 @@ class SettingsViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Settings"
-        print("Settings")
     }
 	
 	override func viewWillDisappear() {
@@ -36,6 +38,11 @@ class SettingsViewController: NSViewController {
     func setUpInterface() {
         unitControl.setLabel("ºC", forSegment: 0)
         unitControl.setLabel("ºF", forSegment: 1)
+        if UserDefaults.standard.bool(forKey: "startAtLogin") == true {
+            startAtLoginButton.state = .on
+        } else {
+            startAtLoginButton.state = .off
+        }
         darkSkyButton.title = "Powered by DarkSky"
         quit.title = "Quit"
     }
@@ -53,6 +60,15 @@ class SettingsViewController: NSViewController {
         NSWorkspace.shared.open(URL(string: "https://darksky.net/poweredby/")!)
     }
     
+    @IBAction func startAtLoginChecked(_ sender: Any) {
+        if startAtLoginButton.state == .on {
+            UserDefaults.standard.set(true, forKey: "startAtLogin")
+        } else {
+            UserDefaults.standard.set(false, forKey: "startAtLogin")
+        }
+        
+        
+    }
     
     @IBAction func quitClicked(_ sender: NSButton) {
         NSApplication.shared.terminate(self)
