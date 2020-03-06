@@ -20,6 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create status/menu bar item called Weather. CLicking the menu bar item calls showWindow(_:) which displays the main view controller.
+        
         let launcherAppId = "com.scottlougheed.WeatherLauncher"
         let runningApps = NSWorkspace.shared.runningApplications
         let isRunning = !runningApps.filter { $0.bundleIdentifier == launcherAppId }.isEmpty
