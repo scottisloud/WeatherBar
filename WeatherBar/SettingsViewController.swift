@@ -18,13 +18,13 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var startAtLoginButton: NSButton!
     @IBOutlet weak var versionLabel: NSTextField!
     
-    
-    
     let launcherAppIdentifier = "com.scottlougheed.WeatherLauncher"
+    let defaults = UserDefaults.standard
+    
     override func viewWillAppear() {
         super.viewWillAppear()
         setUpInterface()
-        let defaults = UserDefaults.standard
+        
         let units = defaults.integer(forKey: "units")
         unitControl.selectedSegment = units
     }
@@ -39,6 +39,14 @@ class SettingsViewController: NSViewController {
     
     
     func setUpInterface() {
+        
+        if defaults.bool(forKey: "startAtLogin") {
+            startAtLoginButton.state = .on
+        } else {
+            startAtLoginButton.state = .off
+        }
+        
+        
         unitControl.setLabel("ºC", forSegment: 0)
         unitControl.setLabel("ºF", forSegment: 1)
         //        if UserDefaults.standard.bool(forKey: "startAtLogin") == true {
@@ -51,6 +59,7 @@ class SettingsViewController: NSViewController {
         
         
         versionLabel.stringValue = "0.0.4-a01"
+        
     }
     
     
