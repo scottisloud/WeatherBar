@@ -19,21 +19,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let locationClient = Location()
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // FIXME: This launcher app stuff is totally broken.
-        // Managing launcher app
-        
-        var startedAtLogin = false
-        let launcherAppIdentifier = "com.scottlougheed.WeatherLauncher"
-        
-        for app in NSWorkspace.shared.runningApplications {
-            if app.bundleIdentifier == launcherAppIdentifier {
-                startedAtLogin = true
-            }
-            
-            if startedAtLogin {
-                DistributedNotificationCenter.default().post(name: .killLauncher, object: Bundle.main.bundleIdentifier)
-            }
-        }
         
         // Create status/menu bar item called Weather. CLicking the menu bar item calls showWindow(_:) which displays the main view controller.
         if let button = statusItem.button {

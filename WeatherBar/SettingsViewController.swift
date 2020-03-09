@@ -75,17 +75,7 @@ class SettingsViewController: NSViewController {
     }
     
     @IBAction func startAtLoginChecked(_ sender: Any) {
-        if startAtLoginButton.state == .on {
-            SMLoginItemSetEnabled(launcherAppIdentifier as CFString, true)
-            UserDefaults.standard.set(true, forKey: "startAtLogin")
-            print("Start at login")
-            print(UserDefaults.standard.bool(forKey: "startAtLogin"))
-        } else {
-            SMLoginItemSetEnabled(launcherAppIdentifier as CFString, false)
-            UserDefaults.standard.set(false, forKey: "startAtLogin")
-            print("do not start at login")
-            print(UserDefaults.standard.bool(forKey: "startAtLogin"))
-        }
+        //TODO: Fill this in.
     }
     
     @IBAction func quitClicked(_ sender: NSButton) {
