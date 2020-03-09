@@ -18,26 +18,32 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let currentViewController = CurrentViewController()
     let locationClient = Location()
     
-	func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Create status/menu bar item called Weather. CLicking the menu bar item calls showWindow(_:) which displays the main view controller.
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        // FIXME: This launcher app stuff is totally broken.
+        // Managing launcher app
         
-        let launcherAppId = "com.scottlougheed.WeatherLauncher"
-        let runningApps = NSWorkspace.shared.runningApplications
-        let isRunning = !runningApps.filter { $0.bundleIdentifier == launcherAppId }.isEmpty
+        var startedAtLogin = false
+        let launcherAppIdentifier = "com.scottlougheed.WeatherLauncher"
         
-        SMLoginItemSetEnabled(launcherAppId as CFString, true)
-        
-        if isRunning {
-            DistributedNotificationCenter.default().post(name: .killLauncher, object: Bundle.main.bundleIdentifier!)
+        for app in NSWorkspace.shared.runningApplications {
+            if app.bundleIdentifier == launcherAppIdentifier {
+                startedAtLogin = true
+            }
+            
+            if startedAtLogin {
+                DistributedNotificationCenter.default().post(name: .killLauncher, object: Bundle.main.bundleIdentifier)
+            }
         }
         
+        // Create status/menu bar item called Weather. CLicking the menu bar item calls showWindow(_:) which displays the main view controller.
         if let button = statusItem.button {
-                button.image = NSImage(named: "menuBarIconFilled")
-                button.action = #selector(showWindow)
+            button.image = NSImage(named: "menuBarIconFilled")
+            button.action = #selector(showWindow)
         }
         
         currentViewController.userLocation = locationClient.getLocation()
     }
+    
     
     // Displays the main application window as a popup from the menu bar when clicked by the user
     @objc func showWindow(_ sender: NSStatusItem) {

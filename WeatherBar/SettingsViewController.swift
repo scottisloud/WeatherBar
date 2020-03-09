@@ -7,6 +7,7 @@
 //
 import AppKit
 import Foundation
+import ServiceManagement
 
 class SettingsViewController: NSViewController {
     
@@ -15,9 +16,11 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var quit: NSButton!
     @IBOutlet weak var darkSkyButton: NSButton!
     @IBOutlet weak var startAtLoginButton: NSButton!
+    @IBOutlet weak var versionLabel: NSTextField!
     
     
     
+    let launcherAppIdentifier = "com.scottlougheed.WeatherLauncher"
     override func viewWillAppear() {
         super.viewWillAppear()
         setUpInterface()
@@ -29,22 +32,25 @@ class SettingsViewController: NSViewController {
         super.viewDidLoad()
         self.title = "Settings"
     }
-	
-	override func viewWillDisappear() {
-		
-	}
+    
+    override func viewWillDisappear() {
+        
+    }
     
     
     func setUpInterface() {
         unitControl.setLabel("ºC", forSegment: 0)
         unitControl.setLabel("ºF", forSegment: 1)
-        if UserDefaults.standard.bool(forKey: "startAtLogin") == true {
-            startAtLoginButton.state = .on
-        } else {
-            startAtLoginButton.state = .off
-        }
+        //        if UserDefaults.standard.bool(forKey: "startAtLogin") == true {
+        //            startAtLoginButton.state = .on
+        //        } else {
+        //            startAtLoginButton.state = .off
+        //        }
         darkSkyButton.title = "Powered by DarkSky"
         quit.title = "Quit"
+        
+        
+        versionLabel.stringValue = "0.0.4-a01"
     }
     
     
@@ -53,7 +59,6 @@ class SettingsViewController: NSViewController {
     @IBAction func selectUnits(_ sender: NSSegmentedControl) {
         UserDefaults.standard.set(unitControl.selectedSegment, forKey: "units")
         
-        print("Selected Units Pressed")
     }
     
     @IBAction func darkSkyButtonClicked(_ sender: NSButton) {
@@ -62,12 +67,16 @@ class SettingsViewController: NSViewController {
     
     @IBAction func startAtLoginChecked(_ sender: Any) {
         if startAtLoginButton.state == .on {
+            SMLoginItemSetEnabled(launcherAppIdentifier as CFString, true)
             UserDefaults.standard.set(true, forKey: "startAtLogin")
+            print("Start at login")
+            print(UserDefaults.standard.bool(forKey: "startAtLogin"))
         } else {
+            SMLoginItemSetEnabled(launcherAppIdentifier as CFString, false)
             UserDefaults.standard.set(false, forKey: "startAtLogin")
+            print("do not start at login")
+            print(UserDefaults.standard.bool(forKey: "startAtLogin"))
         }
-        
-        
     }
     
     @IBAction func quitClicked(_ sender: NSButton) {

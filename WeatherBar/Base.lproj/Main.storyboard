@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16095" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16095"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -185,6 +185,15 @@
                                     <action selector="startAtLoginChecked:" target="UGh-J4-rxu" id="sQV-pU-7n6"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RhZ-of-evT">
+                                <rect key="frame" x="0.0" y="0.0" width="61" height="13"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Version Label" id="lia-IN-FoW">
+                                    <font key="font" metaFont="system" size="10"/>
+                                    <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="OFx-GL-Lax" firstAttribute="leading" relation="lessThanOrEqual" secondItem="wq5-dq-575" secondAttribute="leading" constant="62" id="C3d-gX-LYL"/>
@@ -212,10 +221,11 @@
                         <outlet property="startAtLoginButton" destination="zfF-YF-EtD" id="eTt-HB-jBg"/>
                         <outlet property="unitControl" destination="rZ8-P7-sUI" id="bEX-7M-d6B"/>
                         <outlet property="unitsLabel" destination="OFx-GL-Lax" id="Zjc-aa-4xa"/>
+                        <outlet property="versionLabel" destination="RhZ-of-evT" id="94O-1C-a3q"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-58.5" y="1049.5"/>
+            <point key="canvasLocation" x="-58.5" y="1049"/>
         </scene>
         <!--Current View Controller-->
         <scene sceneID="ARE-0I-Sse">
