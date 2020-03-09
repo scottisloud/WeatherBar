@@ -47,8 +47,8 @@ class SettingsViewController: NSViewController {
         }
         
         
-        unitControl.setLabel("ºC", forSegment: 0)
-        unitControl.setLabel("ºF", forSegment: 1)
+        unitControl.setLabel("ºC/kph", forSegment: 0)
+        unitControl.setLabel("ºF/mph", forSegment: 1)
         //        if UserDefaults.standard.bool(forKey: "startAtLogin") == true {
         //            startAtLoginButton.state = .on
         //        } else {
