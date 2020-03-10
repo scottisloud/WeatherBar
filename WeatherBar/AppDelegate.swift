@@ -59,7 +59,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let popoverView = NSPopover()
         popoverView.contentViewController = vc
         popoverView.behavior = .transient
-        
+		popoverView.animates = false
         popoverView.show(relativeTo: statusItem.button!.bounds, of: statusItem.button!, preferredEdge: .maxY)
     }
     
