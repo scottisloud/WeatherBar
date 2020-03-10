@@ -49,24 +49,22 @@ class SettingsViewController: NSViewController {
 		
 		unitControl.setLabel("ºC/kph", forSegment: 0)
 		unitControl.setLabel("ºF/mph", forSegment: 1)
-		//        if UserDefaults.standard.bool(forKey: "startAtLogin") == true {
-		//            startAtLoginButton.state = .on
-		//        } else {
-		//            startAtLoginButton.state = .off
-		//        }
+		if UserDefaults.standard.bool(forKey: "startAtLogin") == true {
+			startAtLoginButton.state = .on
+		} else {
+			startAtLoginButton.state = .off
+		}
 		darkSkyButton.title = "Powered by DarkSky"
 		quit.title = "Quit"
 		
 		// Set version label value
-		let bundleVersion: AnyObject? = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as AnyObject?
-		if let version = bundleVersion as? String {
-			versionLabel.stringValue = version
+		let bundleVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"]
+		let bundleBuild = Bundle.main.infoDictionary!["CFBundleVersion"]
+		if let version = bundleVersion as? String, let build = bundleBuild as? String {
+			versionLabel.stringValue = "\(version)-\(build)"
 		}
 		
 	}
-	
-	
-	
 	
 	@IBAction func selectUnits(_ sender: NSSegmentedControl) {
 		UserDefaults.standard.set(unitControl.selectedSegment, forKey: "units")
