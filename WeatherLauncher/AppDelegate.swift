@@ -15,29 +15,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		let mainAppIdentifier = "com.scottlougheed.WeatherBar"
-		let runningApps = NSWorkspace.shared.runningApplications
-		var isRunning = false
 		
-        for app in runningApps {
-            if app.bundleIdentifier == mainAppIdentifier {
-                isRunning = true
-                break
-            }
-        }
-        
-        if !isRunning {
-            DistributedNotificationCenter.default().addObserver(self, selector: #selector(self.terminate), name: .killLauncher, object: mainAppIdentifier)
-            
-            let path = Bundle.main.bundlePath as NSString
-            var components = path.pathComponents
-            components.removeLast(3)
-            components.append("MacOS")
-            components.append("WeatherBar")
-            
-            let newPath = NSString.path(withComponents: components)
-            
-            NSWorkspace.shared.launchApplication(newPath)
-        }
+		  let path = NSWorkspace.shared.absolutePathForApplication(withBundleIdentifier: mainAppIdentifier)
+		  
+		  if let path = path
+			{
+			NSLog("opening main app at \(path)")
+			NSWorkspace.shared.openFile(path)
+			}
+		  
+		  NSApp.terminate(nil)
 	}
 	
 	func applicationWillTerminate(_ aNotification: Notification) {
