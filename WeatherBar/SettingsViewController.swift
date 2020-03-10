@@ -57,8 +57,11 @@ class SettingsViewController: NSViewController {
 		darkSkyButton.title = "Powered by DarkSky"
 		quit.title = "Quit"
 		
-		
-		versionLabel.stringValue = "0.0.4-a01"
+		// Set version label value
+		let bundleVersion: AnyObject? = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as AnyObject?
+		if let version = bundleVersion as? String {
+			versionLabel.stringValue = version
+		}
 		
 	}
 	
