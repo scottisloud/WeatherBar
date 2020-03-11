@@ -18,11 +18,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let currentViewController = CurrentViewController()
     let locationClient = Location()
     
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        
-		// MARK: - LAUNCH AT LOGIN-RELATED STUFF
-        // Managing launcher app
-        
+        // MARK: - LAUNCH AT LOGIN-RELATED
         var startedAtLogin = false
         let launcherAppIdentifier = "com.scottlougheed.WeatherLauncher"
         
@@ -35,8 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 DistributedNotificationCenter.default().post(name: .killLauncher, object: Bundle.main.bundleIdentifier)
             }
         }
-		
-		
+    
         // MARK: - INTERFACE
 		//Create menu bar item called Weather. CLicking the menu bar item calls showWindow(_:) which displays the main view controller.
         if let button = statusItem.button {

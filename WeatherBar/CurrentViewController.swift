@@ -29,7 +29,7 @@ class CurrentViewController: NSViewController, NSTableViewDelegate, NSTableViewD
 	
 	@IBOutlet var forecastTable: NSTableView!
 	
-	// MARK: - DATA-RELATED CONSTANTS
+	// MARK: - DATA-RELATED OBJECTS
 	let client = DarkSkyClient()
 	let locationClient = Location()
 	var units = UserDefaults.standard.integer(forKey: "units")
